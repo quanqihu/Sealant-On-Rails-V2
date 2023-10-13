@@ -47,6 +47,12 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Bootstrap Ruby Gem
+gem 'bootstrap', '~> 5.3.1'
+
+# Bootstrap JavaScript can optionally use jQuery
+gem 'jquery-rails'
+
 gem 'rspec-rails', '~> 5.0'
 gem 'cucumber-rails', require: false
 

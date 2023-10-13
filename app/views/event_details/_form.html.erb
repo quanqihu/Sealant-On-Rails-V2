@@ -11,112 +11,112 @@
     </div>
   <% end %>
 
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= form.label :EventDate, "Event Date" %>
+          <%= form.date_field :EventDate, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="field">
+          <%= form.label :School, "School" %>
+          <%= form.text_field :School, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="field">
+          <%= form.label :ConsentFD, "Consent Forms Distributed" %>
+          <%= form.text_field :ConsentFD, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+        </div>
+      </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <table>
+      <thead>
+        <tr>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Labor</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Dentist</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Hygienist</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Assistant</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Other</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours at school</td>
+          <td><%= form.text_field :DenHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
+          <td><%= form.text_field :HygHours, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+          <td><%= form.text_field :AssistantHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+          <td><%= form.text_field :OtherHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+        </tr>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours traveling to and from school</td>
+          <td><%= form.text_field :DenTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :HygTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :AssistantTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :OtherTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+        </tr>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total miles traveling to and from school</td>
+          <td><%= form.text_field :DenTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :HygTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :AssistantTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :OtherTravelMiles, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+        </tr> 
+      </tbody>
+    </table>
+    <br>
+  
+  <table>
+    <thead>
+      <tr>
+      <strong>Vehicles</strong>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= form.label :NumberOfSSPDriven, "No. owned/operated by SSP driven to event" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberOfSSPDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+      </tr>
+      <tr>
+        <td><%= form.label :TotalMilesDriven, "Total miles driven for event" %></td>
+        <td style="text-align: center;"><%= form.text_field :TotalMilesDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+      <tr>
+      <strong>Services Delivered</strong>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= form.label :ChildScreened, "No. of children screened" %></td>
+        <td style="text-align: center;"><%= form.text_field :ChildScreened, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+      </tr>
+      <tr>
+        <td><%= form.label :ChildReceivingSealant, "No. of children receiving sealants" %></td>
+        <td style="text-align: center;"><%= form.text_field :ChildReceivingSealant, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
+      </tr>
+      <tr>
+        <td><%= form.label :NumberOfSealed, "No. of teeth sealed" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberOfSealed, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+      </tr>
+      <tr>
+        <td><%= form.label :NumberFlourideVarnish, "No. of children receiving flouride varnish" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberFlourideVarnish, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
+      </tr>
+      <tr>
+        <td><%= form.label :NumberProphy, "No. of children receiving prophy" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberProphy, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+      </tr>
+    </tbody>
+  </table>
   <div>
-    <%= form.label :EventDate, style: "display: block" %>
-    <%= form.text_field :EventDate %>
-  </div>
-
-  <div>
-    <%= form.label :School, style: "display: block" %>
-    <%= form.text_field :School %>
-  </div>
-
-  <div>
-    <%= form.label :ConsentFD, style: "display: block" %>
-    <%= form.text_field :ConsentFD %>
-  </div>
-
-  <div>
-    <%= form.label :DenHrs, style: "display: block" %>
-    <%= form.text_field :DenHrs %>
-  </div>
-
-  <div>
-    <%= form.label :DenTravelHrs, style: "display: block" %>
-    <%= form.text_field :DenTravelHrs %>
-  </div>
-
-  <div>
-    <%= form.label :DenTravelMil, style: "display: block" %>
-    <%= form.text_field :DenTravelMil %>
-  </div>
-
-  <div>
-    <%= form.label :HygHours, style: "display: block" %>
-    <%= form.text_field :HygHours %>
-  </div>
-
-  <div>
-    <%= form.label :HygMiles, style: "display: block" %>
-    <%= form.text_field :HygMiles %>
-  </div>
-
-  <div>
-    <%= form.label :AssistantHrs, style: "display: block" %>
-    <%= form.text_field :AssistantHrs %>
-  </div>
-
-  <div>
-    <%= form.label :AssistantTravel, style: "display: block" %>
-    <%= form.text_field :AssistantTravel %>
-  </div>
-
-  <div>
-    <%= form.label :OtherHrs, style: "display: block" %>
-    <%= form.text_field :OtherHrs %>
-  </div>
-
-  <div>
-    <%= form.label :OtherTravelHrs, style: "display: block" %>
-    <%= form.text_field :OtherTravelHrs %>
-  </div>
-
-  <div>
-    <%= form.label :OtherTravelMiles, style: "display: block" %>
-    <%= form.text_field :OtherTravelMiles %>
-  </div>
-
-  <div>
-    <%= form.label :NumberOfSSPDriven, style: "display: block" %>
-    <%= form.text_field :NumberOfSSPDriven %>
-  </div>
-
-  <div>
-    <%= form.label :TotalMilesDriven, style: "display: block" %>
-    <%= form.text_field :TotalMilesDriven %>
-  </div>
-
-  <div>
-    <%= form.label :ChildScreened, style: "display: block" %>
-    <%= form.text_field :ChildScreened %>
-  </div>
-
-  <div>
-    <%= form.label :ChildReceivingSealant, style: "display: block" %>
-    <%= form.text_field :ChildReceivingSealant %>
-  </div>
-
-  <div>
-    <%= form.label :NumberOfSealed, style: "display: block" %>
-    <%= form.text_field :NumberOfSealed %>
-  </div>
-
-  <div>
-    <%= form.label :NumberFlourideVarnish, style: "display: block" %>
-    <%= form.text_field :NumberFlourideVarnish %>
-  </div>
-
-  <div>
-    <%= form.label :NumberProphy, style: "display: block" %>
-    <%= form.text_field :NumberProphy %>
-  </div>
-
-  <div>
-    <%= form.label :uid, style: "display: block" %>
-    <%= form.text_field :uid %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Create Event", class: "btn btn-primary"%>
   </div>
 <% end %>
