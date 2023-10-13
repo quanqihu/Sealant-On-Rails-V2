@@ -1,6 +1,7 @@
 class CreateChildDetails < ActiveRecord::Migration[7.1]
   def change
     create_table :child_details do |t|
+      t.references :patient_detail, null: false, foreign_key: { to_table: :patient_details, primary_key: :PID }
       t.string :PrescriberName
       t.date :ScreenDate
       t.string :ScreenComment
