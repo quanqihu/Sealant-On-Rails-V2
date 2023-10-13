@@ -1,0 +1,122 @@
+<%= form_with(model: event_detail) do |form| %>
+  <% if event_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event_detail.errors.count, "error") %> prohibited this event_detail from being saved:</h2>
+
+      <ul>
+        <% event_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :EventDate, style: "display: block" %>
+    <%= form.text_field :EventDate %>
+  </div>
+
+  <div>
+    <%= form.label :School, style: "display: block" %>
+    <%= form.text_field :School %>
+  </div>
+
+  <div>
+    <%= form.label :ConsentFD, style: "display: block" %>
+    <%= form.text_field :ConsentFD %>
+  </div>
+
+  <div>
+    <%= form.label :DenHrs, style: "display: block" %>
+    <%= form.text_field :DenHrs %>
+  </div>
+
+  <div>
+    <%= form.label :DenTravelHrs, style: "display: block" %>
+    <%= form.text_field :DenTravelHrs %>
+  </div>
+
+  <div>
+    <%= form.label :DenTravelMil, style: "display: block" %>
+    <%= form.text_field :DenTravelMil %>
+  </div>
+
+  <div>
+    <%= form.label :HygHours, style: "display: block" %>
+    <%= form.text_field :HygHours %>
+  </div>
+
+  <div>
+    <%= form.label :HygMiles, style: "display: block" %>
+    <%= form.text_field :HygMiles %>
+  </div>
+
+  <div>
+    <%= form.label :AssistantHrs, style: "display: block" %>
+    <%= form.text_field :AssistantHrs %>
+  </div>
+
+  <div>
+    <%= form.label :AssistantTravel, style: "display: block" %>
+    <%= form.text_field :AssistantTravel %>
+  </div>
+
+  <div>
+    <%= form.label :OtherHrs, style: "display: block" %>
+    <%= form.text_field :OtherHrs %>
+  </div>
+
+  <div>
+    <%= form.label :OtherTravelHrs, style: "display: block" %>
+    <%= form.text_field :OtherTravelHrs %>
+  </div>
+
+  <div>
+    <%= form.label :OtherTravelMiles, style: "display: block" %>
+    <%= form.text_field :OtherTravelMiles %>
+  </div>
+
+  <div>
+    <%= form.label :NumberOfSSPDriven, style: "display: block" %>
+    <%= form.text_field :NumberOfSSPDriven %>
+  </div>
+
+  <div>
+    <%= form.label :TotalMilesDriven, style: "display: block" %>
+    <%= form.text_field :TotalMilesDriven %>
+  </div>
+
+  <div>
+    <%= form.label :ChildScreened, style: "display: block" %>
+    <%= form.text_field :ChildScreened %>
+  </div>
+
+  <div>
+    <%= form.label :ChildReceivingSealant, style: "display: block" %>
+    <%= form.text_field :ChildReceivingSealant %>
+  </div>
+
+  <div>
+    <%= form.label :NumberOfSealed, style: "display: block" %>
+    <%= form.text_field :NumberOfSealed %>
+  </div>
+
+  <div>
+    <%= form.label :NumberFlourideVarnish, style: "display: block" %>
+    <%= form.text_field :NumberFlourideVarnish %>
+  </div>
+
+  <div>
+    <%= form.label :NumberProphy, style: "display: block" %>
+    <%= form.text_field :NumberProphy %>
+  </div>
+
+  <div>
+    <%= form.label :uid, style: "display: block" %>
+    <%= form.text_field :uid %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
