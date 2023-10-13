@@ -19,8 +19,8 @@
       <tbody>
         <% @event_details.each do |event_detail| %>
           <tr>
-            <td><%= event_detail.event_date %></td>
-            <td><%= event_detail.school %></td>
+            <td><%= event_detail.EventDate %></td>
+            <td><%= event_detail.School %></td>
             <td><%= button_to "Show this event detail", event_detail, method: :get, class: "btn btn-info" %></td>
           </tr>
         <% end %>

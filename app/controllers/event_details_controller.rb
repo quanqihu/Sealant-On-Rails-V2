@@ -65,6 +65,6 @@ class EventDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_detail_params
-      params.require(:event_detail).permit(:EventDate, :School, :ConsentFD, :DenHrs, :DenTravelHrs, :DenTravelMil, :HygHours, :HygTravelHrs, :HygTravelMiles, :AssistantHrs, :AssistantTravelHrs, :AssistantTravelMil, :OtherHrs, :OtherTravelHrs, :OtherTravelMiles, :NumberOfSSPDriven, :TotalMilesDriven, :ChildScreened, :ChildReceivingSealant, :NumberOfSealed, :NumberFlourideVarnish, :NumberProphy, :uid)
+      params.require(:event_detail).permit(:EventDate, :School, :ConsentFD, :DenHrs, :DenTravelHrs, :DenTravelMil, :HygHours, :HygTravelHrs, :HygTravelMil, :AssistantHrs, :AssistantTravelHrs, :AssistantTravelMil, :OtherHrs, :OtherTravelHrs, :OtherTravelMiles, :NumberOfSSPDriven, :TotalMilesDriven, :ChildScreened, :ChildReceivingSealant, :NumberOfSealed, :NumberFlourideVarnish, :NumberProphy, :uid)
     end
 end
