@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screening</title>
+    <style>
+        /* Styling for the table */
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+        }
+                table, th, td {
+            border: 1px solid black;
+        }
+
+
+        td input[type="text"] {
+            width: 130px;
+            height: 25px;
+            }
+
+
+
+        /* Styling for the buttons */
+        .button {
+            background-color: white ;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Styling for the popup container (initially hidden) */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for the popup box */
+        .popup-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* CSS for the smaller popup */
+.popup-box-small {
+    background-color: #fff;
+    padding: 10px; /* Smaller padding */
+    border-radius: 5px;
+    text-align: left; /* Align options vertically */
+    max-height: 300px; /* Maximum height to enable scrolling if many options */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+/* Display radio buttons and labels vertically */
+.popup-box-small label {
+    display: block;
+}
+
+/* Add some spacing between radio buttons */
+.popup-box-small input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* You can further adjust the width, height, and styling as per your requirements */
+
+    </style>
+</head>
+<body>
+    
+    <h1>Follow-Up</h1>
+<table>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4-A</td>
+      <td>5-B</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><input type="text" id="1"></td>
+      <td><input type="text" id="2"></td>
+      <td><input type="text" id="3"></td>
+      <td><input type="text" id="4"></td>
+      <td><input type="text" id="5"></td>
+      <td><input type="text" id="6"></td>
+      <td><input type="text" id="7"></td>
+      <td><input type="text" id="8"></td>
+      <td><input type="text" id="9"></td>
+      <td><input type="text" id="10"></td>
+      <td><input type="text" id="11"></td>
+      <td><input type="text" id="12"></td>
+      <td><input type="text" id="13"></td>
+      <td><input type="text" id="14"></td>
+      <td><input type="text" id="15"></td>
+      <td><input type="text" id="16"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="32" size="9"></td>
+      <td><input type="text" id="31"></td>
+      <td><input type="text" id="30"></td>
+      <td><input type="text" id="29"></td>
+      <td><input type="text" id="28"></td>
+      <td><input type="text" id="27"></td>
+      <td><input type="text" id="26"></td>
+      <td><input type="text" id="25"></td>
+      <td><input type="text" id="24"></td>
+      <td><input type="text" id="23"></td>
+      <td><input type="text" id="22"></td>
+      <td><input type="text" id="21"></td>
+      <td><input type="text" id="20"></td>
+      <td><input type="text" id="19"></td>
+      <td><input type="text" id="18"></td>
+      <td><input type="text" id="17"></td>
+
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>31</td>
+      <td>30</td>
+      <td>29</td>
+      <td>28</td>
+      <td>27</td>
+      <td>26</td>
+      <td>25</td>
+      <td>24</td>
+      <td>23</td>
+      <td>22</td>
+      <td>21</td>
+      <td>20</td>
+      <td>19</td>
+      <td>18</td>
+      <td>17</td>
+    </tr>
+
+  </tbody>
+</table>
+
+    <br/>
+    <br/>
+
+    <p>Evaluator's Signature: <span contenteditable="true"></span>
+    <textarea id="comment" name="comment" rows="1" cols="18"></textarea><br>
+    </p>
+    <form action="process_form.php" method="POST">
+        <label for="date">Date</label>
+        <label for="blank"></label>
+        <input type="date" id="date" name="date"><br>
+
+        <!-- Hidden field to store the selected date for later submission -->
+        <input type="hidden" id="selectedDate" name="selectedDate">
+    </form>
+
+    <br/>
+    <form>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    </form>
+<br/>
+<%# <table style="border-collapse: collapse; width: 25%; margin: 0;">
+    <tbody>
+        <tr>
+            <td>Number of teeth with a retained sealant (0-8)</td>
+            <td><input type="text" id="numberOfTeeth"></td>
+        </tr>
+    </tbody>
+</table> %>
+
+
+
+
+<br/>
+<form>
+    <div>
+      <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+      <input type="text" id="Number_of_teeth_with_a_retained_sealant">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+      <label for="Yes">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="Referred for Dental Treatment" value="yes" id="Referred_for_Dental_Treatment_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="Referred for Dental Treatment" value="no" id="Referred_for_Dental_Treatment_No">
+    </div>
+
+    <br/>
+
+    <div>
+      <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="Referred for urgent Dental Treatment" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="Referred for urgent Dental Treatment" value="no" id="Referred_for_urgent_Dental_Treatment_No">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+      <input type="text" id="Total_Sealants_received">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+      <input type="text" id="Total_Sealants_needed  ">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="Did the patients have caries experience" value="yes" id="Did_the_patients_have_caries_experience_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="Did the patients have caries experience" value="no" id="Did_the_patients_have_caries_experience_No">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="Did the patient have untreated decay" value="yes" id="Did_the_patient_have_untreated_decay_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="Did the patient have untreated decay" value="no" id="Did_the_patient_have_untreated_decay_No">
+    </div>
+    <br/>
+
+    <div>
+      <label for="Services the patient received">Services the patient received</label>
+      <label for="blank">   </label>
+    <select name="Services the patient received" >
+        <option value="">--Please select an option--</option>
+        <option value="Sealants">Sealants</option>
+        <option value="Fluoride_Varnish">Fluoride Varnish</option>
+        <option value="Oral_Assessment">Oral Assessment</option>
+        <option value="Prophylaxes">Prophylaxes</option>
+    </select>
+    </div>
+    <br/>
+    <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
+    <textarea id="Overall_Oral_Health_Status" name="comment" rows="4" cols="50"></textarea><br>
+
+    <br/>
+    <input type="submit" value="Submit">
+  </form>
+
+
+
+
+    <script>
+
+                // JavaScript to capture the selected date and store it in the hidden field
+        document.getElementById('date').addEventListener('change', function () {
+            document.getElementById('selectedDate').value = this.value;
+        });
+    </script>
+</body>
+</html>

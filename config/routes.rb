@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-
+  get 'screening' => 'child_details#screening'
+  get 'preventive_services' => 'child_details#preventative'
+  get 'followup' => 'child_details#followup'
 end

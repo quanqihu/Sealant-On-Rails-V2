@@ -30,6 +30,7 @@
       <td><%= patient_detail.Grade %></td>
       <td><button type="button" class="Screening" id="screeningButton">Screening</button></td>
       <td><button type="button" class="PreventiveServices" id="preventiveservicesButton">Preventive Services</button></td>
+      <td><button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button></td>
       <td><%= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      
     </tr>
     </tbody>
@@ -48,5 +49,10 @@
   preventiveservicesButton.addEventListener('click', function() {
     // Redirect to the screening.html.erb page
     window.location.href = '/preventive_services';
+  });
+    // Add a click event listener to the "Next" button
+  FollowUpButton.addEventListener('click', function() {
+    // Redirect to the screening.html.erb page
+    window.location.href = '/followup';
   });
 </script>

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screening</title>
+    <style>
+
+        
+        
+        /* Styling for the table */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* Styling for the buttons */
+        .button {
+            background-color: white ;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Styling for the popup container (initially hidden) */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for the popup box */
+        .popup-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+            /* CSS for the smaller popup */
+    .popup-box-small {
+        background-color: #fff;
+        padding: 10px; /* Smaller padding */
+        border-radius: 5px;
+        text-align: left; /* Align options vertically */
+        max-height: 300px; /* Maximum height to enable scrolling if many options */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+    }
+    /* Display radio buttons and labels vertically */
+    .popup-box-small label {
+        display: block;
+    }
+
+    /* Add some spacing between radio buttons */
+    .popup-box-small input[type="radio"] {
+        margin-right: 5px;
+    }
+
+/* You can further adjust the width, height, and styling as per your requirements */
+
+    </style>
+</head>
+<body>
+    
+    <h1>Screening</h1>
+    <table>
+        <tr>
+            <!-- Create buttons in the first row -->
+            <!-- Each button will trigger a corresponding popup -->
+            <!-- You can customize button labels as needed -->
+            <!-- For simplicity, I'm using numbers for button labels -->
+            <td><button class="button" data-popup="popup1" onclick="openPopup('popup1')">1</button></td>
+            <td><button class="button" data-popup="popup2" onclick="openPopup('popup2')">2</button></td>
+            <td><button class="button" data-popup="popup3" onclick="openPopup('popup3')">3</button></td>
+            <td><button class="button" data-popup="popup4" onclick="openPopup('popup4')">4 A</button></td>
+            <td><button class="button" data-popup="popup5" onclick="openPopup('popup5')">5 B</button></td>
+            <td><button class="button" data-popup="popup6" onclick="openPopup('popup6')">6 C</button></td>
+            <td><button class="button" data-popup="popup7" onclick="openPopup('popup7')">7 D</button></td>
+            <td><button class="button" data-popup="popup8" onclick="openPopup('popup8')">8 E</button></td>
+            <td><button class="button" data-popup="popup9" onclick="openPopup('popup9')">9 F</button></td>
+            <td><button class="button" data-popup="popup10" onclick="openPopup('popup10')">10 G</button></td>
+            <td><button class="button" data-popup="popup11" onclick="openPopup('popup11')">11 H</button></td>
+            <td><button class="button" data-popup="popup12" onclick="openPopup('popup12')">12 I </button></td>
+            <td><button class="button" data-popup="popup13" onclick="openPopup('popup13')">13 J</button></td>
+            <td><button class="button" data-popup="popup14" onclick="openPopup('popup14')">14</button></td>
+            <td><button class="button" data-popup="popup15" onclick="openPopup('popup15')">15</button></td>
+            <td><button class="button" data-popup="popup16" onclick="openPopup('popup16')">16</button></td>
+                        
+            <!-- Add more buttons here... up to 16 -->
+        </tr>
+            <td><button class="button" data-popup="popup32" onclick="openPopup('popup32')">32</button></td>
+            <td><button class="button" data-popup="popup31" onclick="openPopup('popup31')">31</button></td>
+            <td><button class="button" data-popup="popup30" onclick="openPopup('popup30')">30</button></td>
+            <td><button class="button" data-popup="popup29" onclick="openPopup('popup29')">29 T</button></td>
+            <td><button class="button" data-popup="popup28" onclick="openPopup('popup28')">28 S</button></td>
+            <td><button class="button" data-popup="popup27" onclick="openPopup('popup27')">27 R</button></td>
+            <td><button class="button" data-popup="popup26" onclick="openPopup('popup26')">26 Q</button></td>
+            <td><button class="button" data-popup="popup25" onclick="openPopup('popup25')">25 P</button></td>
+            <td><button class="button" data-popup="popup24" onclick="openPopup('popup24')">24 O</button></td>
+            <td><button class="button" data-popup="popup23" onclick="openPopup('popup23')">23 N</button></td>
+            <td><button class="button" data-popup="popup22" onclick="openPopup('popup22')">22 M</button></td>
+            <td><button class="button" data-popup="popup21" onclick="openPopup('popup21')">21 L</button></td>
+            <td><button class="button" data-popup="popup20" onclick="openPopup('popup20')">20 K</button></td>
+            <td><button class="button" data-popup="popup19" onclick="openPopup('popup19')">19</button></td>
+            <td><button class="button" data-popup="popup18" onclick="openPopup('popup18')">18</button></td>
+            <td><button class="button" data-popup="popup17" onclick="openPopup('popup17')">17</button></td>
+            
+        <!-- Add more rows here, if needed -->
+    </table>
+    <br/>
+    <br/>
+    <p>Sealant Prescriber’s Signature: <span contenteditable="true"></span>
+    <textarea id="comment" name="comment" rows="1" cols="18"></textarea><br>
+    </p>
+
+    <form action="process_form.php" method="POST">
+        <label for="date">Date</label><br>
+        <input type="date" id="date" name="date"><br>
+
+        <!-- Hidden field to store the selected date for later submission -->
+        <input type="hidden" id="selectedDate" name="selectedDate">
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+    <form>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    </form>
+
+
+<div class="popup-container" id="popup1">
+  <div class="popup-box-small">
+    <input type="hidden" id="selectedOption1" name="selectedOption1">
+    <% radio_options = [
+       { value: "D", label: "D - Decay" },
+       { value: "F", label: "F - Filled" },
+       { value: "M", label: "M - Missing" },
+       { value: "S", label: "S - Sealant Present" },
+       { value: "PS", label: "PS - Prescribe Present" },
+       { value: "RS", label: "RS - Recommended Reseal" },
+       { value: "no mark", label: "No Treatment (No Mark)" }
+    ] %>
+    <% radio_options.each do |option| %>
+      <label>
+        <input type="radio" name="radio1" value="<%= option[:value] %>"> <%= option[:label] %>
+      </label>
+    <% end %>
+    <button onclick="closePopup('1', 'popup1')">Close</button>
+  </div>
+</div>
+
+    <div class="popup-container" id="popup2">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio2" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio2" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('2','popup2')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup3">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio3" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio3" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('3','popup3')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup4">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio4" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio4" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('4','popup4')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup5">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio5" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio5" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('5','popup5')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup6">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio6" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio6" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('6','popup6')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup7">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio7" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio7" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('7','popup7')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup8">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio8" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio8" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('8','popup8')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup9">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio9" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio9" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('9','popup9')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup10">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio10" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio10" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('10','popup10')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup11">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio11" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio11" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('11','popup11')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup12">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio12" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio12" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('12','popup12')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup13">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio13" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio13" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('13','popup13')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup14">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio14" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio14" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('14','popup14')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup15">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio15" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio15" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('15','popup15')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup16">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio16" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio16" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('16','popup16')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup17">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio17" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio17" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('17','popup17')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup18">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio18" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio18" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('18','popup18')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup19">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio19" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio19" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('19','popup19')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup20">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio20" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio20" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('20','popup20')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup21">
+		<div class="popup-box-small">
+		    <label>
+		        <input type="radio" name="radio21" value="D"> D - Decay
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="F"> F - Filled
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="M"> M - Missing
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="S"> S - Sealant Present
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="PS"> PS - Prescribe Present
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="RS"> RS - Recommended Reseal
+		    </label>
+		    <label>
+		        <input type="radio" name="radio21" value="no mark"> No Treatment (No Mark)
+		    </label>
+		    <button onclick="closePopup('21','popup21')">Close</button>
+		</div>
+	</div>
+    <div class="popup-container" id="popup22">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio22" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio22" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('22','popup22')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup23">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio23" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio23" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('23','popup23')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup24">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio24" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio24" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('24','popup24')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup25">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio25" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio25" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('25','popup25')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup26">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio26" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio26" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('26','popup26')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup27">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio27" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio27" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('27','popup27')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup28">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio28" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio28" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('28','popup28')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup29">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio29" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio29" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('29','popup29')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup30">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio30" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio30" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('30','popup30')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup31">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio31" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio31" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('31','popup31')">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popup32">
+        <div class="popup-box-small">
+            <label>
+                <input type="radio" name="radio32" value="D"> D - Decay
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="F"> F - Filled
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="M"> M - Missing
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="S"> S - Sealant Present
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="PS"> PS - Prescribe Present
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="RS"> RS - Recommended Reseal
+            </label>
+            <label>
+                <input type="radio" name="radio32" value="no mark"> No Treatment (No Mark)
+            </label>
+            <button onclick="closePopup('32','popup32')">Close</button>
+        </div>
+    </div>
+
+<br/>
+<br/>
+    <p>Untreated Cavities:  <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="untreated-cavity"><br>
+    </p>
+    <p>Caries Experience:  <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="caries-experience"></textarea><br>
+    </p>
+    <p>Sealants Present:  <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="sealant-present"></textarea><br>
+    </p>
+    <p>Referred for treatment:  <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="referred-for-treatment"></textarea><br>
+    </p>
+
+    <p>Decaved or Filled Surfaces:  <span contenteditable="true"></span>
+
+  <div class="decaved-filled-surfaces-fields">
+    <div class="decaved-filled-surfaces-field">
+      <label for="1st-molars">1st Molars:</label>
+      <input type="text" name="1st-molars" id="1st-molars">
+    </div>
+    <br/>
+    <div class="decaved-filled-surfaces-field">
+      <label for="2nd-molars">2nd Molars:</label>
+      <input type="text" name="2nd-molars" id="2nd-molars">
+    </div>
+  </div>
+<br/>
+        <input type="submit" value="Next" id="nextButton">
+    <script>
+
+///Code for Screening 
+        const selectedOptions = {}; // Object to hold selected options for each popup
+
+        // Function to open the popup and set selected option
+        function openPopup(popupId) {
+            // console.log(selected)
+            const popup = document.getElementById(popupId);
+            
+            // Show the popup
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        }
+
+        // Function to save the selected option and close the popup
+        function closePopup(Id,popupId) {
+            const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
+            
+            
+            // Find the selected option for the specific popup
+            radioOptions.forEach(option => {
+                if (option.checked) {
+                    selectedOptions[popupId] = option.value; // Save the selected option
+                }
+            });
+            console.log(selectedOptions)
+
+            // Do something with the selected option (e.g., send it to the server)
+            console.log(`Selected Option for ${popupId}: ${selectedOptions[popupId]}`);
+
+            // Close the popup
+            closePopupActual(popupId);
+        }
+
+        // Function to close the popup
+        function closePopupActual(popupId) {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.style.display = 'none';
+            }
+        }
+
+
+
+        // JavaScript to capture the selected date and store it in the hidden field
+        document.getElementById('date').addEventListener('change', function () {
+            document.getElementById('selectedDate').value = this.value;
+        });
+
+
+  const nextButton = document.getElementById('nextButton');
+
+  // Add a click event listener to the "Next" button
+  nextButton.addEventListener('click', function() {
+    // Redirect to the screening.html.erb page
+    window.location.href = '/preventive_services';
+  });
+
+    </script>
+</body>
+</html>

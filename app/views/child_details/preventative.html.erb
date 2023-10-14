@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screening</title>
+    <style>
+        /* Styling for the table */
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+        }
+                table, th, td {
+            border: 1px solid black;
+        }
+
+
+        td input[type="text"] {
+            width: 150px;
+            height: 25px;
+            }
+
+        /* 
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        } */
+
+        /* Styling for the buttons */
+        .button {
+            background-color: white ;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Styling for the popup container (initially hidden) */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for the popup box */
+        .popup-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* CSS for the smaller popup */
+.popup-box-small {
+    background-color: #fff;
+    padding: 10px; /* Smaller padding */
+    border-radius: 5px;
+    text-align: left; /* Align options vertically */
+    max-height: 300px; /* Maximum height to enable scrolling if many options */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+/* Display radio buttons and labels vertically */
+.popup-box-small label {
+    display: block;
+}
+
+/* Add some spacing between radio buttons */
+.popup-box-small input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* You can further adjust the width, height, and styling as per your requirements */
+
+    </style>
+</head>
+<body>
+    <h1>Preventive Services</h1>
+<table>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2-O</td>
+      <td>2-L</td>
+      <td>3-O</td>
+      <td>3-L</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14-O</td>
+      <td>14-L</td>
+      <td>15-O</td>
+      <td>15-L</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><input type="text" id="1" ></td>
+      <td><input type="text" id="2-O"></td>
+      <td><input type="text" id="2-L"></td>
+      <td><input type="text" id="3-O"></td>
+      <td><input type="text" id="3-L"></td>
+      <td><input type="text" id="4"></td>
+      <td><input type="text" id="5"></td>
+      <td><input type="text" id="12"></td>
+      <td><input type="text" id="13"></td>
+      <td><input type="text" id="14-O"></td>
+      <td><input type="text" id="14-L"></td>
+      <td><input type="text" id="15-O"></td>
+      <td><input type="text" id="15-L"></td>
+      <td><input type="text" id="16"></td>
+    </tr>
+    <tr>
+      <td><input type="text" id="32" size="9"></td>
+      <td><input type="text" id="31-O"></td>
+      <td><input type="text" id="31-B"></td>
+      <td><input type="text" id="30-O"></td>
+      <td><input type="text" id="30-B"></td>
+      <td><input type="text" id="29"></td>
+      <td><input type="text" id="28"></td>
+      <td><input type="text" id="21"></td>
+      <td><input type="text" id="20"></td>
+      <td><input type="text" id="19-O"></td>
+      <td><input type="text" id="19-B"></td>
+      <td><input type="text" id="18-O"></td>
+      <td><input type="text" id="18-B"></td>
+      <td><input type="text" id="17"></td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>31-O</td>
+      <td>31-B</td>
+      <td>30-O</td>
+      <td>30-B</td>
+      <td>29</td>
+      <td>28</td>
+      <td>21</td>
+      <td>20</td>
+      <td>19-O</td>
+      <td>19-B</td>
+      <td>18-O</td>
+      <td>18-B</td>
+      <td>17</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+    <br/>
+    <br/>
+    <p>Number of surfaces sealed among:  <span contenteditable="true"></span>
+    <p>a. 1st molars: <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="1st-molars"><br>
+    </p>
+    <p>b. 2nd molars: <span contenteditable="true"></span>
+    <input type="text" name="2nd-molars" id="2nd-molars"></textarea><br>
+    </p>
+    <p>c. Others: <span contenteditable="true"></span>
+    <input type="text" name="2nd-molars" id="Others"></textarea><br>
+    </p>
+    <p>Fluoride treatment received: <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="fluoride-treatment"></textarea><br>
+    </p>
+    <p>Treatment Urgency: <span contenteditable="true"></span>
+    <input type="text" name="1st-molars" id="treatment-urgency  "></textarea><br>
+    </p>
+  <br/>
+        <input type="submit" value="Next">
+    <script>
+
+///Code for Screening 
+        const selectedOptions = {}; // Object to hold selected options for each popup
+
+        // Function to open the popup and set selected option
+        function openPopup(popupId) {
+            // console.log(selected)
+            const popup = document.getElementById(popupId);
+            
+            // Show the popup
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        }
+
+        // Function to save the selected option and close the popup
+        function closePopup(Id,popupId) {
+            const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
+            
+            
+            // Find the selected option for the specific popup
+            radioOptions.forEach(option => {
+                if (option.checked) {
+                    selectedOptions[popupId] = option.value; // Save the selected option
+                }
+            });
+            console.log(selectedOptions)
+
+            // Do something with the selected option (e.g., send it to the server)
+            console.log(`Selected Option for ${popupId}: ${selectedOptions[popupId]}`);
+
+            // Close the popup
+            closePopupActual(popupId);
+        }
+
+        // Function to close the popup
+        function closePopupActual(popupId) {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.style.display = 'none';
+            }
+        }
+
+
+
+        // JavaScript to capture the selected date and store it in the hidden field
+        document.getElementById('date').addEventListener('change', function () {
+            document.getElementById('selectedDate').value = this.value;
+        });
+
+
+    </script>
+</body>
+</html>
