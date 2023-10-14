@@ -1,18 +1,18 @@
 
-<div id = "<%= dom_id patient_detail %>">
+<div id = "<%= dom_id patient_detail %>", class="container mt-5">
 <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
-        <th>Patient id</th>
-        <th>Program Name</th>
-        <th>School Name</th>
-        <th>Age</th>
-        <th>Date</th>
-        <th>Insurance</th>
-        <th>Grade</th>
-        <th> </th>
-        <th> </th>
-        <th> </th>
+        <th style="text-align: center;">Patient id</th>
+        <th style="text-align: center;">Program Name</th>
+        <th style="text-align: center;">School Name</th>
+        <th style="text-align: center;">Age</th>
+        <th style="text-align: center;">Date</th>
+        <th style="text-align: center;">Insurance</th>
+        <th style="text-align: center;">Grade</th>
+        <th style="text-align: center;"> </th>
+        <th style="text-align: center;"> </th>
+        <th style="text-align: center;"> </th>
       </tr>
     </thead>
     <tbody>
@@ -22,12 +22,12 @@
       <%= link_to patient_detail.id, patient_detail %>
 
       </td>
-      <td><%= patient_detail.ProgramName %></td>
-      <td><%= patient_detail.SchoolName %></td>
-      <td><%= patient_detail.Age %></td>
-      <td><%= patient_detail.Date %></td>
-      <td><%= patient_detail.Insurance %></td>
-      <td><%= patient_detail.Grade %></td>
+      <td style="text-align: center;"><%= patient_detail.ProgramName %></td>
+      <td style="text-align: center;"><%= patient_detail.SchoolName %></td>
+      <td style="text-align: center;"><%= patient_detail.Age %></td>
+      <td style="text-align: center;"><%= patient_detail.Date %></td>
+      <td style="text-align: center;"><%= patient_detail.Insurance %></td>
+      <td style="text-align: center;"><%= patient_detail.Grade %></td>
       <td><button type="button" class="Screening" id="screeningButton">Screening</button></td>
       <td><button type="button" class="PreventiveServices" id="preventiveservicesButton">Preventive Services</button></td>
       <td><button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button></td>
