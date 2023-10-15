@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_13_203410) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
   create_table "child_details", force: :cascade do |t|
     t.string "PrescriberName"
     t.date "ScreenDate"
@@ -53,11 +53,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_13_203410) do
     t.float "DenTravelHrs"
     t.float "DenTravelMil"
     t.float "HygHours"
-    t.float "HygTravelMil"
-    t.float "HygTravelHrs"
-    t.float "AssistantTravelMil"
+    t.float "HygMiles"
     t.float "AssistantHrs"
-    t.float "AssistantTravelHrs"
+    t.float "AssistantTravel"
     t.float "OtherHrs"
     t.float "OtherTravelHrs"
     t.float "OtherTravelMiles"
@@ -87,12 +85,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_13_203410) do
   end
 
   create_table "tooths", force: :cascade do |t|
+    t.integer "patient_id", null: false
     t.integer "number"
     t.integer "screening"
     t.integer "preventive"
     t.integer "follow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_tooths_on_patient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,6 +101,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_13_203410) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
+    t.string "provider"
   end
 
+  add_foreign_key "tooths", "patients"
 end

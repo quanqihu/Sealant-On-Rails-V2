@@ -29,6 +29,15 @@ gem "jbuilder"
 # Encrypt password
 gem 'bcrypt'
 
+# omnioauth for google login
+gem 'omniauth'
+# omniauth-google-oauth2 for google login
+gem 'omniauth-google-oauth2'
+# dotenv-rails for google login
+gem 'dotenv-rails'
+# csrf protection for omniauth
+gem 'omniauth-rails_csrf_protection'
+
 # Styling
 gem "font-awesome-sass", "~> 6.2.1"
 
