@@ -150,33 +150,83 @@
       <td>18-B</td>
       <td>17</td>
     </tr>
-
-
   </tbody>
+
 </table>
+<br/>
+<br/>
+
+
+    <p>Provider's Signature <span contenteditable="true"></span>
+    <textarea id="comment" name="comment" rows="1" cols="18"></textarea><br>
+    </p>
+    <form action="process_form.php" method="POST">
+        <label for="date">Date</label>
+        <label for="blank"></label>
+        <input type="date" id="date" name="date"><br>
+
+        <!-- Hidden field to store the selected date for later submission -->
+        <input type="hidden" id="selectedDate" name="selectedDate">
+    </form>
 
     <br/>
+    <form>
+        <label for="comment">Comment</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    </form>
+<br/>
+
+
+
+<form>
+    <div>
+      <label for="Number of 1st molars sealed">Number of 1st molars sealed</label>
+      <input type="text" id="1st-molars">
+    </div>
     <br/>
-    <p>Number of surfaces sealed among:  <span contenteditable="true"></span>
-    <p>a. 1st molars: <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="1st-molars"><br>
-    </p>
-    <p>b. 2nd molars: <span contenteditable="true"></span>
-    <input type="text" name="2nd-molars" id="2nd-molars"></textarea><br>
-    </p>
-    <p>c. Others: <span contenteditable="true"></span>
-    <input type="text" name="2nd-molars" id="Others"></textarea><br>
-    </p>
-    <p>Fluoride treatment received: <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="fluoride-treatment"></textarea><br>
-    </p>
-    <p>Treatment Urgency: <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="treatment-urgency  "></textarea><br>
-    </p>
-  <br/>
-        <input type="submit" value="Next">
+    <div>
+      <label for="Number of 2nd molars sealed">Number of 2nd molars sealed</label>
+      <input type="text" id="2nd-molars">
+    </div>
+    <br/>
+    <div>
+      <label for="Number of other permanent sealed">Number of other permanent sealed</label>
+      <input type="text" id="otherSealed">
+    </div>
+    <br/>
+    <div>
+      <label for="Number of primary teeth sealed">Number of primary teeth sealed</label>
+      <input type="text" id="primarySealed">
+    </div>
+    <br/>
+    <div>
+      <label for="Fluoride varnish provided">Fluoride varnish provided</label>
+      <select name="Fluoride varnish provided" >
+        <option value="">--Please select an option--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    </div>
+    <br/>
+    <div>
+      <label for="Prophylaxes provided">Prophylaxes provided</label>
+      <select name="Prophylaxes provided" >
+        <option value="">--Please select an option--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    </div>
+    <br/>
+</form>
+
+
+
+<br/>
+<input type="submit" value="Next">
+
+
+
     <script>
-
 ///Code for Screening 
         const selectedOptions = {}; // Object to hold selected options for each popup
 
