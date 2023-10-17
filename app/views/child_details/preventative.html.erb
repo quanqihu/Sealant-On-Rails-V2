@@ -5,8 +5,8 @@
     <style>
         /* Styling for the table */
         table {
-            border-collapse: collapse;
-            width: 90%;
+            /* border-collapse: collapse; */
+            width: 70%;
             margin: 20px auto;
         }
                 table, th, td {
@@ -15,20 +15,11 @@
 
 
         td input[type="text"] {
-            width: 150px;
+            width: 100px;
             height: 25px;
             }
 
-        /* 
 
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: center;
-        } */
 
         /* Styling for the buttons */
         .button {
@@ -38,116 +29,86 @@
             cursor: pointer;
         }
 
-        /* Styling for the popup container (initially hidden) */
-        .popup-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Styling for the popup box */
-        .popup-box {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* CSS for the smaller popup */
-.popup-box-small {
-    background-color: #fff;
-    padding: 10px; /* Smaller padding */
-    border-radius: 5px;
-    text-align: left; /* Align options vertically */
-    max-height: 300px; /* Maximum height to enable scrolling if many options */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-}
-/* Display radio buttons and labels vertically */
-.popup-box-small label {
-    display: block;
-}
-
-/* Add some spacing between radio buttons */
-.popup-box-small input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* You can further adjust the width, height, and styling as per your requirements */
 
     </style>
 </head>
 <body>
     <h1>Preventive Services</h1>
 <table>
+    <thead>
+      Chart for program use (Mark with an “S” the teeth where sealants were placed)
+  </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td>2-O</td>
-      <td>2-L</td>
-      <td>3-O</td>
-      <td>3-L</td>
-      <td>4</td>
-      <td>5</td>
-      <td>12</td>
-      <td>13</td>
-      <td>14-O</td>
-      <td>14-L</td>
-      <td>15-O</td>
-      <td>15-L</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4-A</td>
+      <td>5-B</td>
+      <td>6-C</td>
+      <td>7-D</td>
+      <td>8-E</td>
+      <td>9-F</td>
+      <td>10-G</td>
+      <td>11-H</td>
+      <td>12-I</td>
+      <td>13-J</td>
+      <td>14</td>
+      <td>16</td>
       <td>16</td>
     </tr>
     <tr>
       <td><input type="text" id="1" ></td>
-      <td><input type="text" id="2-O"></td>
-      <td><input type="text" id="2-L"></td>
-      <td><input type="text" id="3-O"></td>
-      <td><input type="text" id="3-L"></td>
+      <td><input type="text" id="2"></td>
+      <td><input type="text" id="3"></td>
       <td><input type="text" id="4"></td>
       <td><input type="text" id="5"></td>
+      <td><input type="text" id="6"></td>
+      <td><input type="text" id="7"></td>
+      <td><input type="text" id="8"></td>
+      <td><input type="text" id="9"></td>
+      <td><input type="text" id="10"></td>
+      <td><input type="text" id="11"></td>
       <td><input type="text" id="12"></td>
       <td><input type="text" id="13"></td>
-      <td><input type="text" id="14-O"></td>
-      <td><input type="text" id="14-L"></td>
-      <td><input type="text" id="15-O"></td>
-      <td><input type="text" id="15-L"></td>
+      <td><input type="text" id="14"></td>
+      <td><input type="text" id="15"></td>
       <td><input type="text" id="16"></td>
     </tr>
     <tr>
-      <td><input type="text" id="32" size="9"></td>
-      <td><input type="text" id="31-O"></td>
-      <td><input type="text" id="31-B"></td>
-      <td><input type="text" id="30-O"></td>
-      <td><input type="text" id="30-B"></td>
-      <td><input type="text" id="29"></td>
-      <td><input type="text" id="28"></td>
+      <td><input type="text" id="32"></td>
+      <td><input type="text" id="31"></td>
+      <td><input type="text" id="30"></td>
+      <td><input type="text" id="29-T"></td>
+      <td><input type="text" id="28-S"></td>
+      <td><input type="text" id="27-R"></td>
+      <td><input type="text" id="26-Q"></td>
+      <td><input type="text" id="25-P"></td>
+      <td><input type="text" id="24-O"></td>
+      <td><input type="text" id="23"></td>
+      <td><input type="text" id="22"></td>
       <td><input type="text" id="21"></td>
       <td><input type="text" id="20"></td>
-      <td><input type="text" id="19-O"></td>
-      <td><input type="text" id="19-B"></td>
-      <td><input type="text" id="18-O"></td>
-      <td><input type="text" id="18-B"></td>
+      <td><input type="text" id="19"></td>
+      <td><input type="text" id="18"></td>
       <td><input type="text" id="17"></td>
     </tr>
     <tr>
       <td>32</td>
-      <td>31-O</td>
-      <td>31-B</td>
-      <td>30-O</td>
-      <td>30-B</td>
-      <td>29</td>
-      <td>28</td>
-      <td>21</td>
-      <td>20</td>
-      <td>19-O</td>
-      <td>19-B</td>
-      <td>18-O</td>
-      <td>18-B</td>
+      <td>31</td>
+      <td>30</td>
+      <td>29-T</td>
+      <td>28-S</td>
+      <td>27-R</td>
+      <td>26-Q</td>
+      <td>25-P</td>
+      <td>24-O</td>
+      <td>23-N</td>
+      <td>22-M</td>
+      <td>21-L</td>
+      <td>20-K</td>
+      <td>19</td>
+      <td>18</td>
       <td>17</td>
     </tr>
   </tbody>
@@ -157,28 +118,23 @@
 <br/>
 
 
-    <p>Provider's Signature <span contenteditable="true"></span>
-    <textarea id="comment" name="comment" rows="1" cols="18"></textarea><br>
-    </p>
-    <form action="process_form.php" method="POST">
+<form>
+    <div>
+        <label for="Provider's Name">Provider's Name</label>
+        <input type="text" id="1st-molars">
+    </div>
+    <br/>
+    <div>
         <label for="date">Date</label>
         <label for="blank"></label>
         <input type="date" id="date" name="date"><br>
-
-        <!-- Hidden field to store the selected date for later submission -->
-        <input type="hidden" id="selectedDate" name="selectedDate">
-    </form>
-
+    </div>
     <br/>
-    <form>
-        <label for="comment">Comment</label><br>
-        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
-    </form>
-<br/>
-
-
-
-<form>
+    <div>
+        <label for="Comment">Comment</label>
+        <textarea id="comment" name="comment" rows="2" cols="20"></textarea><br>
+    </div>
+    <br/>
     <div>
       <label for="Number of 1st molars sealed">Number of 1st molars sealed</label>
       <input type="text" id="1st-molars">
@@ -222,61 +178,25 @@
 
 
 <br/>
-<input type="submit" value="Next">
+<input type="submit" value="Next"id="nextButton">
 
 
 
-    <script>
-///Code for Screening 
-        const selectedOptions = {}; // Object to hold selected options for each popup
+<script>
 
-        // Function to open the popup and set selected option
-        function openPopup(popupId) {
-            // console.log(selected)
-            const popup = document.getElementById(popupId);
-            
-            // Show the popup
-            if (popup) {
-                popup.style.display = 'block';
-            }
-        }
+    // JavaScript to capture the selected date and store it in the hidden field
+    document.getElementById('date').addEventListener('change', function () {
+        document.getElementById('selectedDate').value = this.value;
+    });
 
-        // Function to save the selected option and close the popup
-        function closePopup(Id,popupId) {
-            const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
-            
-            
-            // Find the selected option for the specific popup
-            radioOptions.forEach(option => {
-                if (option.checked) {
-                    selectedOptions[popupId] = option.value; // Save the selected option
-                }
-            });
-            console.log(selectedOptions)
+  const nextButton = document.getElementById('nextButton');
 
-            // Do something with the selected option (e.g., send it to the server)
-            console.log(`Selected Option for ${popupId}: ${selectedOptions[popupId]}`);
+  // Add a click event listener to the "Next" button
+  nextButton.addEventListener('click', function() {
+    // Redirect to the screening.html.erb page
+    window.location.href = '/followup';
+  });
 
-            // Close the popup
-            closePopupActual(popupId);
-        }
-
-        // Function to close the popup
-        function closePopupActual(popupId) {
-            const popup = document.getElementById(popupId);
-            if (popup) {
-                popup.style.display = 'none';
-            }
-        }
-
-
-
-        // JavaScript to capture the selected date and store it in the hidden field
-        document.getElementById('date').addEventListener('change', function () {
-            document.getElementById('selectedDate').value = this.value;
-        });
-
-
-    </script>
+</script>
 </body>
 </html>
