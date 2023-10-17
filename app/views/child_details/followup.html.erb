@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Screening</title>
+    <title>Followup</title>
     <style>
         /* Styling for the table */
         table {
-            border-collapse: collapse;
-            width: 90%;
+            /* border-collapse: collapse; */
+            width: 70%;
             margin: 20px auto;
         }
                 table, th, td {
@@ -15,7 +15,7 @@
 
 
         td input[type="text"] {
-            width: 130px;
+            width: 100px;
             height: 25px;
             }
 
@@ -29,49 +29,7 @@
             cursor: pointer;
         }
 
-        /* Styling for the popup container (initially hidden) */
-        .popup-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Styling for the popup box */
-        .popup-box {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* CSS for the smaller popup */
-.popup-box-small {
-    background-color: #fff;
-    padding: 10px; /* Smaller padding */
-    border-radius: 5px;
-    text-align: left; /* Align options vertically */
-    max-height: 300px; /* Maximum height to enable scrolling if many options */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-}
-/* Display radio buttons and labels vertically */
-.popup-box-small label {
-    display: block;
-}
-
-/* Add some spacing between radio buttons */
-.popup-box-small input[type="radio"] {
-    margin-right: 5px;
-}
-
-/* You can further adjust the width, height, and styling as per your requirements */
-
-    </style>
+</style>
 </head>
 <body>
     
@@ -84,20 +42,20 @@
       <td>3</td>
       <td>4-A</td>
       <td>5-B</td>
-      <td>6</td>
-      <td>7</td>
-      <td>8</td>
-      <td>9</td>
-      <td>10</td>
-      <td>11</td>
-      <td>12</td>
-      <td>13</td>
+      <td>6-C</td>
+      <td>7-D</td>
+      <td>8-E</td>
+      <td>9-F</td>
+      <td>10-G</td>
+      <td>11-H</td>
+      <td>12-I</td>
+      <td>13-J</td>
       <td>14</td>
-      <td>15</td>
+      <td>16</td>
       <td>16</td>
     </tr>
     <tr>
-      <td><input type="text" id="1"></td>
+      <td><input type="text" id="1" ></td>
       <td><input type="text" id="2"></td>
       <td><input type="text" id="3"></td>
       <td><input type="text" id="4"></td>
@@ -115,15 +73,15 @@
       <td><input type="text" id="16"></td>
     </tr>
     <tr>
-      <td><input type="text" id="32" size="9"></td>
+      <td><input type="text" id="32"></td>
       <td><input type="text" id="31"></td>
       <td><input type="text" id="30"></td>
-      <td><input type="text" id="29"></td>
-      <td><input type="text" id="28"></td>
-      <td><input type="text" id="27"></td>
-      <td><input type="text" id="26"></td>
-      <td><input type="text" id="25"></td>
-      <td><input type="text" id="24"></td>
+      <td><input type="text" id="29-T"></td>
+      <td><input type="text" id="28-S"></td>
+      <td><input type="text" id="27-R"></td>
+      <td><input type="text" id="26-Q"></td>
+      <td><input type="text" id="25-P"></td>
+      <td><input type="text" id="24-O"></td>
       <td><input type="text" id="23"></td>
       <td><input type="text" id="22"></td>
       <td><input type="text" id="21"></td>
@@ -131,65 +89,52 @@
       <td><input type="text" id="19"></td>
       <td><input type="text" id="18"></td>
       <td><input type="text" id="17"></td>
-
     </tr>
     <tr>
       <td>32</td>
       <td>31</td>
       <td>30</td>
-      <td>29</td>
-      <td>28</td>
-      <td>27</td>
-      <td>26</td>
-      <td>25</td>
-      <td>24</td>
-      <td>23</td>
-      <td>22</td>
-      <td>21</td>
-      <td>20</td>
+      <td>29-T</td>
+      <td>28-S</td>
+      <td>27-R</td>
+      <td>26-Q</td>
+      <td>25-P</td>
+      <td>24-O</td>
+      <td>23-N</td>
+      <td>22-M</td>
+      <td>21-L</td>
+      <td>20-K</td>
       <td>19</td>
       <td>18</td>
       <td>17</td>
     </tr>
-
   </tbody>
 </table>
 
-    <br/>
-    <br/>
+<br/>
+<br/>
 
-    <p>Evaluator's Signature: <span contenteditable="true"></span>
-    <textarea id="comment" name="comment" rows="1" cols="18"></textarea><br>
-    </p>
-    <form action="process_form.php" method="POST">
+<form>
+      <div>
+        <label for="Evaluator's Name">Evaluator's Name</label>
+        <input type="text" id="1st-molars">
+    </div>
+    <br/>
+    <div>
         <label for="date">Date</label>
         <label for="blank"></label>
         <input type="date" id="date" name="date"><br>
-
-        <!-- Hidden field to store the selected date for later submission -->
-        <input type="hidden" id="selectedDate" name="selectedDate">
-    </form>
-
+    </div>
     <br/>
-    <form>
-        <label for="comment">Comment:</label><br>
-        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
-    </form>
-<br/>
-<%# <table style="border-collapse: collapse; width: 25%; margin: 0;">
-    <tbody>
-        <tr>
-            <td>Number of teeth with a retained sealant (0-8)</td>
-            <td><input type="text" id="numberOfTeeth"></td>
-        </tr>
-    </tbody>
-</table> %>
-
-
-
-
-<br/>
-<form>
+    <div>
+        <label for="Comment">Comment</label>
+        <textarea id="comment" name="comment" rows="2" cols="20"></textarea><br>
+    </div>
+    <br/>
+    <br/>
+    <div>
+      <H3>Data for SEALS</H3>
+    </div>
     <div>
       <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
       <input type="text" id="Number_of_teeth_with_a_retained_sealant">
@@ -268,15 +213,12 @@
     <input type="submit" value="Submit">
   </form>
 
+<script>
 
-
-
-    <script>
-
-                // JavaScript to capture the selected date and store it in the hidden field
-        document.getElementById('date').addEventListener('change', function () {
-            document.getElementById('selectedDate').value = this.value;
-        });
-    </script>
+  // JavaScript to capture the selected date and store it in the hidden field
+  document.getElementById('date').addEventListener('change', function () {
+      document.getElementById('selectedDate').value = this.value;
+  });
+</script>
 </body>
 </html>
