@@ -1,206 +1,166 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Screening</title>
-    <style>
-        /* Styling for the table */
-        table {
-            /* border-collapse: collapse; */
-            width: 70%;
-            margin: 20px auto;
-        }
-                table, th, td {
-            border: 1px solid black;
-        }
+  <title>Screening</title>
+  <style>
+      /* Styling for the table */
+      table {
+          width: 70%;
+          margin: 20px auto;
+          border-collapse: collapse;
+      }
 
+      table, th, td {
+          border: 1px solid black;
+          text-align: center; /* Center text in table cells */
+          padding: 5px; /* Add padding to table cells */
+      }
 
-        td input[type="text"] {
-            width: 100px;
-            height: 25px;
-            }
+      td input[type="text"] {
+          width: 100%;
+          height: 25px;
+      }
 
-
-
-        /* Styling for the buttons */
-        .button {
-            background-color: white ;
-            color: black;
-            border: none;
-            cursor: pointer;
-        }
-
-
-    </style>
+      /* Styling for the buttons */
+      .button {
+          background-color: white;
+          color: black;
+          border: none;
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
-    <h1>Preventive Services</h1>
-<table>
-    <thead>
-      Chart for program use (Mark with an “S” the teeth where sealants were placed)
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4-A</td>
-      <td>5-B</td>
-      <td>6-C</td>
-      <td>7-D</td>
-      <td>8-E</td>
-      <td>9-F</td>
-      <td>10-G</td>
-      <td>11-H</td>
-      <td>12-I</td>
-      <td>13-J</td>
-      <td>14</td>
-      <td>16</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><input type="text" id="1" ></td>
-      <td><input type="text" id="2"></td>
-      <td><input type="text" id="3"></td>
-      <td><input type="text" id="4"></td>
-      <td><input type="text" id="5"></td>
-      <td><input type="text" id="6"></td>
-      <td><input type="text" id="7"></td>
-      <td><input type="text" id="8"></td>
-      <td><input type="text" id="9"></td>
-      <td><input type="text" id="10"></td>
-      <td><input type="text" id="11"></td>
-      <td><input type="text" id="12"></td>
-      <td><input type="text" id="13"></td>
-      <td><input type="text" id="14"></td>
-      <td><input type="text" id="15"></td>
-      <td><input type="text" id="16"></td>
-    </tr>
-    <tr>
-      <td><input type="text" id="32"></td>
-      <td><input type="text" id="31"></td>
-      <td><input type="text" id="30"></td>
-      <td><input type="text" id="29-T"></td>
-      <td><input type="text" id="28-S"></td>
-      <td><input type="text" id="27-R"></td>
-      <td><input type="text" id="26-Q"></td>
-      <td><input type="text" id="25-P"></td>
-      <td><input type="text" id="24-O"></td>
-      <td><input type="text" id="23"></td>
-      <td><input type="text" id="22"></td>
-      <td><input type="text" id="21"></td>
-      <td><input type="text" id="20"></td>
-      <td><input type="text" id="19"></td>
-      <td><input type="text" id="18"></td>
-      <td><input type="text" id="17"></td>
-    </tr>
-    <tr>
-      <td>32</td>
-      <td>31</td>
-      <td>30</td>
-      <td>29-T</td>
-      <td>28-S</td>
-      <td>27-R</td>
-      <td>26-Q</td>
-      <td>25-P</td>
-      <td>24-O</td>
-      <td>23-N</td>
-      <td>22-M</td>
-      <td>21-L</td>
-      <td>20-K</td>
-      <td>19</td>
-      <td>18</td>
-      <td>17</td>
-    </tr>
-  </tbody>
-
-</table>
-<br/>
-<br/>
-
+<h1>Preventive Services</h1>
 
 <form>
-    <div>
-        <label for="Provider's Name">Provider's Name</label>
-        <input type="text" id="1st-molars">
-    </div>
-    <br/>
-    <div>
-        <label for="date">Date</label>
-        <label for="blank"></label>
-        <input type="date" id="date" name="date"><br>
-    </div>
-    <br/>
-    <div>
-        <label for="Comment">Comment</label>
-        <textarea id="comment" name="comment" rows="2" cols="20"></textarea><br>
-    </div>
-    <br/>
-    <br/>
-    <div>
-      <H3>Data for SEALS</H3>
-    </div>
-    <div>
-      <label for="Number of 1st molars sealed">Number of 1st molars sealed</label>
-      <input type="text" id="1st-molars">
-    </div>
-    <br/>
-    <div>
-      <label for="Number of 2nd molars sealed">Number of 2nd molars sealed</label>
-      <input type="text" id="2nd-molars">
-    </div>
-    <br/>
-    <div>
-      <label for="Number of other permanent sealed">Number of other permanent sealed</label>
-      <input type="text" id="otherSealed">
-    </div>
-    <br/>
-    <div>
-      <label for="Number of primary teeth sealed">Number of primary teeth sealed</label>
-      <input type="text" id="primarySealed">
-    </div>
-    <br/>
-    <div>
-      <label for="Fluoride varnish provided">Fluoride varnish provided</label>
-      <select name="Fluoride varnish provided" >
-        <option value="">--Please select an option--</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-    </select>
-    </div>
-    <br/>
-    <div>
-      <label for="Prophylaxes provided">Prophylaxes provided</label>
-      <select name="Prophylaxes provided" >
-        <option value="">--Please select an option--</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-    </select>
-    </div>
-    <br/>
+  <table>
+    <thead>
+    <tr>
+      <th colspan="16">Chart for program use (Mark with an “S” the teeth where sealants were placed)</th>
+    </tr>
+    </thead>
+    <tr>
+      <!-- Create buttons for each tooth -->
+      <% (1..3).each do |tooth_number| %>
+        <td><%= tooth_number %></td>
+      <% end %>
+      <% (4..13).each do |tooth_number| %>
+        <td>
+            <%= tooth_number %><br><%= ('A'..'J').to_a[tooth_number - 4] %>
+        </td>
+      <% end %>
+      <% (14..16).each do |tooth_number| %>
+        <td>
+          <%= tooth_number %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <% (1..16).each do |tooth_number| %>
+        <td>
+        <input type="text" id="tooth_<%= tooth_number %>" name="tooth_<%= tooth_number %>" />
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <% (32).downto(17).each do |tooth_number| %>
+        <td>
+          <input type="text" id="tooth_<%= tooth_number %>" name="tooth_<%= tooth_number %>" />
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <% (32).downto(30).each do |tooth_number| %>
+        <td>
+          <%= tooth_number %>
+        </td>
+      <% end %>
+      <% (29).downto(20).each do |tooth_number| %>
+        <td>
+            <%= ('T'.ord).downto('K'.ord).map(&:chr)[29 - tooth_number] %> <br> <%= tooth_number %>
+        </td>
+      <% end %>
+      <% (19).downto(17).each do |tooth_number| %>
+        <td>
+            <%= tooth_number %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
 </form>
 
+<br/><br/>
 
+<form>
+  <div>
+    <label for="providerName">Provider's Name</label>
+    <input type="text" id="providerName">
+  </div>
+  <br/>
+
+  <div>
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date">
+  </div>
+  <br/>
+
+  <div>
+    <label for="comment">Comment</label>
+    <textarea id="comment" name="comment" rows="2" cols="20"></textarea>
+  </div>
+  <br/><br/>
+
+  <div>
+    <h3>Data for SEALS</h3>
+  </div>
+
+  <div>
+    <label for="num1stMolarsSealed">Number of 1st molars sealed</label>
+    <input type="text" id="num1stMolarsSealed">
+  </div>
+  <br/>
+
+  <div>
+    <label for="num2ndMolarsSealed">Number of 2nd molars sealed</label>
+    <input type="text" id="num2ndMolarsSealed">
+  </div>
+  <br/>
+
+  <div>
+    <label for="numOtherSealed">Number of other permanent sealed</label>
+    <input type="text" id="numOtherSealed">
+  </div>
+  <br/>
+
+  <div>
+    <label for="numPrimaryTeethSealed">Number of primary teeth sealed</label>
+    <input type="text" id="numPrimaryTeethSealed">
+  </div>
+  <br/>
+
+  <div>
+    <label for="fluorideVarnish">Fluoride varnish provided</label>
+    <select name="fluorideVarnish" id="fluorideVarnish">
+      <option value="">--Please select an option--</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+  <br/>
+
+  <div>
+    <label for="prophylaxes">Prophylaxes provided</label>
+    <select name="prophylaxes" id="prophylaxes">
+      <option value="">--Please select an option--</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+  <br/>
+</form>
 
 <br/>
-<input type="submit" value="Next"id="nextButton">
-
-
-
-<script>
-
-    // JavaScript to capture the selected date and store it in the hidden field
-    document.getElementById('date').addEventListener('change', function () {
-        document.getElementById('selectedDate').value = this.value;
-    });
-
-  const nextButton = document.getElementById('nextButton');
-
-  // Add a click event listener to the "Next" button
-  nextButton.addEventListener('click', function() {
-    // Redirect to the screening.html.erb page
-    window.location.href = '/followup';
-  });
-
-</script>
+<input type="submit" value="Next" id="nextButton">
 </body>
 </html>
