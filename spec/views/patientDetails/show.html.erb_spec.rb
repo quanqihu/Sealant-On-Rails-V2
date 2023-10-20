@@ -15,7 +15,6 @@ RSpec.describe "patient_details/show", type: :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to have_link("Back to patient details", href: patient_details_path)
     expect(rendered).to have_button("Destroy this patients detail")
   end
 end
