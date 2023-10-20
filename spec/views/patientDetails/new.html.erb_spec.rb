@@ -8,7 +8,6 @@ RSpec.describe "patient_details/new", type: :view do
       Age: 2,
       Insurance: "Insurance",
       Grade: "Grade",
-      PID: "PID", 
       PatientId: 1
     ))
   end

@@ -19,7 +19,7 @@ RSpec.describe "patient_details/index", type: :view do
       Insurance: "Insurance",
       Grade: "Grade",
       PID: "PID", 
-      PatientId: 1
+      PatientId: 2
   )
     ])
   end

@@ -23,6 +23,8 @@ class PatientDetailsController < ApplicationController
   def create
     @patient_detail = PatientDetail.new(patient_detail_params)
 
+    @patient_detail.PID = "#{patient_detail_params[:PatientId]}-#{patient_detail_params[:SchoolName]}"
+
     respond_to do |format|
       if @patient_detail.save
         format.html { redirect_to patient_detail_url(@patient_detail), notice: "Patient detail was successfully created." }
