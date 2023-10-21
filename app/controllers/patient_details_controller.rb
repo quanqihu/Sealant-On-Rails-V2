@@ -22,7 +22,6 @@ class PatientDetailsController < ApplicationController
   # POST /patient_details or /patient_details.json
   def create
     @patient_detail = PatientDetail.new(patient_detail_params)
-
     @patient_detail.PID = "#{patient_detail_params[:PatientId]}-#{patient_detail_params[:SchoolName]}"
 
     respond_to do |format|
