@@ -87,10 +87,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
   end
 
   create_table "tooths", force: :cascade do |t|
-    t.integer "number"
-    t.integer "screening"
-    t.integer "preventive"
-    t.integer "follow"
+    t.integer "patient_detail_id"
+    t.integer "tooth_number"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

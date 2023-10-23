@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
   def index
-    unless logged_in?
-      redirect_to login_path
-    end
+    return if logged_in?
+
+    redirect_to login_path
   end
 
   def current_user
@@ -14,5 +16,4 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user
   end
-
 end

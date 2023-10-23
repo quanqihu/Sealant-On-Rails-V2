@@ -18,10 +18,7 @@
     <tbody>
     
     <tr>
-      <td>
-      <%= link_to patient_detail.id, patient_detail %>
-
-      </td>
+      <td style="text-align: center;"><%= patient_detail.PatientId %> </td>
       <td style="text-align: center;"><%= patient_detail.ProgramName %></td>
       <td style="text-align: center;"><%= patient_detail.SchoolName %></td>
       <td style="text-align: center;"><%= patient_detail.Age %></td>
@@ -31,7 +28,7 @@
       <td><button type="button" class="Screening" id="screeningButton">Screening</button></td>
       <td><button type="button" class="PreventiveServices" id="preventiveservicesButton">Preventive Services</button></td>
       <td><button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button></td>
-      <td><%= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      
+<!--      <td><%#= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      -->
     </tr>
     </tbody>
 
