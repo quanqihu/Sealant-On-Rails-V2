@@ -47,32 +47,32 @@ ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
     t.datetime 'updated_at', null: false
   end
 
-  create_table 'event_details', force: :cascade do |t|
-    t.date 'EventDate'
-    t.string 'School'
-    t.integer 'ConsentFD'
-    t.float 'DenHrs'
-    t.float 'DenTravelHrs'
-    t.float 'DenTravelMil'
-    t.float 'HygHours'
-    t.float 'HygTravelMil'
-    t.float 'HygTravelHrs'
-    t.float 'AssistantTravelMil'
-    t.float 'AssistantHrs'
-    t.float 'AssistantTravelHrs'
-    t.float 'OtherHrs'
-    t.float 'OtherTravelHrs'
-    t.float 'OtherTravelMiles'
-    t.float 'NumberOfSSPDriven'
-    t.float 'TotalMilesDriven'
-    t.float 'ChildScreened'
-    t.float 'ChildReceivingSealant'
-    t.float 'NumberOfSealed'
-    t.float 'NumberFlourideVarnish'
-    t.float 'NumberProphy'
-    t.string 'uid'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "event_details", force: :cascade do |t|
+    t.date "EventDate"
+    t.string "School"
+    t.integer "ConsentFD"
+    t.float "DenHrs"
+    t.float "DenTravelHrs"
+    t.float "DenTravelMil"
+    t.float "HygHours"
+    t.float "HygTravelMil"
+    t.float "HygTravelHrs"
+    t.float "AssistantTravelMil"
+    t.float "AssistantHrs"
+    t.float "AssistantTravelHrs"
+    t.float "OtherHrs"
+    t.float "OtherTravelHrs"
+    t.float "OtherTravelMiles"
+    t.float "NumberOfSSPDriven"
+    t.float "TotalMilesDriven"
+    t.float "ChildScreened"
+    t.float "ChildReceivingSealant"
+    t.float "NumberOfSealed"
+    t.float "NumberFlourideVarnish"
+    t.float "NumberProphy"
+    t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table 'patient_details', force: :cascade do |t|
@@ -88,13 +88,14 @@ ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
     t.datetime 'updated_at', null: false
   end
 
-  create_table 'tooths', force: :cascade do |t|
-    t.integer 'number'
-    t.integer 'screening'
-    t.integer 'preventive'
-    t.integer 'follow'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+
+  create_table "tooths", force: :cascade do |t|
+    t.integer "patient_detail_id"
+    t.integer "tooth_number"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table 'users', force: :cascade do |t|
@@ -106,4 +107,8 @@ ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
     t.string 'uid'
     t.string 'provider'
   end
+
+
+  add_foreign_key "tooths", "patient_details"
+
 end
