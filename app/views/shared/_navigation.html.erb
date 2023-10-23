@@ -14,6 +14,9 @@
         <%= link_to "Add Patient", new_patient_detail_path, class: "nav-link" %>
       </li>
       <li style="display: inline-block; margin: 0 15px;">
+        <%= link_to "Statistics", statistics_index_path, class: "nav-link" %>
+      </li>
+      <li style="display: inline-block; margin: 0 15px;">
         <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
       </li>
     <% else %>

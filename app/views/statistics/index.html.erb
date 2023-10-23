@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      /* Apply styles to the table */
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      /* Style table headers */
+      th {
+          background-color: #333;
+          color: white;
+          padding: 8px;
+          text-align: left;
+      }
+
+      /* Style alternating rows */
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      /* Style table data cells */
+      td {
+          padding: 8px;
+      }
+  </style>
+</head>
+<body>
+<h1>Statistics Version 1</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>School Attending</th>
+    <th>Date</th>
+    <th>Age</th>
+    <th>Grade</th>
+    <th>Gender</th>
+    <th>Race</th>
+    <th>Ethnicity</th>
+    <!-- Add more headers as needed -->
+  </tr>
+
+  <% @statistics_data.each do |data| %>
+    <tr>
+      <td><%= data.id %></td>
+      <td><%= data.SchoolName %></td>
+      <td><%= data.Date %></td>
+      <td><%= data.Age %></td>
+      <td><%= data.Grade %></td>
+<!--       <td><%#= data.Gender %></td> -->
+<!--       <td><%#= data.Race %></td> -->
+<!--       <td><%#= data.Ethnicity %></td> -->
+<!--       Add more data columns as needed -->
+    </tr>
+  <% end %>
+</table>
+</body>
+</html>
