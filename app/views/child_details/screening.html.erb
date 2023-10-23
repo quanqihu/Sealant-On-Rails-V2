@@ -3,9 +3,6 @@
 <head>
     <title>Screening</title>
     <style>
-
-
-
         /* Styling for the table */
         table {
             border-collapse: collapse;
@@ -156,21 +153,16 @@
     <input type="text" name="1st-molars" id="referred-for-treatment"></textarea><br>
     </p>
 
-    <p>Decayed or Filled Surfaces:  <span contenteditable="true"></span>
+    <p>Decayed or Filled Surfaces:<span contenteditable="false"></span>
 
   <div class="decayed-filled-surfaces-fields">
     <div class="decayed-filled-surfaces-field">
       <label for="1st-molars">1st Molars:</label>
       <input type="text" name="1st-molars" id="1st-molars">
     </div>
-    <br/>
-    <div class="decayed-filled-surfaces-field">
-      <label for="2nd-molars">2nd Molars:</label>
-      <input type="text" name="2nd-molars" id="2nd-molars">
-    </div>
   </div>
 <br/>
-        <input type="submit" value="Next" id="nextButton">
+    <%= link_to "Next", preventive_services_path %>
     <script>
 
 ///Code for Screening
@@ -215,21 +207,10 @@
             }
         }
 
-
-
         // JavaScript to capture the selected date and store it in the hidden field
         document.getElementById('date').addEventListener('change', function () {
             document.getElementById('selectedDate').value = this.value;
         });
-
-
-  const nextButton = document.getElementById('nextButton');
-
-  // Add a click event listener to the "Next" button
-  nextButton.addEventListener('click', function() {
-    // Redirect to the screening.html.erb page
-    window.location.href = '/preventive_services';
-  });
 
     </script>
 </body>

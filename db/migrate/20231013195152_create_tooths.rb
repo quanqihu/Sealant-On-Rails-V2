@@ -1,12 +1,12 @@
 class CreateTooths < ActiveRecord::Migration[7.1]
   def change
     create_table :tooths do |t|
-      t.integer :number
-      t.integer :screening
-      t.integer :preventive
-      t.integer :follow
+      t.references :patient_detail, foreign_key: true
+      t.integer :tooth_number
+      t.text :details
 
       t.timestamps
+
     end
   end
 end

@@ -53,9 +53,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
     t.float "DenTravelHrs"
     t.float "DenTravelMil"
     t.float "HygHours"
-    t.float "HygMiles"
+    t.float "HygTravelMil"
+    t.float "HygTravelHrs"
+    t.float "AssistantTravelMil"
     t.float "AssistantHrs"
-    t.float "AssistantTravel"
+    t.float "AssistantTravelHrs"
     t.float "OtherHrs"
     t.float "OtherTravelHrs"
     t.float "OtherTravelMiles"
@@ -85,14 +87,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
   end
 
   create_table "tooths", force: :cascade do |t|
-    t.integer "patient_id", null: false
-    t.integer "number"
-    t.integer "screening"
-    t.integer "preventive"
-    t.integer "follow"
+    t.integer "patient_detail_id"
+    t.integer "tooth_number"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_tooths_on_patient_id"
+    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,5 +105,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
     t.string "provider"
   end
 
-  add_foreign_key "tooths", "patients"
+  add_foreign_key "tooths", "patient_details"
 end
