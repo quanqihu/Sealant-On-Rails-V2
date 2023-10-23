@@ -7,6 +7,7 @@ RSpec.describe 'patient_details/edit', type: :view do
     PatientDetail.create!(
       ProgramName: 'MyString',
       SchoolName: 'MyString',
+      Date: Date.today,
       Age: 1,
       Insurance: 'MyString',
       Grade: 'MyString',

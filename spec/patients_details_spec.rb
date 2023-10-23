@@ -9,12 +9,12 @@ RSpec.describe '/patient_details', type: :request do
   let(:valid_attributes) do
     {
       ProgramName: 'Program Name',
-      SchoolName: nil,
+      SchoolName: 'School_Name',
       Age: 25,
       Date: Date.today,
       Insurance: 'Insurance',
       Grade: 'A',
-      PID: '1-School Name',
+      PID: '1-School_Name',
       PatientId: 1
     }
   end
