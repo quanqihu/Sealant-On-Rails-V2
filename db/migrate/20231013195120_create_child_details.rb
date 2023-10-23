@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateChildDetails < ActiveRecord::Migration[7.1]
   def change
     create_table :child_details do |t|
