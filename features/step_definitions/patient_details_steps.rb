@@ -11,7 +11,6 @@
   end
   
   When('I enter the Patientid field with {int}') do |int|
-  # When('I enter the Patientid field with {float}') do |float|
     fill_in "patient_detail[PatientId]", :with => int
   end
   
@@ -24,7 +23,6 @@
   end
   
   When('I enter the Age field with {int}') do |int|
-  # When('I enter the Age field with {float}') do |float|
     fill_in "patient_detail[Age]", :with => int
   end
   
@@ -38,11 +36,6 @@
 
   When("I enter the Grade field with {string}") do |grade|
     fill_in 'patient_detail[Grade]', :with => grade
-  end
-  
-  When('I enter the Pid field with {int}') do |int|
-  # When('I enter the Pid field with {float}') do |float|
-    fill_in "patient_detail[PID]", :with => int
   end
   
   When('I click Create Patient detail') do
@@ -95,7 +88,6 @@
     fill_in 'patient_detail[Age]', :with => 7
     fill_in 'patient_detail[Insurance]', :with => "blue cross"
     fill_in 'patient_detail[Grade]', :with => "fifth"
-    fill_in 'patient_detail[PID]', :with => 24
     click_button "Create Patient detail"
     visit "/patient_details"
 
