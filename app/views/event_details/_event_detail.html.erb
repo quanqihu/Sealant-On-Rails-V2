@@ -1,7 +1,7 @@
 <div id = "<%= dom_id event_detail %>" class="container mt-5">
 <h2>Sealant Event Data</h2>
   <div class="mb-3">
-    <strong>Event Date(s): </strong>
+    <strong>Event Date: </strong>
     <%= event_detail.EventDate %>
     &nbsp;&nbsp;&nbsp;
     <strong>School: </strong>
@@ -60,36 +60,6 @@
       <tr>
         <td>Total miles driven for event</td>
         <td style="text-align: center;"><%= event_detail.TotalMilesDriven %></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
-      <tr>
-      <strong>Services Delivered</strong>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>No. of children screened </td>
-        <td style="text-align: center;"><%= event_detail.ChildScreened %></td>
-      </tr>
-      <tr>
-        <td>No. of children receiving sealants  </td>
-        <td style="text-align:  center;"><%= event_detail.ChildReceivingSealant %></td>
-      </tr>
-      <tr>
-        <td>No. of teeth sealed  </td>
-        <td style="text-align: center;"><%= event_detail.NumberOfSealed %></td>
-      </tr>
-      <tr>
-        <td>No. of children receiving flouride varnish </td>
-        <td style="text-align: center;"><%= event_detail.NumberFlourideVarnish %></td>
-      </tr>
-      <tr>
-        <td>No. of children receiving prophy </td>
-        <td style="text-align: center;"><%= event_detail.NumberProphy %></td>
       </tr>
     </tbody>
   </table>
