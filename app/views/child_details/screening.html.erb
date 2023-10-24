@@ -163,6 +163,7 @@
   </div>
 <br/>
     <%= link_to "Next", preventive_services_path %>
+    <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
     <script>
 
 ///Code for Screening
@@ -207,10 +208,16 @@
             }
         }
 
-        // JavaScript to capture the selected date and store it in the hidden field
-        document.getElementById('date').addEventListener('change', function () {
-            document.getElementById('selectedDate').value = this.value;
-        });
+
+        FollowUpButton.addEventListener('click', function() {
+        // Redirect to the screening.html.erb page
+        window.location.href = '/followup';
+      });
+        // // JavaScript to capture the selected date and store it in the hidden field
+        // document.getElementById('date').addEventListener('change', function () {
+        //     document.getElementById('selectedDate').value = this.value;
+        // });
+
 
     </script>
 </body>

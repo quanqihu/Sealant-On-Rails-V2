@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,39 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
-  create_table 'child_details', force: :cascade do |t|
-    t.string 'PrescriberName'
-    t.date 'ScreenDate'
-    t.string 'ScreenComment'
-    t.boolean 'Sealants'
-    t.boolean 'UntreatedDecayScreen'
-    t.boolean 'TreatedDecay'
-    t.string 'Referral'
-    t.integer 'DecayedNum'
-    t.string 'ProviderName'
-    t.date 'ProviderDate'
-    t.integer 'FirstSealedNum'
-    t.integer 'SecondSealedNum'
-    t.integer 'OtherPermNum'
-    t.integer 'PrimarySealed'
-    t.boolean 'FluorideVarnish'
-    t.boolean 'Prophylaxes'
-    t.string 'PreventativeComment'
-    t.string 'EvaluatorsName'
-    t.date 'EvaluatorDate'
-    t.string 'EvaluatorComment'
-    t.integer 'RetainedSealant'
-    t.boolean 'ReferredDT'
-    t.boolean 'ReferredUDT'
-    t.integer 'SealantsRecd'
-    t.integer 'SealnatsNeeded'
-    t.boolean 'Experienced'
-    t.boolean 'UntreatedDecayFollow'
-    t.string 'Services'
-    t.string 'ORHealthStatus'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
+  create_table "child_details", force: :cascade do |t|
+    t.string "PrescriberName"
+    t.date "ScreenDate"
+    t.string "ScreenComment"
+    t.boolean "Sealants"
+    t.boolean "UntreatedDecayScreen"
+    t.boolean "TreatedDecay"
+    t.string "Referral"
+    t.integer "DecayedNum"
+    t.string "ProviderName"
+    t.date "ProviderDate"
+    t.integer "FirstSealedNum"
+    t.integer "SecondSealedNum"
+    t.integer "OtherPermNum"
+    t.integer "PrimarySealed"
+    t.boolean "FluorideVarnish"
+    t.boolean "Prophylaxes"
+    t.string "PreventativeComment"
+    t.string "EvaluatorsName"
+    t.date "EvaluatorDate"
+    t.string "EvaluatorComment"
+    t.integer "RetainedSealant"
+    t.boolean "ReferredDT"
+    t.boolean "ReferredUDT"
+    t.integer "SealantsRecd"
+    t.integer "SealnatsNeeded"
+    t.boolean "Experienced"
+    t.boolean "UntreatedDecayFollow"
+    t.string "Services"
+    t.string "ORHealthStatus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "event_details", force: :cascade do |t|
@@ -75,19 +73,18 @@ ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
     t.datetime "updated_at", null: false
   end
 
-  create_table 'patient_details', force: :cascade do |t|
-    t.integer 'PatientId'
-    t.string 'ProgramName'
-    t.string 'SchoolName'
-    t.integer 'Age'
-    t.date 'Date'
-    t.string 'Insurance'
-    t.string 'Grade'
-    t.string 'PID'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "patient_details", force: :cascade do |t|
+    t.integer "PatientId"
+    t.string "ProgramName"
+    t.string "SchoolName"
+    t.integer "Age"
+    t.date "Date"
+    t.string "Insurance"
+    t.string "Grade"
+    t.string "PID"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
 
   create_table "tooths", force: :cascade do |t|
     t.integer "patient_detail_id"
@@ -95,20 +92,16 @@ ActiveRecord::Schema[7.1].define(version: 20_231_015_165_140) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'email'
-    t.string 'password_digest'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'uid'
-    t.string 'provider'
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uid"
+    t.string "provider"
   end
-
-
-  add_foreign_key "tooths", "patient_details"
 
 end

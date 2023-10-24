@@ -8,6 +8,7 @@ RSpec.describe 'patient_details/index', type: :view do
              PatientDetail.create!(
                ProgramName: 'Program Name',
                SchoolName: 'School Name',
+               Date: Date.today,
                Age: 2,
                Insurance: 'Insurance',
                Grade: 'Grade',
@@ -17,6 +18,7 @@ RSpec.describe 'patient_details/index', type: :view do
              PatientDetail.create!(
                ProgramName: 'Program Name',
                SchoolName: 'School Name',
+               Date: Date.today,
                Age: 2,
                Insurance: 'Insurance',
                Grade: 'Grade',
