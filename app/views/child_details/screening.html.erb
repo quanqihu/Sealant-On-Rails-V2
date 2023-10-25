@@ -143,6 +143,11 @@
         <% end %>
       </tr>
       <tr>
+        <% (1..16).each do |tooth_number|%>
+          <td data-cell="popup<%= tooth_number %>">Sealant Sealed</td>
+        <% end %>
+      </tr>
+      <tr>
         <!-- Create buttons for each tooth -->
         <% (32).downto(30).each do |tooth_number| %>
           <td><button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')"><%= tooth_number %></button></td>
@@ -171,6 +176,7 @@
     <% (1..32).each do |tooth_number| %>
       <div class="popup-container" id="popup<%= tooth_number %>">
         <div class="popup-box-small">
+          <p><%= tooth_number %></p>
           <% radio_options = [
             { value: "D", label: "D - Decay" },
             { value: "F", label: "F - Filled" },
@@ -192,10 +198,10 @@
     <% end %>
 <br/>
 <br/>
-    <p>Untreated Cavities: <span contenteditable="true" id="untreatedCavities">0</span></p>
-    <p>Caries Experience: <span contenteditable="true" id="cariesExperience">0</span></p>
-    <p>Sealants Present:  <span contenteditable="true" id="sealantPresent">0</span></p>
-    <p>Referred for treatment: <span contenteditable="true" id="referredTreatment">0</span></p>
+    <p>Untreated Cavities: <span contenteditable="false" id="untreatedCavities">0</span></p>
+    <p>Caries Experience: <span contenteditable="false" id="cariesExperience">0</span></p>
+    <p>Sealants Present:  <span contenteditable="false" id="sealantPresent">0</span></p>
+    <p>Referred for treatment: <span contenteditable="false" id="referredTreatment">0</span></p>
 <br/>
     <button type="button" class="Preventative" id="PreventativeButton">Preventative Service</button>
     <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
