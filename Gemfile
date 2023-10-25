@@ -41,7 +41,10 @@ gem 'dotenv-rails'
 gem 'omniauth-rails_csrf_protection'
 
 # Styling
-gem 'font-awesome-sass', '~> 6.2.1'
+gem 'font-awesome-sass'
+
+# Use Redis adapter to run Action Cable in production
+gem 'sassc-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

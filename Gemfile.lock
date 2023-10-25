@@ -178,7 +178,7 @@ GEM
       path_expander (~> 1.0)
       ruby_parser (~> 3.1, > 3.1.0)
       sexp_processor (~> 4.8)
-    font-awesome-sass (6.2.1)
+    font-awesome-sass (6.4.2)
       sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -236,8 +236,6 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.4-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -394,6 +392,12 @@ GEM
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -416,7 +420,6 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.7-arm64-darwin)
-    sqlite3 (1.6.7-x86_64-linux)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.8)
@@ -424,6 +427,7 @@ GEM
       ffi (~> 1.1)
     thor (1.3.0)
     thread_safe (0.3.6)
+    tilt (2.3.0)
     timeout (0.4.0)
     tty-which (0.5.0)
     turbo-rails (1.5.0)
@@ -458,7 +462,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
-  x86_64-linux
 
 DEPENDENCIES
   ZenTest
@@ -471,7 +474,7 @@ DEPENDENCIES
   database_cleaner
   debug
   dotenv-rails
-  font-awesome-sass (~> 6.2.1)
+  font-awesome-sass
   importmap-rails
   jbuilder
   jquery-rails
@@ -489,6 +492,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubycritic
+  sassc-rails
   selenium-webdriver
   simplecov
   sprockets-rails
