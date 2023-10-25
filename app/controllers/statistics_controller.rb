@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
   def index
       @statistics_data = PatientDetail.select(
-        :Patientid, :SchoolName, :Date, :Age, :Grade, :PID
+        :PatientId, :SchoolName, :Date, :Age, :Grade, :PID
         # :Gender, :Race, :Ethnicity,
         # :DateOfSealantReceived, :SealnatsNeeded, :SealantsRecd, :SealantsReplaced,
         # :Sealants, :Experienced, :UntreatedDecayScreen, :ReferredDT, :ReferredUDT, :Services
