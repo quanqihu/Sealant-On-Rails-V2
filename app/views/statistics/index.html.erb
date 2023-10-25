@@ -37,15 +37,15 @@
     <th>Date</th>
     <th>Age</th>
     <th>Grade</th>
-    <th>Gender</th>
-    <th>Race</th>
-    <th>Ethnicity</th>
+<!--    <th>Gender</th>-->
+<!--    <th>Race</th>-->
+<!--    <th>Ethnicity</th>-->
     <!-- Add more headers as needed -->
   </tr>
 
   <% @statistics_data.each do |data| %>
     <tr>
-      <td><%= data.id %></td>
+      <td><%= data.PID %></td>
       <td><%= data.SchoolName %></td>
       <td><%= data.Date %></td>
       <td><%= data.Age %></td>

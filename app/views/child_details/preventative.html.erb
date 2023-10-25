@@ -161,6 +161,14 @@
 </form>
 
 <br/>
-<input type="submit" value="Next" id="nextButton">
+  <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
+
+  <script>
+      FollowUpButton.addEventListener('click', function() {
+          // Redirect to the screening.html.erb page
+          window.location.href = '/followup';
+      });
+  </script>
+
 </body>
 </html>

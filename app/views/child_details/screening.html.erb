@@ -4,27 +4,50 @@
     <title>Screening</title>
     <style>
         /* Styling for the table */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
         table {
             border-collapse: collapse;
             width: 80%;
             margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid #ccc;
         }
 
         th, td {
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
         /* Styling for the buttons */
         .button {
-            background-color: white ;
-            color: black;
+            background-color: #007bff;
+            color: #fff;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         /* Styling for the popup container (initially hidden) */
@@ -40,32 +63,51 @@
             align-items: center;
         }
 
-        /* Styling for the popup box */
-        .popup-box {
+        /* CSS for the smaller popup */
+        .popup-box-small {
+            background-color: #fff;
+            padding: 10px; /* Smaller padding */
+            border-radius: 5px;
+            text-align: left; /* Align options vertically */
+            max-height: 300px; /* Maximum height to enable scrolling if many options */
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+        }
+
+        /* Display radio buttons and labels vertically */
+        .popup-box-small {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .popup-box-small label {
+            display: block;
+        }
+
+        .popup-box-small input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        p {
             text-align: center;
         }
 
-            /* CSS for the smaller popup */
-    .popup-box-small {
-        background-color: #fff;
-        padding: 10px; /* Smaller padding */
-        border-radius: 5px;
-        text-align: left; /* Align options vertically */
-        max-height: 300px; /* Maximum height to enable scrolling if many options */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
-    }
-    /* Display radio buttons and labels vertically */
-    .popup-box-small label {
-        display: block;
-    }
+        button.Preventative, button.FollowUp {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
 
-    /* Add some spacing between radio buttons */
-    .popup-box-small input[type="radio"] {
-        margin-right: 5px;
-    }
+        button.Preventative:hover, button.FollowUp:hover {
+            background-color: #0056b3;
+        }
 
 /* You can further adjust the width, height, and styling as per your requirements */
 
@@ -96,6 +138,11 @@
         <% end %>
       </tr>
       <tr>
+        <% (1..16).each do |tooth_number|%>
+            <td data-cell="popup<%= tooth_number %>">Make a selection</td>
+        <% end %>
+      </tr>
+      <tr>
         <!-- Create buttons for each tooth -->
         <% (32).downto(30).each do |tooth_number| %>
           <td><button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')"><%= tooth_number %></button></td>
@@ -115,6 +162,11 @@
           </td>
         <% end %>
       </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number|%>
+          <td data-cell="popup<%= tooth_number %>">Make a Selection</td>
+        <% end %>
+      </tr>
     </table>
     <% (1..32).each do |tooth_number| %>
       <div class="popup-container" id="popup<%= tooth_number %>">
@@ -124,7 +176,7 @@
             { value: "F", label: "F - Filled" },
             { value: "M", label: "M - Missing" },
             { value: "S", label: "S - Sealant Present" },
-            { value: "PS", label: "PS - Prescribe Present" },
+            # { value: "PS", label: "PS - Prescribe Present" },
             { value: "RS", label: "RS - Recommended Reseal" },
             { value: "no mark", label: "No Treatment (No Mark)" }
           ] %>
@@ -140,33 +192,16 @@
     <% end %>
 <br/>
 <br/>
-    <p>Untreated Cavities:  <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="untreated-cavity"><br>
-    </p>
-    <p>Caries Experience:  <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="caries-experience"></textarea><br>
-    </p>
-    <p>Sealants Present:  <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="sealant-present"></textarea><br>
-    </p>
-    <p>Referred for treatment:  <span contenteditable="true"></span>
-    <input type="text" name="1st-molars" id="referred-for-treatment"></textarea><br>
-    </p>
-
-    <p>Decayed or Filled Surfaces:<span contenteditable="false"></span>
-
-  <div class="decayed-filled-surfaces-fields">
-    <div class="decayed-filled-surfaces-field">
-      <label for="1st-molars">1st Molars:</label>
-      <input type="text" name="1st-molars" id="1st-molars">
-    </div>
-  </div>
+    <p>Untreated Cavities: <span contenteditable="true" id="untreatedCavities">0</span></p>
+    <p>Caries Experience: <span contenteditable="true" id="cariesExperience">0</span></p>
+    <p>Sealants Present:  <span contenteditable="true" id="sealantPresent">0</span></p>
+    <p>Referred for treatment: <span contenteditable="true" id="referredTreatment">0</span></p>
 <br/>
-    <%= link_to "Next", preventive_services_path %>
+    <button type="button" class="Preventative" id="PreventativeButton">Preventative Service</button>
     <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
     <script>
 
-///Code for Screening
+        ///Code for Screening
         const selectedOptions = {}; // Object to hold selected options for each popup
 
         // Function to open the popup and set selected option
@@ -181,23 +216,24 @@
         }
 
         // Function to save the selected option and close the popup
-        function closePopup(Id,popupId) {
+        function closePopup(Id, popupId) {
             const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
-
+            const cell = document.querySelector(`td[data-cell="${popupId}"]`); // Add this line to select the corresponding cell
 
             // Find the selected option for the specific popup
             radioOptions.forEach(option => {
                 if (option.checked) {
-                    selectedOptions[popupId] = option.value; // Save the selected option
+                    selectedOptions[popupId] = option.value; // Save the selected option to the object
+                    cell.textContent = selectedOptions[popupId]; // Set the cell text to the selected option
                 }
             });
-            console.log(selectedOptions)
-
-            // Do something with the selected option (e.g., send it to the server)
-            console.log(`Selected Option for ${popupId}: ${selectedOptions[popupId]}`);
 
             // Close the popup
             closePopupActual(popupId);
+            updateUntreatedCavities();
+            updateReferredTreatment();
+            updateCariesExperience();
+            updateSealantPresent();
         }
 
         // Function to close the popup
@@ -208,16 +244,75 @@
             }
         }
 
+        function updateUntreatedCavities() {
+            let untreatedCavitiesCount = 0;
+
+            for (const tooth in selectedOptions) {
+                if (selectedOptions[tooth] === 'D') {
+                    untreatedCavitiesCount++;
+                }
+            }
+
+            const untreatedCavitiesElement = document.getElementById('untreatedCavities');
+
+            // Update the "Untreated Cavities" field
+            untreatedCavitiesElement.textContent = untreatedCavitiesCount;
+        }
+
+        function updateReferredTreatment() {
+            let ReferredTreatmentCount = 0;
+
+            for (const tooth in selectedOptions) {
+                if (selectedOptions[tooth] === 'RS') {
+                    ReferredTreatmentCount++;
+                }
+            }
+
+            const referredTreatmentElement = document.getElementById('referredTreatment');
+
+            // Update the "Untreated Cavities" field
+            referredTreatmentElement.textContent = ReferredTreatmentCount;
+        }
+
+        function updateCariesExperience() {
+            let CariesExperienceCount = 0;
+
+            for (const tooth in selectedOptions) {
+                if (selectedOptions[tooth] === 'F') {
+                    CariesExperienceCount++;
+                }
+            }
+
+            const cariesExperienceElement = document.getElementById('cariesExperience');
+
+            // Update the "Untreated Cavities" field
+            cariesExperienceElement.textContent = CariesExperienceCount;
+        }
+
+        function updateSealantPresent() {
+            let SealantPresentCount = 0;
+
+            for (const tooth in selectedOptions) {
+                if (selectedOptions[tooth] === 'S') {
+                    SealantPresentCount++;
+                }
+            }
+
+            const sealantPresentElement = document.getElementById('sealantPresent');
+
+            // Update the "Untreated Cavities" field
+            sealantPresentElement.textContent = SealantPresentCount;
+        }
 
         FollowUpButton.addEventListener('click', function() {
-        // Redirect to the screening.html.erb page
-        window.location.href = '/followup';
-      });
-        // // JavaScript to capture the selected date and store it in the hidden field
-        // document.getElementById('date').addEventListener('change', function () {
-        //     document.getElementById('selectedDate').value = this.value;
-        // });
+          // Redirect to the screening.html.erb page
+          window.location.href = '/followup';
+        });
 
+        PreventativeButton.addEventListener('click', function() {
+            // Redirect to the screening.html.erb page
+            window.location.href = '/preventive_services';
+        });
 
     </script>
 </body>
