@@ -144,7 +144,11 @@
       </tr>
       <tr>
         <% (1..16).each do |tooth_number|%>
-          <td data-cell="popup<%= tooth_number %>">Sealant Sealed</td>
+          <td data-cell="popup<%= tooth_number %>">
+            <% if [3, 14].include?(tooth_number) %>
+              Sealant Sealed
+            <% end %>
+          </td>
         <% end %>
       </tr>
       <tr>
@@ -172,6 +176,15 @@
           <td data-cell="popup<%= tooth_number %>">Make a Selection</td>
         <% end %>
       </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number|%>
+          <td data-cell="popup<%= tooth_number %>">
+            <% if [30, 19].include?(tooth_number) %>
+              Sealant Sealed
+          </td>
+            <% end %>
+        <% end %>
+      </tr>
     </table>
     <% (1..32).each do |tooth_number| %>
       <div class="popup-container" id="popup<%= tooth_number %>">
@@ -197,13 +210,70 @@
       </div>
     <% end %>
 <br/>
+    <form>
+      <div>
+        <label for="providerName">Provider's Name</label>
+        <input type="text" id="providerName">
+      </div>
+      <br/>
+
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+      </div>
+      <br/>
+
+      <div>
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" rows="2" cols="20"></textarea>
+      </div>
+      <br/><br/>
+
+      <div>
+        <h3>Data for SEALS</h3>
+      </div>
+
+      <div>
+        <label for="num1stMolarsSealed">Number of 1st molars sealed</label>
+        <input type="text" id="num1stMolarsSealed">
+      </div>
+      <br/>
+
+      <div>
+        <label for="num2ndMolarsSealed">Number of 2nd molars sealed</label>
+        <input type="text" id="num2ndMolarsSealed">
+      </div>
+      <br/>
+
+      <div>
+        <label for="numOtherSealed">Number of other permanent sealed</label>
+        <input type="text" id="numOtherSealed">
+      </div>
+      <br/>
+
+      <div>
+        <label for="numPrimaryTeethSealed">Number of primary teeth sealed</label>
+        <input type="text" id="numPrimaryTeethSealed">
+      </div>
+      <br/>
+
+      <div>
+        <label for="fluorideVarnish">Fluoride varnish provided</label>
+        <select name="fluorideVarnish" id="fluorideVarnish">
+          <option value="">--Please select an option--</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <br/>
+    </form>
 <br/>
     <p>Untreated Cavities: <span contenteditable="false" id="untreatedCavities">0</span></p>
     <p>Caries Experience: <span contenteditable="false" id="cariesExperience">0</span></p>
     <p>Sealants Present:  <span contenteditable="false" id="sealantPresent">0</span></p>
     <p>Referred for treatment: <span contenteditable="false" id="referredTreatment">0</span></p>
 <br/>
-    <button type="button" class="Preventative" id="PreventativeButton">Preventative Service</button>
+<!--    <button type="button" class="Preventative" id="PreventativeButton">Preventative Service</button>-->
     <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
     <script>
 
@@ -315,10 +385,10 @@
           window.location.href = '/followup';
         });
 
-        PreventativeButton.addEventListener('click', function() {
-            // Redirect to the screening.html.erb page
-            window.location.href = '/preventive_services';
-        });
+        // PreventativeButton.addEventListener('click', function() {
+        //     // Redirect to the screening.html.erb page
+        //     window.location.href = '/preventive_services';
+        // });
 
     </script>
 </body>
