@@ -1,0 +1,2 @@
+class ChildLevelDetail < ApplicationRecord
+end

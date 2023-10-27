@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
   create_table "child_details", force: :cascade do |t|
     t.string "PrescriberName"
     t.date "ScreenDate"
@@ -29,6 +29,42 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
     t.boolean "FluorideVarnish"
     t.boolean "Prophylaxes"
     t.string "PreventativeComment"
+    t.string "EvaluatorsName"
+    t.date "EvaluatorDate"
+    t.string "EvaluatorComment"
+    t.integer "RetainedSealant"
+    t.boolean "ReferredDT"
+    t.boolean "ReferredUDT"
+    t.integer "SealantsRecd"
+    t.integer "SealnatsNeeded"
+    t.boolean "Experienced"
+    t.boolean "UntreatedDecayFollow"
+    t.string "Services"
+    t.string "ORHealthStatus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "child_level_details", force: :cascade do |t|
+    t.string "PID"
+    t.string "TeethScreening"
+    t.string "TeethPreventative"
+    t.string "TeethFollowup"
+    t.string "PrescriberName"
+    t.date "ScreenDate"
+    t.string "ScreenComment"
+    t.integer "UntreatedCavities"
+    t.integer "CarriesExperience"
+    t.integer "Sealants"
+    t.integer "ReferralS"
+    t.string "ProviderName"
+    t.date "ProviderDate"
+    t.string "PreventComment"
+    t.integer "FirstSealedNum"
+    t.integer "SecondSealedNum"
+    t.integer "OtherPermNum"
+    t.integer "PrimarySealed"
+    t.boolean "FluorideVarnish"
     t.string "EvaluatorsName"
     t.date "EvaluatorDate"
     t.string "EvaluatorComment"
@@ -92,6 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +141,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_165140) do
     t.string "provider"
   end
 
+  add_foreign_key "tooths", "patient_details"
 end

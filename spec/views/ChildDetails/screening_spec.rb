@@ -8,7 +8,7 @@ RSpec.feature 'Screening page' do
 
     # Test the initial state of the page
     expect(page).to have_content('Screening')
-    expect(page).to have_selector('.button', count: 32)
+    expect(page).to have_selector('.button', count: 35)
     expect(page).to have_selector('.popup-container', count: 32)
     expect(page).to have_content('Untreated Cavities: 0')
     expect(page).to have_content('Caries Experience: 0')
