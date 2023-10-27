@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Screening</title>
+    <title>Think of a Title</title>
     <style>
         /* Styling for the table */
 
@@ -115,8 +115,20 @@
 </head>
 <body>
 
-    <h1>Screening</h1>
-    <table>
+  <button class="button">
+    Screening
+  </button>
+
+  <button class="button">
+    Preventative
+  </button>
+
+  <button class="button">
+    Follow Up
+  </button>
+
+<!--    Screening code starts here-->
+    <table id="table1">
       <tr>
         <!-- Create buttons for each tooth -->
         <% (1..3).each do |tooth_number| %>
@@ -143,16 +155,26 @@
         <% end %>
       </tr>
       <tr>
-        <% (1..16).each do |tooth_number|%>
-          <td data-cell="popup<%= tooth_number %>">
-            <% if [3, 14].include?(tooth_number) %>
-              Sealant Sealed
+        <% (1..16).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 3 || tooth_number == 14 %>
+              <p>Make a Selection for Preventative</p>
             <% end %>
           </td>
         <% end %>
       </tr>
       <tr>
-        <!-- Create buttons for each tooth -->
+        <% (1..16).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 3 || tooth_number == 14 %>
+              <p>Make a Selection for Follow Up</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      </table>
+      <table id="table2">
+      <tr>
         <% (32).downto(30).each do |tooth_number| %>
           <td><button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')"><%= tooth_number %></button></td>
         <% end %>
@@ -177,15 +199,25 @@
         <% end %>
       </tr>
       <tr>
-        <% (32).downto(17).each do |tooth_number|%>
-          <td data-cell="popup<%= tooth_number %>">
-            <% if [30, 19].include?(tooth_number) %>
-              Sealant Sealed
-          </td>
+        <% (32).downto(17).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 30 || tooth_number == 19 %>
+              <p>Make a Selection for Preventative</p>
             <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 30 || tooth_number == 19 %>
+              <p>Make a Selection for Follow Up</p>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     </table>
+    <br>
     <% (1..32).each do |tooth_number| %>
       <div class="popup-container" id="popup<%= tooth_number %>">
         <div class="popup-box-small">
@@ -212,6 +244,21 @@
 <br/>
     <form>
       <div>
+        <label for="prescriberName">Sealant Prescriber’s Signature</label>
+        <input type="text" id="prescriberName">
+      </div>
+      <br/>
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+      </div>
+      <br/>
+      <div>
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" rows="2" cols="20"></textarea>
+      </div>
+      <br/>
+      <div>
         <label for="providerName">Provider's Name</label>
         <input type="text" id="providerName">
       </div>
@@ -227,7 +274,7 @@
         <label for="comment">Comment</label>
         <textarea id="comment" name="comment" rows="2" cols="20"></textarea>
       </div>
-      <br/><br/>
+      <br/>
 
       <div>
         <h3>Data for SEALS</h3>
@@ -268,13 +315,112 @@
       <br/>
     </form>
 <br/>
+    <form>
+      <div>
+        <label for="Evaluator's Name">Evaluator's Name</label>
+        <input type="text" id="1st-molars">
+      </div>
+      <br/>
+      <div>
+        <label for="date">Date</label>
+        <label for="blank"></label>
+        <input type="date" id="date" name="date"><br>
+      </div>
+      <br/>
+      <div>
+        <label for="Comment">Comment</label>
+        <textarea id="comment" name="comment" rows="2" cols="20"></textarea><br>
+      </div>
+      <br/>
+      <br/>
+      <div>
+        <H3>Data for SEALS</H3>
+      </div>
+      <div>
+        <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+        <input type="text" id="Number_of_teeth_with_a_retained_sealant">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+        <label for="Yes">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="Referred for Dental Treatment" value="yes" id="Referred_for_Dental_Treatment_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="Referred for Dental Treatment" value="no" id="Referred_for_Dental_Treatment_No">
+      </div>
+
+      <br/>
+
+      <div>
+        <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="Referred for urgent Dental Treatment" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="Referred for urgent Dental Treatment" value="no" id="Referred_for_urgent_Dental_Treatment_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+        <input type="text" id="Total_Sealants_received">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+        <input type="text" id="Total_Sealants_needed  ">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="Did the patients have caries experience" value="yes" id="Did_the_patients_have_caries_experience_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="Did the patients have caries experience" value="no" id="Did_the_patients_have_caries_experience_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="Did the patient have untreated decay" value="yes" id="Did_the_patient_have_untreated_decay_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="Did the patient have untreated decay" value="no" id="Did_the_patient_have_untreated_decay_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Services the patient received">Services the patient received</label>
+        <label for="blank">   </label>
+        <select name="Services the patient received" >
+          <option value="">--Please select an option--</option>
+          <option value="Sealants">Sealants</option>
+          <option value="Fluoride_Varnish">Fluoride Varnish</option>
+          <option value="Oral_Assessment">Oral Assessment</option>
+          <option value="Prophylaxes">Prophylaxes</option>
+        </select>
+      </div>
+      <br/>
+      <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
+      <textarea id="Overall_Oral_Health_Status" name="comment" rows="4" cols="50"></textarea><br>
+
+      <br/>
+      <input type="submit" value="Submit">
+    </form>
+    <br/>
+
     <p>Untreated Cavities: <span contenteditable="false" id="untreatedCavities">0</span></p>
     <p>Caries Experience: <span contenteditable="false" id="cariesExperience">0</span></p>
     <p>Sealants Present:  <span contenteditable="false" id="sealantPresent">0</span></p>
     <p>Referred for treatment: <span contenteditable="false" id="referredTreatment">0</span></p>
 <br/>
-<!--    <button type="button" class="Preventative" id="PreventativeButton">Preventative Service</button>-->
-    <button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button>
+
     <script>
 
         ///Code for Screening
@@ -379,16 +525,6 @@
             // Update the "Untreated Cavities" field
             sealantPresentElement.textContent = SealantPresentCount;
         }
-
-        FollowUpButton.addEventListener('click', function() {
-          // Redirect to the screening.html.erb page
-          window.location.href = '/followup';
-        });
-
-        // PreventativeButton.addEventListener('click', function() {
-        //     // Redirect to the screening.html.erb page
-        //     window.location.href = '/preventive_services';
-        // });
 
     </script>
 </body>
