@@ -27,7 +27,7 @@
       <div class="col">
         <div class="field">
           <%= form.label :ConsentFD, "Consent Forms Distributed" %>
-          <%= form.text_field :ConsentFD, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+          <%= form.text_field :ConsentFD, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %>
         </div>
       </div>
     </div>
@@ -45,24 +45,24 @@
       <tbody>
         <tr>
           <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours at school</td>
-          <td><%= form.text_field :DenHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
-          <td><%= form.text_field :HygHours, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
-          <td><%= form.text_field :AssistantHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
-          <td><%= form.text_field :OtherHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+          <td><%= form.text_field :DenHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0%></td>
+          <td><%= form.text_field :HygHours, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+          <td><%= form.text_field :AssistantHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+          <td><%= form.text_field :OtherHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
         </tr>
         <tr>
           <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours traveling to and from school</td>
-          <td><%= form.text_field :DenTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :HygTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :AssistantTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :OtherTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :DenTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :HygTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :AssistantTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :OtherTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
         </tr>
         <tr>
           <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total miles traveling to and from school</td>
-          <td><%= form.text_field :DenTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :HygTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :AssistantTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
-          <td><%= form.text_field :OtherTravelMiles, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %></td>
+          <td><%= form.text_field :DenTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :HygTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :AssistantTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :OtherTravelMiles, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
         </tr> 
       </tbody>
     </table>
@@ -77,15 +77,25 @@
     <tbody>
       <tr>
         <td><%= form.label :NumberOfSSPDriven, "No. owned/operated by SSP driven to event" %></td>
-        <td style="text-align: center;"><%= form.text_field :NumberOfSSPDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberOfSSPDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
       </tr>
       <tr>
         <td><%= form.label :TotalMilesDriven, "Total miles driven for event" %></td>
-        <td style="text-align: center;"><%= form.text_field :TotalMilesDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;"%></td>
+        <td style="text-align: center;"><%= form.text_field :TotalMilesDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0%></td>
       </tr>
       
     </tbody>
   </table>
+
+  <!-- JavaScript to prevent negative values -->
+  <script>
+    document.addEventListener("input", function (e) {
+      if (e.target.tagName === "INPUT" && e.target.type === "number" && e.target.value < 0) {
+        e.target.value = 0; 
+      }
+    });
+  </script>
+
   <div>
     <%= form.submit "Create Event", class: "btn btn-primary"%>
   </div>
