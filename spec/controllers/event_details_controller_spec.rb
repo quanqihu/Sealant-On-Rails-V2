@@ -88,7 +88,7 @@ RSpec.describe EventDetailsController, type: :controller do
     {
       EventDate: '2023-10-23',
       School: 'Sample School',
-      ConsentFD: 'Sample ConsentFD',
+      ConsentFD: 2.0,
       DenHrs: 5.0,
       DenTravelHrs: 2.5,
       DenTravelMil: 50.0,
@@ -117,7 +117,7 @@ RSpec.describe EventDetailsController, type: :controller do
     {
       EventDate: '2023-10-24',
       School: 'New School',
-      ConsentFD: 'New ConsentFD',
+      ConsentFD: 3.0,
       DenHrs: 4.5,
       DenTravelHrs: 2.0,
       DenTravelMil: 40.0,
@@ -146,7 +146,7 @@ RSpec.describe EventDetailsController, type: :controller do
     {
       EventDate: nil, # Invalid, missing EventDate
       School: 'Sample School',
-      ConsentFD: 'Sample ConsentFD',
+      ConsentFD: 4.0,
       DenHrs: 5.0,
       DenTravelHrs: 2.5,
       DenTravelMil: 50.0,
