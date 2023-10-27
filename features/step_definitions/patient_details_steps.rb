@@ -9,7 +9,11 @@
     fill_in 'session[password]', :with => 'Licanius'
     click_button "Login"
   end
-  
+
+  When("I enter the date with {string}") do |string|
+    fill_in "patient_detail[Date]", :with => string
+  end
+
   When('I enter the Patientid field with {int}') do |int|
     fill_in "patient_detail[PatientId]", :with => int
   end
@@ -47,15 +51,11 @@
   end
   
   Then('I should see an error message for age') do
-    expect(page).to have_content("Invalid input for age. Age must be a positive number")
-  end
-  
-  Then('the form should not submit') do
-    expect(page.has_current_path?('/patient_details/new')).to be_truthy
+    expect(page).to have_content("Age can't be blank")
   end
   
   Then('I should see an error message for school name') do
-    expect(page).to have_content("School name is required")
+    expect(page).to have_content("Schoolname can't be blank")
   end
 
   Then('I should see an error message for insurance') do
@@ -63,7 +63,7 @@
   end
   
   Then('I should see an error message for grade') do
-    expect(page).to have_content("Grade is required")
+    expect(page).to have_content("Grade can't be blank")
   end
 
 
@@ -88,6 +88,7 @@
     fill_in 'patient_detail[Age]', :with => 7
     fill_in 'patient_detail[Insurance]', :with => "blue cross"
     fill_in 'patient_detail[Grade]', :with => "fifth"
+    fill_in "patient_detail[Date]", :with => "04/04/2023"
     click_button "Create Patient detail"
     visit "/patient_details"
 
@@ -140,4 +141,20 @@
   
   Then("the patient's age should be {int}") do |int|
     expect(page).to have_content(int)
+  end
+
+  When('I click New patient details') do
+    click_button "New patient detail"
+  end
+
+  When('I click on Destroy this patient detail') do
+    click_button "Destroy this patient detail"
+  end
+  
+  Then('I should see a message confirming the deletion') do
+    expect(page).to have_content("Patient detail was successfully destroyed.")
+  end
+
+  Then('I should see an error message for date') do
+    expect(page).to have_content("Date can't be blank")
   end

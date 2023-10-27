@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   get 'statistics/index'
   resources :child_details
-  resources :patient_details
+  resources :patient_details#, :except => ['show']
+
   resources :event_details
 
   root 'application#index'
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
   get '/followup' => 'child_details#followup'
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
+
+  #get '/patient_details/:pid', to: 'patient_details#show', as: 'patient_detail_show', constraints: { pid: /[^\/]+/ }
 end

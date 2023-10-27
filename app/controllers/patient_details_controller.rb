@@ -9,7 +9,10 @@ class PatientDetailsController < ApplicationController
   end
 
   # GET /patient_details/1 or /patient_details/1.json
-  def show; end
+  def show
+    #@patient = PatientDetail.find_by(PID: params[:pid])
+    
+  end
 
   # GET /patient_details/new
   def new

@@ -40,6 +40,13 @@ Feature: Display Table of Patients
         And I click Update Patient detail
         Then I should see a message confirming the update
         And the patient's age should be 8
+
+    Scenario: Deleting a Patient's details
+        Given I have created a patient entry
+        Given I am on the Patient Display page
+        When I click Show This Patient's Details
+        And I click on Destroy this patient detail
+        Then I should see a message confirming the deletion
          
 
 
