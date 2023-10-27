@@ -351,7 +351,7 @@
 <%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
    
     <div class="form-container" id="preventativeFormContainer" style="display: none;">
-      <form>
+      <%# <form> %>
         <div class="form-group">
           <label for="prescriberName">Sealant Prescriber’s Signature</label>
           <input type="text" id="prescriberName" name="child_level_detail[PrescriberName]">
@@ -403,13 +403,13 @@
             <option value="No">No</option>
           </select>
         </div>
-      </form>
+      <%# </form> %>
     </div>
 
     <br/>
   
     <div class="form-container" id="followUpFormContainer" style="display: none;">
-      <form>
+      <%# <form> %>
         <div class="form-group">
           <label for="Evaluator's Name">Evaluator's Name</label>
           <input type="text" id="evaName" name="child_level_detail[EvaluatorsName]">
@@ -504,13 +504,13 @@
         <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
         <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" rows="4" cols="50"></textarea><br>
         <br/>
-        <input type="submit" value="Submit">
-      </form>
+      <%# </form> %>
     </div>
     <br/>
-
-
-  <input type="submit" value="Submit" id="submitButton">
+  <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
+  <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
+  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+<input type="submit" value="Submit" id="submitButton">
 <% end %>
 </body>
 
@@ -732,4 +732,4 @@
           });
     </script>
 
-</html>
+</html> 
