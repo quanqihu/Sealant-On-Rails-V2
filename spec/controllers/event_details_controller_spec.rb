@@ -145,7 +145,7 @@ RSpec.describe EventDetailsController, type: :controller do
     # Define invalid parameters for testing error cases
     {
       EventDate: nil, # Invalid, missing EventDate
-      School: 'Sample School',
+      School: 'Sample School2',
       ConsentFD: 4.0,
       DenHrs: 5.0,
       DenTravelHrs: 2.5,
