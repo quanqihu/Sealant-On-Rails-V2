@@ -122,62 +122,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "preventatives", force: :cascade do |t|
-    t.string "PID"
-    t.string "ProviderName"
-    t.date "ProviderDate"
-    t.integer "FirstSealedNum"
-    t.integer "SecondSealedNum"
-    t.integer "OtherPermNum"
-    t.integer "PrimarySealed"
-    t.boolean "FluorideVarnish"
-    t.boolean "Prophylaxes"
-    t.string "PreventativeComment"
-    t.string "Tooth1"
-    t.string "Tooth2"
-    t.string "Tooth3"
-    t.string "Tooth4"
-    t.string "Tooth5"
-    t.string "Tooth6"
-    t.string "Tooth7"
-    t.string "Tooth8"
-    t.string "Tooth9"
-    t.string "Tooth10"
-    t.string "Tooth11"
-    t.string "Tooth12"
-    t.string "Tooth13"
-    t.string "Tooth14"
-    t.string "Tooth15"
-    t.string "Tooth16"
-    t.string "Tooth17"
-    t.string "Tooth18"
-    t.string "Tooth19"
-    t.string "Tooth20"
-    t.string "Tooth21"
-    t.string "Tooth22"
-    t.string "Tooth23"
-    t.string "Tooth24"
-    t.string "Tooth25"
-    t.string "Tooth26"
-    t.string "Tooth27"
-    t.string "Tooth28"
-    t.string "Tooth29"
-    t.string "Tooth30"
-    t.string "Tooth31"
-    t.string "Tooth32"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tooths", force: :cascade do |t|
-    t.integer "patient_id", null: false
-    t.integer "number"
-    t.integer "screening"
-    t.integer "preventive"
-    t.integer "follow"
+    t.integer "patient_detail_id"
+    t.integer "tooth_number"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_tooths_on_patient_id"
+    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -190,5 +141,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.string "provider"
   end
 
-  add_foreign_key "tooths", "patients"
+  add_foreign_key "tooths", "patient_details"
 end
