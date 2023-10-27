@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   get 'statistics/index'
+  get 'statistics/school'
   resources :child_details
   resources :patient_details
   resources :event_details
