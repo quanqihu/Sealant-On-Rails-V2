@@ -10,8 +10,6 @@
         <th style="text-align: center;">Insurance</th>
         <th style="text-align: center;">Grade</th>
         <th style="text-align: center;"> </th>
-        <th style="text-align: center;"> </th>
-        <th style="text-align: center;"> </th>
       </tr>
     </thead>
     <tbody>
@@ -24,9 +22,7 @@
       <td style="text-align: center;"><%= patient_detail.Date %></td>
       <td style="text-align: center;"><%= patient_detail.Insurance %></td>
       <td style="text-align: center;"><%= patient_detail.Grade %></td>
-      <td><button type="button" class="Screening" id="screeningButton">Screening</button></td>
-      <td><button type="button" class="PreventiveServices" id="preventiveservicesButton">Preventive Services</button></td>
-      <td><button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button></td>
+      <td><button type="button" class="Screening" id="screeningButton">Child Level Data</button></td>
 <!--      <td><%#= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      -->
     </tr>
     </tbody>
@@ -39,7 +35,7 @@
     // Add a click event listener to the "Next" button
   screeningButton.addEventListener('click', function() {
     // Redirect to the screening.html.erb page
-    window.location.href = '/screening';
+    window.location.href = '/child_data';
   });
     // Add a click event listener to the "Next" button
   preventiveservicesButton.addEventListener('click', function() {
