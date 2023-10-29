@@ -1,19 +1,12 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/patient_details_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/event_details_controller.rb": {
         "lines": [
           null,
           null,
-          1,
-          1,
-          null,
           null,
           1,
-          0,
-          null,
-          null,
-          null,
           1,
           null,
           null,
@@ -27,14 +20,32 @@
           null,
           1,
           6,
-          6,
           null,
-          6,
-          6,
-          6,
-          6,
           null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          4,
+          null,
+          4,
+          4,
           6,
+          3,
+          null,
+          2,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          2,
+          1,
           null,
           0,
           0,
@@ -44,26 +55,11 @@
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
+          1,
           null,
           1,
-          0,
-          null,
-          0,
-          0,
-          0,
+          2,
+          1,
           null,
           null,
           null,
@@ -71,17 +67,18 @@
           null,
           null,
           1,
-          6,
+          7,
           null,
           null,
           null,
           1,
-          18,
+          5,
+          null,
           null,
           null
         ]
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/application_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -92,76 +89,208 @@
           0,
           null,
           0,
+          null,
+          null,
+          1,
+          52,
+          null,
+          null,
+          1,
+          52,
+          null,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/application_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/child_details_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/child_level_details_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/event_details_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/patient_details_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/sessions_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/statistics_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/helpers/users_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/event_detail.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/patient_details_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          11,
+          null,
+          null,
+          null,
+          1,
           null,
           null,
           1,
           12,
           null,
           null,
+          null,
           1,
-          12,
+          null,
+          null,
+          1,
+          11,
+          11,
+          null,
+          11,
+          11,
+          0,
+          0,
+          null,
+          0,
+          null,
+          22,
+          11,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          33,
           null,
           null
         ]
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/application_helper.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/patient_detail.rb": {
         "lines": [
           null,
           null,
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/child_details_helper.rb": {
-        "lines": [
-          null,
-          null,
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/event_details_helper.rb": {
-        "lines": [
-          null,
-          null,
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/patient_details_helper.rb": {
-        "lines": [
-          null,
-          null,
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/sessions_helper.rb": {
-        "lines": [
-          null,
-          null,
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/statistics_helper.rb": {
-        "lines": [
           1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/helpers/users_helper.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/patient_detail.rb": {
-        "lines": [
-          null,
-          null,
           1,
           1,
           null,
@@ -170,16 +299,7 @@
           null
         ]
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/application_record.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/channels/application_cable/channel.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -191,7 +311,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/channels/application_cable/connection.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
@@ -203,12 +323,29 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/child_details_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/child_details_controller.rb": {
         "lines": [
           null,
           null,
           null,
           0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/child_level_details_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
           0,
           null,
           null,
@@ -217,41 +354,6 @@
           0,
           null,
           null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           null,
@@ -264,16 +366,42 @@
           0,
           0,
           0,
-          null,
           0,
-          null,
-          null,
+          0,
           0,
           0,
           0,
           null,
           null,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
           0,
           0,
           0,
@@ -282,86 +410,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/event_details_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/sessions_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -409,7 +458,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/statistics_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/statistics_controller.rb": {
         "lines": [
           0,
           0,
@@ -427,6 +476,16 @@
           null,
           null,
           null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           0,
           0
@@ -434,7 +493,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/controllers/users_controller.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/controllers/users_controller.rb": {
         "lines": [
           null,
           null,
@@ -463,7 +522,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/jobs/application_job.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
@@ -478,7 +537,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/mailers/application_mailer.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -490,7 +549,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/child_detail.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/child_detail.rb": {
         "lines": [
           null,
           null,
@@ -501,17 +560,15 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/event_detail.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/child_level_detail.rb": {
         "lines": [
-          null,
-          null,
           0,
           0
         ],
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/tooth.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/tooth.rb": {
         "lines": [
           null,
           null,
@@ -523,7 +580,7 @@
         "branches": {
         }
       },
-      "C:/Users/Sgull/OneDrive/Desktop/CSCE606/DentistryProjectV2/Sealant-On-Rails-V2/app/models/user.rb": {
+      "/Users/jaydeepradadiya/Documents/GitHub/Data_Mgmt_for_Sealants_Outreach_Program/Sealant-On-Rails/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -535,6 +592,6 @@
         }
       }
     },
-    "timestamp": 1698076862
+    "timestamp": 1698446450
   }
 }

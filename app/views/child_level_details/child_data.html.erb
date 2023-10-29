@@ -326,8 +326,8 @@
             { value: "F", label: "F - Filled" },
             { value: "M", label: "M - Missing" },
             { value: "S", label: "S - Sealant Present" },
-            # { value: "PS", label: "PS - Prescribe Present" },
-            { value: "RS", label: "RS - Recommended Reseal" },
+            { value: "RSP", label: "RS - Recommended Reseal Performed" },
+            { value: "RSNP", label: "RS - Recommended Reseal Not Performed" },
             { value: "no mark", label: "No Treatment (No Mark)" }
           ] %>
           <% radio_options.each do |option| %>
@@ -348,7 +348,7 @@
       FollowUp Form
     </button>
 <br/>
-<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
+<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do || %>
    
     <div class="form-container" id="preventativeFormContainer" style="display: none;">
       <%# <form> %>
@@ -623,19 +623,18 @@
                 const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
                 const cell = document.querySelector(`td[data-cell="${popupId}"]`); // Add this line to select the corresponding cell
 
-                console.log(cell);
-                console.log(selectedOptions);
-
                 // Find the selected option for the specific popup
                 radioOptions.forEach(option => {
                     if (option.checked) {
                         selectedOptions[Id] = option.value; // Save the selected option to the object
-                        cell.textContent = selectedOptions[popupId]; // Set the cell text to the selected option
+                        cell.textContent = selectedOptions[Id]; // Set the cell text to the selected option
                     }
                 });
 
                 // Close the popup
                 closePopupActual(popupId);
+                console.log(cell);
+                console.log(selectedOptions);
                 updateUntreatedCavities();
                 updateReferredTreatment();
                 updateCariesExperience();
@@ -721,7 +720,6 @@
 
               // Your code to handle the specific form
               // For example, you can access form fields and submit the form
-
 
               var TeethScreeningStr = JSON.stringify(selectedOptions);
               var TeethScreeningInput = form.querySelector('[name="child_level_detail[TeethScreening]"]');
