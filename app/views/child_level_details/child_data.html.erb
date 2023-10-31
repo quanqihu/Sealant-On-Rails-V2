@@ -348,7 +348,7 @@
       FollowUp Form
     </button>
 <br/>
-<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do || %>
+<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
    
     <div class="form-container" id="preventativeFormContainer" style="display: none;">
       <%# <form> %>
@@ -510,6 +510,9 @@
   <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
   <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
   <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+  <%# #for testing %>
+  <label for="PID">PID</label>
+  <input type="text" id ="PID" name="child_level_detail[PID]">
 <input type="submit" value="Submit" id="submitButton">
 <% end %>
 </body>

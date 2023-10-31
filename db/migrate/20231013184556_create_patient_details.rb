@@ -2,7 +2,7 @@
 
 class CreatePatientDetails < ActiveRecord::Migration[7.1]
   def change
-    create_table :patient_details do |t|
+    create_table :patient_details, id: :string, primary_key: :PID do |t|
       t.integer :PatientId
       t.string :ProgramName
       t.string :SchoolName
