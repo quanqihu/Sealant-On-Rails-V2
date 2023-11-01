@@ -10,7 +10,7 @@ class PatientDetailsController < ApplicationController
 
   # GET /patient_details/1 or /patient_details/1.json
   def show
-    #@patient = PatientDetail.find_by(PID: params[:pid])
+    @patient = PatientDetail.find_by(PID: params[:PID])
     
   end
 
@@ -69,7 +69,7 @@ class PatientDetailsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_patient_detail
-    @patient_detail = PatientDetail.find(params[:id])
+    @patient_detail = PatientDetail.find_by(PID: params[:PID])
   end
 
   # Only allow a list of trusted parameters through.
