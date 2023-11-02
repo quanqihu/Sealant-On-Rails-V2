@@ -530,7 +530,8 @@
   <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
   <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
   <%= form.hidden_field :patient_detail_id, value: @patient_detail.id %>
-  <%# #for testing %>
+  <label for="PID">ID: <%= @patient_detail.id %></label>
+  <label for="PID">PID: <%= @pid %></label>
   <label for="PID">PID</label>
   <input type="text" id ="PID" name="child_level_detail[PID]">
 <input type="submit" value="Submit" id="submitButton">

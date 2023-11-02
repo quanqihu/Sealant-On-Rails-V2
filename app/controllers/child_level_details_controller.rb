@@ -62,6 +62,7 @@ class ChildLevelDetailsController < ApplicationController
   end
   def child_data
     @patient_detail = PatientDetail.find(params[:patient_detail_id])
+    @pid = @patient_detail.PID
   end
 
   private
