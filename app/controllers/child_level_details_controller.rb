@@ -21,11 +21,15 @@ class ChildLevelDetailsController < ApplicationController
 
   # POST /child_level_details or /child_level_details.json
   def create
-    @child_level_detail = ChildLevelDetail.new(child_level_detail_params)
+    @patient_detail = PatientDetail.find(params[:patient_detail_id])
+    # Create a ChildLevelDetail associated with the PatientDetail
+    @child_level_detail = @patient_detail.child_level_details.build(child_level_detail_params)
+
 
     respond_to do |format|
       if @child_level_detail.save
-        format.html { redirect_to child_level_detail_url(@child_level_detail), notice: "Child level detail was successfully created." }
+        format.html { redirect_to child_level_detail_url(@child_level_detail),
+                                  notice: "Child level detail was successfully created." }
         format.json { render :show, status: :created, location: @child_level_detail }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -56,6 +60,9 @@ class ChildLevelDetailsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def child_data
+    @patient_detail = PatientDetail.find(params[:patient_detail_id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -65,6 +72,13 @@ class ChildLevelDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def child_level_detail_params
-      params.require(:child_level_detail).permit(:PID, :TeethScreening, :TeethPreventative, :TeethFollowup, :PrescriberName, :ScreenDate, :ScreenComment, :UntreatedCavities, :CarriesExperience, :Sealants, :ReferralS, :ProviderName, :ProviderDate, :PreventComment, :FirstSealedNum, :SecondSealedNum, :OtherPermNum, :PrimarySealed, :FluorideVarnish, :EvaluatorsName, :EvaluatorDate, :EvaluatorComment, :RetainedSealant, :ReferredDT, :ReferredUDT, :SealantsRecd, :SealnatsNeeded, :Experienced, :UntreatedDecayFollow, :Services, :ORHealthStatus)
+      params.require(:child_level_detail).permit(:PID, :TeethScreening, :TeethPreventative, :TeethFollowup,
+                                                 :PrescriberName, :ScreenDate, :ScreenComment, :UntreatedCavities,
+                                                 :CarriesExperience, :Sealants, :ReferralS, :ProviderName,
+                                                 :ProviderDate, :PreventComment, :FirstSealedNum, :SecondSealedNum,
+                                                 :OtherPermNum, :PrimarySealed, :FluorideVarnish, :EvaluatorsName,
+                                                 :EvaluatorDate, :EvaluatorComment, :RetainedSealant, :ReferredDT,
+                                                 :ReferredUDT, :SealantsRecd, :SealnatsNeeded, :Experienced,
+                                                 :UntreatedDecayFollow, :Services, :ORHealthStatus)
     end
 end

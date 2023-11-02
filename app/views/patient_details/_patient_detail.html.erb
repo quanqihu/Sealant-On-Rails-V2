@@ -10,8 +10,6 @@
         <th style="text-align: center;">Insurance</th>
         <th style="text-align: center;">Grade</th>
         <th style="text-align: center;"> </th>
-        <th style="text-align: center;"> </th>
-        <th style="text-align: center;"> </th>
       </tr>
     </thead>
     <tbody>
@@ -24,9 +22,29 @@
       <td style="text-align: center;"><%= patient_detail.Date %></td>
       <td style="text-align: center;"><%= patient_detail.Insurance %></td>
       <td style="text-align: center;"><%= patient_detail.Grade %></td>
-      <td><button type="button" class="Screening" id="screeningButton">Screening</button></td>
-      <td><button type="button" class="PreventiveServices" id="preventiveservicesButton">Preventive Services</button></td>
-      <td><button type="button" class="FollowUp" id="FollowUpButton">Follow Up</button></td>
+      <td style="
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 8px 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+      ">
+        <button class="Screening" id="screeningButton"
+        style="
+                border: none;
+                background: none;
+                color: inherit;
+                font: inherit;
+                text-align: inherit;
+                padding: 0;
+                cursor: pointer;
+        ">
+          Forms
+        </button>
+      </td>
 <!--      <td><%#= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      -->
     </tr>
     </tbody>
@@ -39,18 +57,7 @@
     // Add a click event listener to the "Next" button
   screeningButton.addEventListener('click', function() {
     // Redirect to the screening.html.erb page
-    window.location.href = '/screening';
+      window.location.href = '/child_data?patient_detail_id=<%= patient_detail.id %>';
   });
-    // Add a click event listener to the "Next" button
-  preventiveservicesButton.addEventListener('click', function() {
-    // Redirect to the screening.html.erb page
-    window.location.href = '/preventive_services';
-  });
-    // Add a click event listener to the "Next" button
-  FollowUpButton.addEventListener('click', function() {
-    // Redirect to the screening.html.erb page
-    window.location.href = '/followup';
-  });
-
 
 </script>

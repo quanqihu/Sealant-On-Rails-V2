@@ -3,6 +3,9 @@
 <h1>Patient Details</h1>
 
 <%= button_to "New patient detail", new_patient_detail_path, method: :get, class: "btn btn-primary" %>
+<br/>
+<%= link_to 'Export All Patient Data', export_child_level_details_with_patient_info_path, class: 'btn btn-primary' %>
+
 <br>
 <br>
 
