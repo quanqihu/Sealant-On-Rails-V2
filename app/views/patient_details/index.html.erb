@@ -58,26 +58,32 @@
 </div>
 
 <script>
-    const searchPatientIdInput = document.getElementById("searchPatientId");
-    const searchSchoolNameInput = document.getElementById("searchSchoolName");
-    const rows = document.querySelectorAll('#patient_details tbody tr');
 
-    const filterRows = () => {
-        rows.forEach(row => {
-            const patientId = row.getAttribute('data-patientid').toLowerCase();
-            const schoolName = row.getAttribute('data-schoolname').toLowerCase();
+    // Encapsulating the code within an IIFE (Immediately Invoked Function Expression)
+    (function() {
+        const searchPatientIdInput = document.getElementById("searchPatientId");
+        const searchSchoolNameInput = document.getElementById("searchSchoolName");
+        const rows = document.querySelectorAll('#patient_details tbody tr');
 
-            const isPatientIdMatch = patientId.includes(searchPatientIdInput.value.toLowerCase());
-            const isSchoolNameMatch = schoolName.includes(searchSchoolNameInput.value.toLowerCase());
+        const filterRows = () => {
+            rows.forEach(row => {
+                const patientId = row.getAttribute('data-patientid').toLowerCase();
+                const schoolName = row.getAttribute('data-schoolname').toLowerCase();
 
-            if (isPatientIdMatch && isSchoolNameMatch) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    };
+                const isPatientIdMatch = patientId.includes(searchPatientIdInput.value.toLowerCase());
+                const isSchoolNameMatch = schoolName.includes(searchSchoolNameInput.value.toLowerCase());
 
-    searchPatientIdInput.addEventListener("input", filterRows);
-    searchSchoolNameInput.addEventListener("input", filterRows);
+                if (isPatientIdMatch && isSchoolNameMatch) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        };
+
+        searchPatientIdInput.addEventListener("input", filterRows);
+        searchSchoolNameInput.addEventListener("input", filterRows);
+    })();
+
+
 </script>

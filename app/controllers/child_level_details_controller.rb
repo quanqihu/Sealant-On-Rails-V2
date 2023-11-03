@@ -17,6 +17,9 @@ class ChildLevelDetailsController < ApplicationController
 
   # GET /child_level_details/1/edit
   def edit
+    @child_level_detail = ChildLevelDetail.find(params[:id])
+    @patient_detail = @child_level_detail.patient_detail
+    @pid = @patient_detail.PID
   end
 
   # POST /child_level_details or /child_level_details.json
