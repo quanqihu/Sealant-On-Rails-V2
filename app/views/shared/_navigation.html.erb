@@ -1,27 +1,32 @@
-<nav class="navigation-container" style="background-color: #333; color: white;">
-  <ul class="horizontal-navigation" style="list-style: none; padding: 0; text-align: center;">
+<%= stylesheet_link_tag "navigation", "data-turbo-track": "reload" %>
+
+<nav class="navigation-container">
+  <div class="logo">
+    <%= image_tag("tamu-school-of-dentistry-logo-black.svg", alt: "School of Dentistry Logo") %>
+  </div>
+  <ul class="horizontal-navigation">
     <% if logged_in? %>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= link_to "Event Details", event_details_path, class: "nav-link" %>
       </li>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= link_to "Patients Details", patient_details_path, class: "nav-link" %>
       </li>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= link_to "Add Patient", new_patient_detail_path, class: "nav-link" %>
       </li>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= link_to "Statistics", statistics_index_path, class: "nav-link" %>
       </li>
-      <li style="display: inline-block; margin: 0 15px;">
+      <li>
         <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
       </li>
     <% else %>
       <% unless request.path_info == login_path %>
-        <li style="display: inline-block; margin: 0 15px;">
+        <li>
           <%= link_to "Login", login_path, class: "login-button" %>
         </li>
       <% end %>

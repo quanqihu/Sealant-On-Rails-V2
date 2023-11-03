@@ -21,9 +21,13 @@ class ChildLevelDetailsController < ApplicationController
 
   # POST /child_level_details or /child_level_details.json
   def create
+
     @patient_detail = PatientDetail.find(params[:patient_detail_id])
+    @pid = @patient_detail.PID # Get PID for the child detail
+
     # Create a ChildLevelDetail associated with the PatientDetail
     @child_level_detail = @patient_detail.child_level_details.build(child_level_detail_params)
+    @child_level_detail.PID = @pid # Assign the PID to the child detail
 
 
     respond_to do |format|

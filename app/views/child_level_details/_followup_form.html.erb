@@ -1,0 +1,101 @@
+<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
+    <div class="form-group">
+      <label for="Evaluator's Name">Evaluator's Name</label>
+      <input type="text" id="evaName" name="child_level_detail[EvaluatorsName]">
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <label for="blank"></label>
+      <input type="date" id="date" name="date" name="child_level_detail[EvaluatorDate]"><br>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="Comment">Comment</label>
+      <textarea id="comment" rows="2" cols="20" name="child_level_detail[EvaluatorComment]"></textarea><br>
+    </div>
+    <br/>
+    <br/>
+    <div class="form-group">
+      <H3>Data for SEALS</H3>
+    </div>
+    <div class="form-group">
+      <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+      <input type="text" id="Number_of_teeth_with_a_retained_sealant" name="child_level_detail[RetainedSealant]">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+      <label for="Yes">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="child_level_detail[ReferredDT]" value="yes" id="Referred_for_Dental_Treatment_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="child_level_detail[ReferredDT]" value="no" id="Referred_for_Dental_Treatment_No">
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+      <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="child_level_detail[ReferredUDT]" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="child_level_detail[ReferredUDT]" value="no" id="Referred_for_urgent_Dental_Treatment_No">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+      <input type="text" id="Total_Sealants_received" name="child_level_detail[SealantsRecd]">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+      <input type="text" id="Total_Sealants_needed" name="child_level_detail[SealnatsNeeded]">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="child_level_detail[Experienced]" value="yes" id="Did_the_patients_have_caries_experience_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="child_level_detail[Experienced]" value="no" id="Did_the_patients_have_caries_experience_No">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+      <label for="blank">   </label>
+      <label for="Yes">Yes</label>
+      <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="yes" id="Did_the_patient_have_untreated_decay_Yes">
+      <label for="No">No</label>
+      <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="no" id="Did_the_patient_have_untreated_decay_No">
+    </div>
+    <br/>
+
+    <div class="form-group">
+      <label for="Services the patient received">Services the patient received</label>
+      <label for="blank">   </label>
+      <select name="child_level_detail[Services]" >
+        <option value="">--Please select an option--</option>
+        <option value="Sealants">Sealants</option>
+        <option value="Fluoride_Varnish">Fluoride Varnish</option>
+        <option value="Oral_Assessment">Oral Assessment</option>
+        <option value="Prophylaxes">Prophylaxes</option>
+      </select>
+    </div>
+    <br/>
+    <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
+    <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" rows="4" cols="50"></textarea><br>
+    <br/>
+
+
+<%= form.hidden_field :patient_detail_id, value: @patient_detail.id %>
+<%= form.hidden_field :PID, value: @pid %>
+
+<% end %>
