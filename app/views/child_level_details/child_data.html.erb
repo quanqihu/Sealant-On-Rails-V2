@@ -1,66 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Think of a Title</title>
+<title>Think of a Title</title>
 
-    <%= stylesheet_link_tag "childdata", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "childdata", "data-turbo-track": "reload" %>
 
-    <%= javascript_include_tag "formSubmission"%>
-    <%= javascript_include_tag "popupHandling" %>
-    <%= javascript_include_tag "updateFields" %>
-    <%= javascript_include_tag "visibilityLogic" %>
+<%= javascript_include_tag "formSubmission", "popupHandling", "updateFields", "visibilityLogic" %>
 
-</head>
-<body>
-    <%= render partial: 'statistics' %>
-  <br/>
-    <%= render partial: 'buttons' %>
-
-<!--    Screening code starts here-->
-    <table id="table1">
-        <%= render partial: 'tooth_table1' %>
-    </table>
-
-    <table id="table2">
-        <%= render partial: 'tooth_table2' %>
-    </table>
-
-    <!-- Popup containers -->
-      <%= render partial: 'popup_container' %>
+<%= render partial: 'statistics' %>
 <br/>
-    <button class="button-primary" id="showPreventativeFormButton">
-      Preventative Form
-    </button>
-    <button class="button-primary" id="showFollowUpFormButton">
-      FollowUp Form
-    </button>
-    <button class="button-primary" onclick="goBack()">
-      Back
-    </button>
+<%= render partial: 'buttons' %>
+
+
+<table id="table1">
+    <%= render partial: 'tooth_table1' %>
+</table>
+
+<table id="table2">
+    <%= render partial: 'tooth_table2' %>
+</table>
+
+<!-- Popup containers -->
+  <%= render partial: 'popup_container' %>
 <br/>
-    <div id="preventativeFormContainer" style="display: none;">
-      <%= render partial: 'preventative_form' %>
+<button class="button-primary" id="showPreventativeFormButton">
+  Preventative Form
+</button>
+<button class="button-primary" id="showFollowUpFormButton">
+  FollowUp Form
+</button>
+<button class="button-primary" onclick="goBack()">
+  Back
+</button>
 <br/>
-    </div>
-
-    <div id="followUpFormContainer" style="display: none;">
-      <%= render partial: 'followup_form' %>
+<div id="preventativeFormContainer" style="display: none;">
+  <%= render partial: 'preventative_form' %>
 <br/>
-    </div>
+</div>
 
-      <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
-      <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
-      <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
-      <label for="ID">ID: <%= @patient_detail.id %></label>
-      <label for="PID">PID: <%= @pid %></label>
-    <input type="submit" value="Submit" id="submitButton">
+<div id="followUpFormContainer" style="display: none;">
+  <%= render partial: 'followup_form' %>
+<br/>
+</div>
+<br/>
 
-</body>
+  <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
+  <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
+  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+  <label for="PID">ID: <%= @patient_detail.id %></label>
+  <label for="PatientID">PatientID: <%= @patient_detail.PatientId %></label>
+  <label for="PID">PID: <%= @pid %></label>
+<input type="submit" value="Submit" id="submitButton">
 
-    <script>
-    function goBack() {
-    window.history.back();
-    }
-    </script>
 
-</html>
+
+<script>
+function goBack() {
+window.history.back();
+}
+</script>
+

@@ -1,6 +1,6 @@
 document.addEventListener("submit", function(event) {
     event.preventDefault();
-    console.log("Form Submitted");
+    // console.log("Form Submitted");
 
     if (event.submitter && event.submitter.id === "submitButton") {
         var form = event.target;

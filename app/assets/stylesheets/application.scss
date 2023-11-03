@@ -1,0 +1,25 @@
+/* Enhanced CSS */
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.logo img {
+  max-width: 150px !important;
+  height: auto;
+}
+/* Main Content */
+main {
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 2em; /* Increase header size for a stronger visual impact */
+  color: #333; /* Adjust text color as needed */
+}
