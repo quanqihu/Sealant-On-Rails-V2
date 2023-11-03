@@ -48,23 +48,27 @@
     </style>
 </head>
 <body>
-<h1>School Details Version 1</h1>
+<h1>School Stats Version 1</h1>
 <table>
     <tr>
         <th>School Name</th>
         <th>Date</th>
-        <th>No of Children Screened</th>
-        <th>No of Children with Sealants</th>
-        <th>No of Teeth Sealed</th>
-        <th>No of Children with Fluoride Varnish</th>
+        <th>Children Screened</th>
+        <th>Children received Sealants</th>
+        <th>Teeth Sealed</th>
+        <th>Children received Fluoride Varnish</th>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <% @school_data.each do |data| %>
+            <tr>
+                <td><%= data.SchoolName %></td>
+                <td><%= data.Date %></td>
+                <td><%= data.children_screened %></td>
+                <td><%= data.children_rec_sealants %></td>
+                <td><%= data.teeth_sealed %></td>
+                <td><%= data.children_with_fluoride %></td>
+            </tr>
+        <% end %>
     </tr>
 </table>
 </body>
