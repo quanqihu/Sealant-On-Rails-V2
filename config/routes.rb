@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'statistics/index'
   get 'statistics/school'
   resources :child_details
-  resources :patient_details
+  resources :patient_details, param: :PID
+
   resources :event_details
 
   root 'application#index'
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
   get '/screening' => 'child_details#screening'
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
+
+  get '/patient_details/:PID', to: 'patient_details#show', as: 'patient_detail_show'
 end

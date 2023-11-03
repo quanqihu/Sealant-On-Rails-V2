@@ -123,12 +123,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
   end
 
   create_table "tooths", force: :cascade do |t|
-    t.integer "patient_detail_id"
-    t.integer "tooth_number"
-    t.text "details"
+    t.integer "number"
+    t.integer "screening"
+    t.integer "preventive"
+    t.integer "follow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -141,5 +141,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.string "provider"
   end
 
-  add_foreign_key "tooths", "patient_details"
 end
