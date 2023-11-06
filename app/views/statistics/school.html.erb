@@ -45,10 +45,28 @@
         background-color: #333;
         color: #fff;
         }
+
+        .chart-box {
+            width: 40%;
+            display: inline-block;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
-<h1>School Stats Version 1</h1>
+    <h1>School Stats Version 2</h1>
+
+    <br>
+    <div class="chart-box">
+      <canvas id="groupedChart1"></canvas>
+    </div>
+    
 <table>
     <tr>
         <th>School Name</th>
@@ -71,5 +89,19 @@
         <% end %>
     </tr>
 </table>
+<script>
+    var ctxGrouped1 = document.getElementById('groupedChart1').getContext('2d');
+        var groupedChart1 = new Chart(ctxGrouped1, {
+            type: 'bar',
+            data: <%= @chart_data1.to_json.html_safe %>,
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+</script>
 </body>
 </html>
