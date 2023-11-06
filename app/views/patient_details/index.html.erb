@@ -67,10 +67,10 @@
 
         const filterRows = () => {
             rows.forEach(row => {
-                const patientId = row.getAttribute('data-patientid').toLowerCase();
+                const patientId = row.getAttribute('data-patientid');
                 const schoolName = row.getAttribute('data-schoolname').toLowerCase();
 
-                const isPatientIdMatch = patientId.includes(searchPatientIdInput.value.toLowerCase());
+                const isPatientIdMatch = patientId.includes(searchPatientIdInput.value);
                 const isSchoolNameMatch = schoolName.includes(searchSchoolNameInput.value.toLowerCase());
 
                 if (isPatientIdMatch && isSchoolNameMatch) {
@@ -84,6 +84,5 @@
         searchPatientIdInput.addEventListener("input", filterRows);
         searchSchoolNameInput.addEventListener("input", filterRows);
     })();
-
 
 </script>

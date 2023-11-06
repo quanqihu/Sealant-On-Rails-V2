@@ -62,10 +62,10 @@
 
     const filterRows = () => {
         rows.forEach(row => {
-            const eventDate = row.getAttribute('data-eventdate').toLowerCase();
+            const eventDate = row.getAttribute('data-eventdate');
             const school = row.getAttribute('data-school').toLowerCase();
 
-            const isEventDateMatch = eventDate.includes(searchEventDateInput.value.toLowerCase());
+            const isEventDateMatch = eventDate.includes(searchEventDateInput.value);
             const isSchoolMatch = school.includes(searchSchoolInput.value.toLowerCase());
 
             if (isEventDateMatch && isSchoolMatch) {
