@@ -1,11 +1,20 @@
 class StatisticsController < ApplicationController
   def index
       @statistics_data = PatientDetail.select(
-        :PatientId, :SchoolName, :Date, :Age, :Grade, :PID
-        # :Gender, :Race, :Ethnicity,
-        # :DateOfSealantReceived, :SealnatsNeeded, :SealantsRecd, :SealantsReplaced,
-        # :Sealants, :Experienced, :UntreatedDecayScreen, :ReferredDT, :ReferredUDT, :Services
-      )
+        :PatientId, :SchoolName, :Date, :Age, :Grade, :PID, :Gender, :Race, :Ethnicity,
+        'child_level_details.ScreenDate AS DateOfSealentReceived',
+        'child_level_details.SealnatsNeeded AS NoOfSealentNeeded',
+        'child_level_details.SealantsRecd AS NoOfSealentReceived',
+        # 'child_level_details.SealantsReplaced AS NoOfSealentReplaced', Code for Sealent Received
+        # code for "Did they have any Sealent?"
+        "CASE WHEN child_level_details.Experienced = 1 THEN 'Yes' ELSE 'No' END AS CarriesExperience",
+        "CASE WHEN child_level_details.UntreatedDecayFollow = 1 THEN 'Yes' ELSE 'No' END AS UntreatedDecay",
+        "CASE WHEN child_level_details.ReferredDT = 1 THEN 'Yes' ELSE 'No' END AS ReferredForDT",
+        "CASE WHEN child_level_details.ReferredUDT = 1 THEN 'Yes' ELSE 'No' END AS ReferredForUDT",
+        "CASE WHEN child_level_details.FluorideVarnish = 1 THEN 'Yes' ELSE 'No' END AS FluorideVarnish",
+        # :Sealants, :Experienced, :Services
+      ).left_outer_joins(:child_level_details)
+      
       # You can add more complex logic to calculate statistics here.
 
       # For example, you can calculate the number of patients with sealants.
@@ -15,6 +24,19 @@ class StatisticsController < ApplicationController
 
       # Render the view.
   end
+  def schoolStats
+    @school_data = PatientDetail.select(
+      :SchoolName,
+      :Date,
+      'COUNT(DISTINCT patient_details.PatientId) AS children_screened',
+      'COUNT(DISTINCT CASE WHEN COALESCE(child_level_details.FirstSealedNum, 0) > 0 OR COALESCE(child_level_details.SecondSealedNum, 0) > 0 OR COALESCE(child_level_details.OtherPermNum, 0) > 0 OR COALESCE(child_level_details.PrimarySealed, 0) > 0 THEN patient_details.PatientId ELSE NULL END) AS children_rec_sealants',
+      'SUM(COALESCE(child_level_details.FirstSealedNum, 0) + COALESCE(child_level_details.SecondSealedNum, 0) + COALESCE(child_level_details.OtherPermNum, 0) + COALESCE(child_level_details.PrimarySealed, 0)) AS teeth_sealed',
+      'SUM(CASE WHEN child_level_details.FluorideVarnish = true THEN 1 ELSE 0 END) AS children_with_fluoride'
+    )
+    .joins(:child_level_details)
+    .group(:SchoolName, :Date)
+  end
+
 
   def school
     @school_data = PatientDetail.select(

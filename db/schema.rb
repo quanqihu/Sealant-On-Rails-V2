@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
   create_table "child_details", force: :cascade do |t|
     t.string "PrescriberName"
     t.date "ScreenDate"
@@ -119,6 +119,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.string "Grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Gender"
+    t.string "Race"
+    t.string "Ethnicity"
   end
 
   create_table "tooths", force: :cascade do |t|
