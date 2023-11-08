@@ -4,12 +4,12 @@ class PatientDetail < ApplicationRecord
 
   self.primary_key = "PID"
 
-  validates :PatientId, presence: true
+  validates :PatientId, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :SchoolName, presence: true
-  validates :Age, presence: true
+  validates :Age, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :Date, presence: true
   validates :Insurance, presence: true
-  validates :Grade, presence: true
+  validates :Grade, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :PatientId,
             uniqueness: { scope: :SchoolName, message: 'Duplicate Patient details for the same SchoolName' }
   validates :PID, uniqueness: true

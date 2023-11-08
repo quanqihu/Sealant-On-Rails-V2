@@ -22,14 +22,13 @@ class ChildLevelDetailsController < ApplicationController
   # POST /child_level_details or /child_level_details.json
   def create
 
-    params[:child_level_detail].delete(:id)  # This line removes the id key from the parameters
     @child_level_detail = ChildLevelDetail.new(child_level_detail_params)
 
     respond_to do |format|
       if @child_level_detail.save
         format.html { redirect_to child_level_detail_url(@child_level_detail),
                                   notice: "Child level detail was successfully created." }
-        # format.json { render :show, status: :created, location: @child_level_detail }
+        format.json { render :show, status: :created, location: @child_level_detail }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @child_level_detail.errors, status: :unprocessable_entity }
@@ -41,7 +40,8 @@ class ChildLevelDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @child_level_detail.update(child_level_detail_params)
-        format.html { redirect_to child_level_detail_url(@child_level_detail), notice: "Child level detail was successfully updated." }
+        format.html { redirect_to child_level_detail_url(@child_level_detail),
+                                  notice: "Child level detail was successfully updated." }
         format.json { render :show, status: :ok, location: @child_level_detail }
       else
         format.html { render :edit, status: :unprocessable_entity }
