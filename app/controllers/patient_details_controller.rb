@@ -11,7 +11,6 @@ class PatientDetailsController < ApplicationController
   # GET /patient_details/1 or /patient_details/1.json
   def show
     @patient = PatientDetail.find_by(PID: params[:PID])
-    
   end
 
   # GET /patient_details/new

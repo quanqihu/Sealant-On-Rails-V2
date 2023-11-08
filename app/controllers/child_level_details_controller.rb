@@ -17,27 +17,19 @@ class ChildLevelDetailsController < ApplicationController
 
   # GET /child_level_details/1/edit
   def edit
-    @child_level_detail = ChildLevelDetail.find(params[:id])
-    @patient_detail = @child_level_detail.patient_detail
-    @pid = @patient_detail.PID
   end
 
   # POST /child_level_details or /child_level_details.json
   def create
 
-    @patient_detail = PatientDetail.find(params[:patient_detail_id])
-    @pid = @patient_detail.PID # Get PID for the child detail
-
-    # Create a ChildLevelDetail associated with the PatientDetail
-    @child_level_detail = @patient_detail.child_level_details.build(child_level_detail_params)
-    @child_level_detail.PID = @pid # Assign the PID to the child detail
-
+    params[:child_level_detail].delete(:id)  # This line removes the id key from the parameters
+    @child_level_detail = ChildLevelDetail.new(child_level_detail_params)
 
     respond_to do |format|
       if @child_level_detail.save
         format.html { redirect_to child_level_detail_url(@child_level_detail),
                                   notice: "Child level detail was successfully created." }
-        format.json { render :show, status: :created, location: @child_level_detail }
+        # format.json { render :show, status: :created, location: @child_level_detail }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @child_level_detail.errors, status: :unprocessable_entity }
@@ -67,26 +59,27 @@ class ChildLevelDetailsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def child_data
     @patient_detail = PatientDetail.find(params[:patient_detail_id])
     @pid = @patient_detail.PID
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_child_level_detail
-      @child_level_detail = ChildLevelDetail.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_child_level_detail
+    @child_level_detail = ChildLevelDetail.find_by(PID: params[:PID])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def child_level_detail_params
-      params.require(:child_level_detail).permit(:PID, :TeethScreening, :TeethPreventative, :TeethFollowup,
-                                                 :PrescriberName, :ScreenDate, :ScreenComment, :UntreatedCavities,
-                                                 :CarriesExperience, :Sealants, :ReferralS, :ProviderName,
-                                                 :ProviderDate, :PreventComment, :FirstSealedNum, :SecondSealedNum,
-                                                 :OtherPermNum, :PrimarySealed, :FluorideVarnish, :EvaluatorsName,
-                                                 :EvaluatorDate, :EvaluatorComment, :RetainedSealant, :ReferredDT,
-                                                 :ReferredUDT, :SealantsRecd, :SealnatsNeeded, :Experienced,
-                                                 :UntreatedDecayFollow, :Services, :ORHealthStatus)
-    end
+  # Only allow a list of trusted parameters through.
+  def child_level_detail_params
+    params.require(:child_level_detail).permit(:PID, :TeethScreening, :TeethPreventative, :TeethFollowup,
+                                               :PrescriberName, :ScreenDate, :ScreenComment, :UntreatedCavities,
+                                               :CarriesExperience, :Sealants, :ReferralS, :ProviderName, :ProviderDate,
+                                               :PreventComment, :FirstSealedNum, :SecondSealedNum, :OtherPermNum,
+                                               :PrimarySealed, :FluorideVarnish, :EvaluatorsName, :EvaluatorDate,
+                                               :EvaluatorComment, :RetainedSealant, :ReferredDT, :ReferredUDT,
+                                               :SealantsRecd, :SealnatsNeeded, :Experienced, :UntreatedDecayFollow,
+                                               :Services, :ORHealthStatus)
+  end
 end

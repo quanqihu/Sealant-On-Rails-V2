@@ -1,4 +1,3 @@
-<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
   <div class="form-group">
     <%= form.label :EvaluatorsName, "Evaluator's Name" %>
     <%= form.text_area :EvaluatorsName %>
@@ -85,7 +84,3 @@
   <%= form.label :ORHealthStatus, "Overall Oral Health Status:" %><br>
   <%= form.text_area :ORHealthStatus, id: 'Overall_Oral_Health_Status', rows: 4, cols: 50 %>
   <br/>
-
-  <%= form.hidden_field :patient_detail_id, value: @patient_detail.id %>
-  <%= form.hidden_field :PID, value: @pid %>
-<% end %>
