@@ -11,7 +11,6 @@ class PatientDetailsController < ApplicationController
   # GET /patient_details/1 or /patient_details/1.json
   def show
     @patient = PatientDetail.find_by(PID: params[:PID])
-    
   end
 
   # GET /patient_details/new
@@ -74,6 +73,6 @@ class PatientDetailsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def patient_detail_params
-    params.require(:patient_detail).permit(:PatientId, :ProgramName, :SchoolName, :Age, :Date, :Insurance, :Grade, :PID)
+    params.require(:patient_detail).permit(:PatientId, :ProgramName, :SchoolName, :Age, :Date, :Insurance, :Grade, :PID, :Gender, :Race, :Ethnicity)
   end
 end

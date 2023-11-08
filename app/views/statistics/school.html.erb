@@ -45,27 +45,63 @@
         background-color: #333;
         color: #fff;
         }
+
+        .chart-box {
+            width: 40%;
+            display: inline-block;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
-<h1>School Details Version 1</h1>
+    <h1>School Stats Version 2</h1>
+
+    <br>
+    <div class="chart-box">
+      <canvas id="groupedChart1"></canvas>
+    </div>
+    
 <table>
     <tr>
         <th>School Name</th>
         <th>Date</th>
-        <th>No of Children Screened</th>
-        <th>No of Children with Sealants</th>
-        <th>No of Teeth Sealed</th>
-        <th>No of Children with Fluoride Varnish</th>
+        <th>Children Screened</th>
+        <th>Children received Sealants</th>
+        <th>Teeth Sealed</th>
+        <th>Children received Fluoride Varnish</th>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <% @school_data.each do |data| %>
+            <tr>
+                <td><%= data.SchoolName %></td>
+                <td><%= data.Date %></td>
+                <td><%= data.children_screened %></td>
+                <td><%= data.children_rec_sealants %></td>
+                <td><%= data.teeth_sealed %></td>
+                <td><%= data.children_with_fluoride %></td>
+            </tr>
+        <% end %>
     </tr>
 </table>
+<script>
+    var ctxGrouped1 = document.getElementById('groupedChart1').getContext('2d');
+        var groupedChart1 = new Chart(ctxGrouped1, {
+            type: 'bar',
+            data: <%= @chart_data1.to_json.html_safe %>,
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+</script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
   create_table "child_details", force: :cascade do |t|
     t.string "PrescriberName"
     t.date "ScreenDate"
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "patient_details", force: :cascade do |t|
+  create_table "patient_details", primary_key: "PID", id: :string, force: :cascade do |t|
     t.integer "PatientId"
     t.string "ProgramName"
     t.string "SchoolName"
@@ -117,18 +117,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_004131) do
     t.date "Date"
     t.string "Insurance"
     t.string "Grade"
-    t.string "PID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Gender"
+    t.string "Race"
+    t.string "Ethnicity"
   end
 
   create_table "tooths", force: :cascade do |t|
-    t.integer "number"
-    t.integer "screening"
-    t.integer "preventive"
-    t.integer "follow"
+    t.integer "patient_detail_id"
+    t.integer "tooth_number"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
