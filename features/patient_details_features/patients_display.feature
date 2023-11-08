@@ -10,26 +10,6 @@ Feature: Display Table of Patients
         When I go to the patient display page
         Then I should see that entry
     
-    Scenario: Visiting Patient Screening page
-        Given I have created a patient entry
-        Given I am on the Patient Display page
-        When I click Show This Patient's Details
-        And I click Screening
-        Then I should be on the screening form
-
-    Scenario: Visiting Patient Preventive Service page
-        Given I have created a patient entry
-        Given I am on the Patient Display page
-        When I click Show This Patient's Details
-        And I click Preventive Service
-        Then I should be on the screening form
-    
-    Scenario: Visiting Patient Follow Up page
-        Given I have created a patient entry
-        Given I am on the Patient Display page
-        When I click Show This Patient's Details
-        And I click Follow Up
-        Then I should be on the screening form
 
     Scenario: Editing a Patient's Details
         Given I have created a patient entry

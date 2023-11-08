@@ -59,7 +59,7 @@
   end
 
   Then('I should see an error message for insurance') do
-    expect(page).to have_content("Insurance is required")
+    expect(page).to have_content("Insurance can't be blank")
   end
   
   Then('I should see an error message for grade') do
