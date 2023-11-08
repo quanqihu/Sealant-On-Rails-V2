@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   get '/export_event_details', to: 'excel_exports#export_event_details'
   get '/export_child_level_details_with_patient_info', to: 'excel_exports#export_child_level_details'
-  resources :child_level_details
+  resources :child_level_details, param: :PID
   get 'statistics/index'
   get 'statistics/school'
   get 'statistics/event'

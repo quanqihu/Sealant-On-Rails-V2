@@ -8,6 +8,7 @@ class ChildLevelDetailsController < ApplicationController
 
   # GET /child_level_details/1 or /child_level_details/1.json
   def show
+    @child_level_detail = ChildLevelDetail.find_by(PID: params[:PID])
   end
 
   # GET /child_level_details/new
