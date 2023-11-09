@@ -10,42 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
-  create_table "child_details", force: :cascade do |t|
-    t.string "PrescriberName"
-    t.date "ScreenDate"
-    t.string "ScreenComment"
-    t.boolean "Sealants"
-    t.boolean "UntreatedDecayScreen"
-    t.boolean "TreatedDecay"
-    t.string "Referral"
-    t.integer "DecayedNum"
-    t.string "ProviderName"
-    t.date "ProviderDate"
-    t.integer "FirstSealedNum"
-    t.integer "SecondSealedNum"
-    t.integer "OtherPermNum"
-    t.integer "PrimarySealed"
-    t.boolean "FluorideVarnish"
-    t.boolean "Prophylaxes"
-    t.string "PreventativeComment"
-    t.string "EvaluatorsName"
-    t.date "EvaluatorDate"
-    t.string "EvaluatorComment"
-    t.integer "RetainedSealant"
-    t.boolean "ReferredDT"
-    t.boolean "ReferredUDT"
-    t.integer "SealantsRecd"
-    t.integer "SealnatsNeeded"
-    t.boolean "Experienced"
-    t.boolean "UntreatedDecayFollow"
-    t.string "Services"
-    t.string "ORHealthStatus"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "child_level_details", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
+  create_table "child_level_details", id: false, force: :cascade do |t|
     t.string "PID"
     t.string "TeethScreening"
     t.string "TeethPreventative"
@@ -122,15 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
     t.string "Gender"
     t.string "Race"
     t.string "Ethnicity"
-  end
-
-  create_table "tooths", force: :cascade do |t|
-    t.integer "patient_detail_id"
-    t.integer "tooth_number"
-    t.text "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|

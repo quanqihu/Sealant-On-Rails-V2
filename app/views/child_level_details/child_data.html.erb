@@ -30,22 +30,171 @@
   Back
 </button>
 <br/>
-<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
+
+<%= form_with model: @child_level_detail, url: child_level_details_path, method: :post,  local: true, id: 'unique-form-id' do |form| %>
 <div id="preventativeFormContainer" style="display: none;">
-  <%= render 'preventative_form', form: form %>
+  
+      <div class="form-group">
+        <label for="prescriberName">Sealant Prescriber’s Signature</label>
+        <input type="text" id="prescriberName" name="child_level_detail[PrescriberName]" value="<%= @child_data1 ? @child_data1.PrescriberName : '' %>">
+
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="child_level_detail[ScreenDate]"value="<%= @child_data1 ? @child_data1.ScreenDate : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="child_level_detail[ScreenComment]" rows="2" cols="20"><%= @child_data1&.ScreenComment.presence || '' %></textarea>
+
+      </div>
+      <div class="form-group">
+        <label for="providerName">Provider's Name</label>
+        <input type="text" id="providerName" name="child_level_detail[ProviderName]" value="<%= @child_data1 ? @child_data1.ProviderName : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="child_level_detail[ProviderDate]"value="<%= @child_data1 ? @child_data1.ProviderDate : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea id="comment"  rows="2" cols="20" name="child_level_detail[PreventComment]"value="<%= @child_data1 ? @child_data1.PreventComment : '' %>"></textarea>
+      </div>
+      <div class="form-section">
+        <h3>Data for SEALS</h3>
+      </div>
+      <div class="form-group">
+        <label for="num1stMolarsSealed">Number of 1st molars sealed</label>
+        <input type="text" id="num1stMolarsSealed" name="child_level_detail[FirstSealedNum]"value="<%= @child_data1 ? @child_data1.FirstSealedNum : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="num2ndMolarsSealed">Number of 2nd molars sealed</label>
+        <input type="text" id="num2ndMolarsSealed" name="child_level_detail[SecondSealedNum]"value="<%= @child_data1 ? @child_data1.SecondSealedNum : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="numOtherSealed">Number of other permanent sealed</label>
+        <input type="text" id="numOtherSealed"name="child_level_detail[OtherPermNum]" value="<%= @child_data1 ? @child_data1.OtherPermNum : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="numPrimaryTeethSealed">Number of primary teeth sealed</label>
+        <input type="text" id="numPrimaryTeethSealed" name="child_level_detail[PrimarySealed]" value="<%= @child_data1 ? @child_data1.PrimarySealed : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="fluorideVarnish">Fluoride varnish provided</label>
+        <select name="child_level_detail[FluorideVarnish]" id="fluorideVarnish">
+          <option value="" <%= 'selected' if @child_data1&.FluorideVarnish.blank? %>>--Please select an option--</option>
+          <option value="Yes" <%= 'selected' if @child_data1&.FluorideVarnish == 'Yes' %>>Yes</option>
+          <option value="No" <%= 'selected' if @child_data1&.FluorideVarnish == 'No' %>>No</option>
+        </select>
+      </div>
+
+
 <br/>
 </div>
 
 <div id="followUpFormContainer" style="display: none;">
-  <%= render 'followup_form', form: form %>
 <br/>
+      <div>
+        <label for="Evaluator's Name">Evaluator's Name</label>
+        <input type="text" id="1st-molars" name="child_level_detail[EvaluatorsName]" value="<%= @child_data1 ? @child_data1.EvaluatorsName : '' %>">
+      </div>
+      <br/>
+      <div>
+        <label for="date">Date</label>
+        <label for="blank"></label>
+        <input type="date" id="date" name="date" name="child_level_detail[EvaluatorDate]" value="<%= @child_data1 ? @child_data1.EvaluatorDate : '' %>"><br>
+      </div>
+      <br/>
+      <div>
+        <label for="Comment">Comment</label>
+        <textarea id="comment" rows="2" cols="20" name="child_level_detail[EvaluatorComment]" value="<%= @child_data1 ? @child_data1.EvaluatorComment : '' %>"></textarea><br>
+      </div>
+      <br/>
+      <br/>
+      <div>
+        <H3>Data for SEALS</H3>
+      </div>
+      <div>
+        <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+        <input type="text" id="Number_of_teeth_with_a_retained_sealant" name="child_level_detail[RetainedSealant]" value="<%= @child_data1 ? @child_data1.RetainedSealant : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+        <label for="Yes">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[ReferredDT]" value="yes" id="Referred_for_Dental_Treatment_Yes" value="<%= @child_data1 ? @child_data1.ReferredDT : '' %>">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[ReferredDT]" value="no" id="Referred_for_Dental_Treatment_No" value="<%= @child_data1 ? @child_data1.ReferredDT : '' %>">
+      </div>
+
+      <br/>
+
+      <div>
+        <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes" value="<%= @child_data1 ? @child_data1.ReferredUDT : '' %>">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="no" id="Referred_for_urgent_Dental_Treatment_No" value="<%= @child_data1 ? @child_data1.ReferredUDT : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+        <input type="text" id="Total_Sealants_received" name="child_level_detail[SealantsRecd]" value="<%= @child_data1 ? @child_data1.SealantsRecd : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+        <input type="text" id="Total_Sealants_needed" name="child_level_detail[SealnatsNeeded]" value="<%= @child_data1 ? @child_data1.SealnatsNeeded : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[Experienced]" value="yes" id="Did_the_patients_have_caries_experience_Yes" value="<%= @child_data1 ? @child_data1.Experienced : '' %>">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[Experienced]" value="no" id="Did_the_patients_have_caries_experience_No" value="<%= @child_data1 ? @child_data1.Experienced : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="yes" id="Did_the_patient_have_untreated_decay_Yes" value="<%= @child_data1 ? @child_data1.UntreatedDecayFollow : '' %>">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="no" id="Did_the_patient_have_untreated_decay_No" value="<%= @child_data1 ? @child_data1.UntreatedDecayFollow : '' %>">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Services the patient received">Services the patient received</label>
+        <label for="blank">   </label>
+        <select name="child_level_detail[Services]" value="<%= @child_data1 ? @child_data1.Services : '' %>">
+          <option value="">--Please select an option--</option>
+          <option value="Sealants">Sealants</option>
+          <option value="Fluoride_Varnish">Fluoride Varnish</option>
+          <option value="Oral_Assessment">Oral Assessment</option>
+          <option value="Prophylaxes">Prophylaxes</option>
+        </select>
+      </div>
+      <br/>
+      <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
+      <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" value="<%= @child_data1 ? @child_data1.ORHealthStatus : '' %>" rows="4" cols="50"></textarea><br>
+  <br/>
 </div>
 <br/>
-  <%= form.hidden_field :PID, value: @pid %>
-
+  <input type="hidden" id="PID" name="child_level_detail[PID]" value="<%= @pid %>">
+  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
   <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
   <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
-  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+
 <input type="submit" value="Submit" id="submitButton">
 <% end %>
 
