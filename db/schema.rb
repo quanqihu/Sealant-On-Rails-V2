@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "patient_details", primary_key: "PID", id: :string, force: :cascade do |t|
+  create_table "patient_details", force: :cascade do |t|
     t.integer "PatientId"
     t.string "ProgramName"
     t.string "SchoolName"
@@ -117,6 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
     t.date "Date"
     t.string "Insurance"
     t.string "Grade"
+    t.string "PID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "Gender"
@@ -125,12 +126,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_181542) do
   end
 
   create_table "tooths", force: :cascade do |t|
-    t.integer "patient_detail_id"
-    t.integer "tooth_number"
-    t.text "details"
+    t.integer "number"
+    t.integer "screening"
+    t.integer "preventive"
+    t.integer "follow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_detail_id"], name: "index_tooths_on_patient_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
