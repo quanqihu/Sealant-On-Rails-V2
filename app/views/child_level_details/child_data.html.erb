@@ -58,7 +58,7 @@
       </div>
       <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea id="comment"  rows="2" cols="20" name="child_level_detail[PreventComment]"value="<%= @child_data1 ? @child_data1.PreventComment : '' %>"></textarea>
+        <textarea id="comment" name="child_level_detail[PreventComment]" rows="2" cols="20"><%= @child_data1&.PreventComment.presence || '' %></textarea>
       </div>
       <div class="form-section">
         <h3>Data for SEALS</h3>
@@ -83,8 +83,8 @@
         <label for="fluorideVarnish">Fluoride varnish provided</label>
         <select name="child_level_detail[FluorideVarnish]" id="fluorideVarnish">
           <option value="" <%= 'selected' if @child_data1&.FluorideVarnish.blank? %>>--Please select an option--</option>
-          <option value="Yes" <%= 'selected' if @child_data1&.FluorideVarnish == 'Yes' %>>Yes</option>
-          <option value="No" <%= 'selected' if @child_data1&.FluorideVarnish == 'No' %>>No</option>
+          <option value=true <%= 'selected' if @child_data1&.FluorideVarnish == true %>>Yes</option>
+          <option value=false <%= 'selected' if @child_data1&.FluorideVarnish == false %>>No</option>
         </select>
       </div>
 
@@ -107,7 +107,7 @@
       <br/>
       <div>
         <label for="Comment">Comment</label>
-        <textarea id="comment" rows="2" cols="20" name="child_level_detail[EvaluatorComment]" value="<%= @child_data1 ? @child_data1.EvaluatorComment : '' %>"></textarea><br>
+      <textarea id="Evaluator_Comment" name="child_level_detail[EvaluatorComment]" rows="2" cols="20"><%= @child_data1&.EvaluatorComment.presence || '' %></textarea>
       </div>
       <br/>
       <br/>
@@ -120,14 +120,15 @@
       </div>
       <br/>
 
-      <div>
-        <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
-        <label for="Yes">   </label>
-        <label for="Yes">Yes</label>
-        <input type="radio" name="child_level_detail[ReferredDT]" value="yes" id="Referred_for_Dental_Treatment_Yes" value="<%= @child_data1 ? @child_data1.ReferredDT : '' %>">
-        <label for="No">No</label>
-        <input type="radio" name="child_level_detail[ReferredDT]" value="no" id="Referred_for_Dental_Treatment_No" value="<%= @child_data1 ? @child_data1.ReferredDT : '' %>">
-      </div>
+<div>
+  <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+  <label for="Yes">Yes</label>
+  <input type="radio" name="child_level_detail[ReferredDT]" value="true" id="Referred_for_Dental_Treatment_Yes" <%= 'checked' if @child_data1&.ReferredDT == true %>>
+  <label for="No">No</label>
+  <input type="radio" name="child_level_detail[ReferredDT]" value="false" id="Referred_for_Dental_Treatment_No" <%= 'checked' if @child_data1&.ReferredDT == false %>>
+</div>
+
+
 
       <br/>
 
@@ -135,9 +136,9 @@
         <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
         <label for="blank">   </label>
         <label for="Yes">Yes</label>
-        <input type="radio" name="child_level_detail[ReferredUDT]" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes" value="<%= @child_data1 ? @child_data1.ReferredUDT : '' %>">
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="true" id="Referred_for_urgent_Dental_Treatment_Yes" <%= 'checked' if @child_data1&.ReferredUDT == true %>>
         <label for="No">No</label>
-        <input type="radio" name="child_level_detail[ReferredUDT]" value="no" id="Referred_for_urgent_Dental_Treatment_No" value="<%= @child_data1 ? @child_data1.ReferredUDT : '' %>">
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="false" id="Referred_for_urgent_Dental_Treatment_No" <%= 'checked' if @child_data1&.ReferredUDT == false %>>
       </div>
       <br/>
 
@@ -157,9 +158,9 @@
         <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
         <label for="blank">   </label>
         <label for="Yes">Yes</label>
-        <input type="radio" name="child_level_detail[Experienced]" value="yes" id="Did_the_patients_have_caries_experience_Yes" value="<%= @child_data1 ? @child_data1.Experienced : '' %>">
+        <input type="radio" name="child_level_detail[Experienced]" value="true" id="Did_the_patients_have_caries_experience_Yes" <%= 'checked' if @child_data1&.Experienced == true %>>
         <label for="No">No</label>
-        <input type="radio" name="child_level_detail[Experienced]" value="no" id="Did_the_patients_have_caries_experience_No" value="<%= @child_data1 ? @child_data1.Experienced : '' %>">
+        <input type="radio" name="child_level_detail[Experienced]" value="false" id="Did_the_patients_have_caries_experience_No" <%= 'checked' if @child_data1&.Experienced == false %>>
       </div>
       <br/>
 
@@ -167,9 +168,9 @@
         <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
         <label for="blank">   </label>
         <label for="Yes">Yes</label>
-        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="yes" id="Did_the_patient_have_untreated_decay_Yes" value="<%= @child_data1 ? @child_data1.UntreatedDecayFollow : '' %>">
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="true" id="Did_the_patient_have_untreated_decay_Yes" <%= 'checked' if @child_data1&.UntreatedDecayFollow == true %>>
         <label for="No">No</label>
-        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="no" id="Did_the_patient_have_untreated_decay_No" value="<%= @child_data1 ? @child_data1.UntreatedDecayFollow : '' %>">
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="false" id="Did_the_patient_have_untreated_decay_No" <%= 'checked' if @child_data1&.UntreatedDecayFollow == false %>>
       </div>
       <br/>
 
@@ -177,16 +178,22 @@
         <label for="Services the patient received">Services the patient received</label>
         <label for="blank">   </label>
         <select name="child_level_detail[Services]" value="<%= @child_data1 ? @child_data1.Services : '' %>">
-          <option value="">--Please select an option--</option>
-          <option value="Sealants">Sealants</option>
-          <option value="Fluoride_Varnish">Fluoride Varnish</option>
-          <option value="Oral_Assessment">Oral Assessment</option>
-          <option value="Prophylaxes">Prophylaxes</option>
+          <option value=""<%= 'selected' if @child_data1&.Services.blank? %>>--Please select an option--</option>
+          <option value="Sealants" <%= 'selected' if @child_data1&.Services == "Sealants" %>>Sealants</option>
+          <option value="Fluoride_Varnish" <%= 'selected' if @child_data1&.Services == "Fluoride_Varnish" %>>Fluoride Varnish</option>
+          <option value="Oral_Assessment" <%= 'selected' if @child_data1&.Services == "Oral_Assessment" %>>Oral Assessment</option>
+          <option value="Prophylaxes" <%= 'selected' if @child_data1&.Services == "Prophylaxes" %>>Prophylaxes</option>
         </select>
       </div>
+
+
+
       <br/>
       <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
-      <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" value="<%= @child_data1 ? @child_data1.ORHealthStatus : '' %>" rows="4" cols="50"></textarea><br>
+      
+  
+      <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" rows="2" cols="20"><%= @child_data1&.ORHealthStatus.presence || '' %></textarea>
+  <br/>
   <br/>
 </div>
 <br/>
@@ -197,6 +204,8 @@
 
 <input type="submit" value="Submit" id="submitButton">
 <% end %>
+
+
 
 <script>
 function goBack() {

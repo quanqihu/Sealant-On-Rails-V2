@@ -31,6 +31,7 @@ class ChildLevelDetailsController < ApplicationController
       if @child_level_detail
         # A record with the same PID was found; update it
         if @child_level_detail.update(child_level_detail_params)
+          logger.debug("Params: #{child_level_detail_params}")
           format.html { redirect_to "/child_data?patient_detail_id=#{pid}" }
         else
           format.html { render :new, status: :unprocessable_entity }
