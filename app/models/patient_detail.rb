@@ -9,7 +9,7 @@ class PatientDetail < ApplicationRecord
   validates :Age, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :Date, presence: true
   validates :Insurance, presence: true
-  validates :Grade, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  validates :Grade, presence: true
   validates :PatientId,
             uniqueness: { scope: :SchoolName, message: 'Duplicate Patient details for the same SchoolName' }
   validates :PID, uniqueness: true
