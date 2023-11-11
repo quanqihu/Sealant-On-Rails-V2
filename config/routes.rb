@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'statistics/school'
   get 'statistics/event'
   get 'statistics/schoolStats'
-  resources :child_details
   resources :patient_details, param: :PID
 
   resources :event_details
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/child_data' => 'child_level_details#child_data'
-  get '/screening' => 'child_details#screening'
+
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 

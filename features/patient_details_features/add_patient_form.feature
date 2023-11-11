@@ -72,7 +72,7 @@ Feature: Patient Details Entry Form
         And I enter the Grade field with "5"
         And I enter the date with "04/04/2023"
         And I click Create Patient detail
-        Then I should see an error message for insurance
+        Then I should see "Insurance can't be blank"
 
 
     Scenario: Grade is not entered
