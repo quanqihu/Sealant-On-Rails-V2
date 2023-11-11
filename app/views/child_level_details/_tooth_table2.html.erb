@@ -15,16 +15,22 @@
     </td>
   <% end %>
 </tr>
-<!--        second preventative table starts here-->
+
+
+
+<!--        second screening table starts here-->
 <tr class="hide-row">
   <% (32).downto(17).each do |tooth_number|%>
     <td data-cell="popup<%= tooth_number %>">
-      <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
-      Make a Selection
-      </button>
+      <% teeth_screening = JSON.parse(@child_data1&.TeethScreening || '{}') %>
+      <% selected_value = teeth_screening[tooth_number.to_s] %>
+<button class="button" id="ScreeningButton<%= tooth_number %>" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+  <%= selected_value.present? ? selected_value : 'Make a Selection' %>
     </td>
   <% end %>
 </tr>
+
+<!--        second preventative table starts here-->
 <tr class="hide-row">
   <% (32).downto(17).each do |tooth_number| %>
     <td>

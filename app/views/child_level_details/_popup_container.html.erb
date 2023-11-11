@@ -13,9 +13,11 @@
         { value: "RSND", label: "RSND - Recommended Reseal Not Done" },
         { value: "no mark", label: "No Treatment (No Mark)" }
       ] %>
+      <% teeth_screening = JSON.parse(@child_data1&.TeethScreening || '{}') %>
+      <% selected_value = teeth_screening[tooth_number.to_s] %>
       <% radio_options.each do |option| %>
         <label>
-          <input type="radio" name="radio<%= tooth_number %>" value="<%= option[:value] %>">
+          <input type="radio" name="radio<%= tooth_number %>" value="<%= option[:value] %>" <%= 'checked' if option[:value] == selected_value %>>
           <%= option[:label] %>
         </label>
       <% end %>
