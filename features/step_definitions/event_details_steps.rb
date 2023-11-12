@@ -19,7 +19,6 @@ When("I click the {string} button") do |button_text|
 end
 
 
-
 # Edit Event Detail
 Given("there is an existing event detail") do
     # Create an event detail in the database

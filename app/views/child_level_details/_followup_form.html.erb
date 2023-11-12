@@ -1,86 +1,108 @@
+<%= form_with model: @child_level_detail, url: child_level_details_path, method: :post,  local: true, id: 'unique-form-id' do |form| %>
+<div id="followUpFormContainer" style="display: none;">
+  <br/>
   <div class="form-group">
-    <%= form.label :EvaluatorsName, "Evaluator's Name" %>
-    <%= form.text_area :EvaluatorsName %>
+    <label for="Evaluator's Name">Evaluator's Name</label>
+    <input type="text" id="1st-molars" name="child_level_detail[EvaluatorsName]" value="<%= @child_data1 ? @child_data1.EvaluatorsName : '' %>">
+  </div>
+  <br/>
+  <div class="form-group">
+    <label for="date">Date</label>
+    <label for="blank"></label>
+    <input type="date" id="date" name="child_level_detail[EvaluatorDate]" value="<%= @child_data1&.EvaluatorDate&.strftime('%Y-%m-%d') %>"><br>
+  </div>
+  <br/>
+  <div class="form-group">
+    <label for="Comment">Comment</label>
+    <textarea id="Evaluator_Comment" name="child_level_detail[EvaluatorComment]" rows="2" cols="20"><%= @child_data1&.EvaluatorComment.presence || '' %></textarea>
+  </div>
+  <br/>
+  <br/>
+  <div>
+    <H3>Data for SEALS</H3>
+  </div>
+  <div class="form-group">
+    <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+    <input type="text" id="Number_of_teeth_with_a_retained_sealant" name="child_level_detail[RetainedSealant]" value="<%= @child_data1 ? @child_data1.RetainedSealant : '' %>">
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :Date, "Date" %>
-    <%= form.date_field :Date %>
+    <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+    <label for="Yes">Yes</label>
+    <input type="radio" name="child_level_detail[ReferredDT]" value="true" id="Referred_for_Dental_Treatment_Yes" <%= 'checked' if @child_data1&.ReferredDT == true %>>
+    <label for="No">No</label>
+    <input type="radio" name="child_level_detail[ReferredDT]" value="false" id="Referred_for_Dental_Treatment_No" <%= 'checked' if @child_data1&.ReferredDT == false %>>
+  </div>
+
+  <br/>
+
+  <div class="form-group">
+    <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+    <label for="blank">   </label>
+    <label for="Yes">Yes</label>
+    <input type="radio" name="child_level_detail[ReferredUDT]" value="true" id="Referred_for_urgent_Dental_Treatment_Yes" <%= 'checked' if @child_data1&.ReferredUDT == true %>>
+    <label for="No">No</label>
+    <input type="radio" name="child_level_detail[ReferredUDT]" value="false" id="Referred_for_urgent_Dental_Treatment_No" <%= 'checked' if @child_data1&.ReferredUDT == false %>>
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :EvaluatorComment, "Comment" %>
-    <%= form.text_area :EvaluatorComment, id: 'comment', rows: 2, cols: 20 %>
-  </div>
-  <br/>
-
-  <br/>
-  <div class="form-group">
-    <h3>Data for SEALS</h3>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :RetainedSealant, "Number of teeth with a retained sealant (0-8):" %>
-    <%= form.text_field :RetainedSealant, id: 'Number_of_teeth_with_a_retained_sealant' %>
+    <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+    <input type="text" id="Total_Sealants_received" name="child_level_detail[SealantsRecd]" value="<%= @child_data1 ? @child_data1.SealantsRecd : '' %>">
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :ReferredDT, "Referred for Dental Treatment?" %>
-    <%= form.radio_button :ReferredDT, 'yes', id: 'Referred_for_Dental_Treatment_Yes' %>
-    <%= form.label :ReferredDT_yes, 'Yes' %>
-    <%= form.radio_button :ReferredDT, 'no', id: 'Referred_for_Dental_Treatment_No' %>
-    <%= form.label :ReferredDT_no, 'No' %>
+    <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+    <input type="text" id="Total_Sealants_needed" name="child_level_detail[SealnatsNeeded]" value="<%= @child_data1 ? @child_data1.SealnatsNeeded : '' %>">
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :ReferredUDT, "Referred for urgent Dental Treatment?" %>
-    <%= form.radio_button :ReferredUDT, 'yes', id: 'Referred_for_urgent_Dental_Treatment_Yes' %>
-    <%= form.label :ReferredUDT_yes, 'Yes' %>
-    <%= form.radio_button :ReferredUDT, 'no', id: 'Referred_for_urgent_Dental_Treatment_No' %>
-    <%= form.label :ReferredUDT_no, 'No' %>
+    <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+    <label for="blank">   </label>
+    <label for="Yes">Yes</label>
+    <input type="radio" name="child_level_detail[Experienced]" value="true" id="Did_the_patients_have_caries_experience_Yes" <%= 'checked' if @child_data1&.Experienced == true %>>
+    <label for="No">No</label>
+    <input type="radio" name="child_level_detail[Experienced]" value="false" id="Did_the_patients_have_caries_experience_No" <%= 'checked' if @child_data1&.Experienced == false %>>
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :SealantsRecd, "Total Number of Sealants received:" %>
-    <%= form.text_field :SealantsRecd, id: 'Total_Sealants_received' %>
+    <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+    <label for="blank">   </label>
+    <label for="Yes">Yes</label>
+    <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="true" id="Did_the_patient_have_untreated_decay_Yes" <%= 'checked' if @child_data1&.UntreatedDecayFollow == true %>>
+    <label for="No">No</label>
+    <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="false" id="Did_the_patient_have_untreated_decay_No" <%= 'checked' if @child_data1&.UntreatedDecayFollow == false %>>
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.label :SealnatsNeeded, "Total Number of Sealants needed:" %>
-    <%= form.text_field :SealnatsNeeded, id: 'Total_Sealants_needed' %>
+    <label for="Services the patient received">Services the patient received</label>
+    <label for="blank">   </label>
+    <select name="child_level_detail[Services]" value="<%= @child_data1 ? @child_data1.Services : '' %>">
+      <option value=""<%= 'selected' if @child_data1&.Services.blank? %>>--Please select an option--</option>
+      <option value="Sealants" <%= 'selected' if @child_data1&.Services == "Sealants" %>>Sealants</option>
+      <option value="Fluoride_Varnish" <%= 'selected' if @child_data1&.Services == "Fluoride_Varnish" %>>Fluoride Varnish</option>
+      <option value="Oral_Assessment" <%= 'selected' if @child_data1&.Services == "Oral_Assessment" %>>Oral Assessment</option>
+      <option value="Prophylaxes" <%= 'selected' if @child_data1&.Services == "Prophylaxes" %>>Prophylaxes</option>
+    </select>
   </div>
-  <br/>
 
-  <div class="form-group">
-    <%= form.label :Experienced, "Did the patients have caries experience?" %>
-    <%= form.radio_button :Experienced, 'yes', id: 'Did_the_patients_have_caries_experience_Yes' %>
-    <%= form.label :Experienced_yes, 'Yes' %>
-    <%= form.radio_button :Experienced, 'no', id: 'Did_the_patients_have_caries_experience_No' %>
-    <%= form.label :Experienced_no, 'No' %>
-  </div>
   <br/>
+  <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
 
-  <div class="form-group">
-    <%= form.label :UntreatedDecayFollow, "Did the patient have untreated decay?" %>
-    <%= form.radio_button :UntreatedDecayFollow, 'yes', id: 'Did_the_patient_have_untreated_decay_Yes' %>
-    <%= form.label :UntreatedDecayFollow_yes, 'Yes' %>
-    <%= form.radio_button :UntreatedDecayFollow, 'no', id: 'Did_the_patient_have_untreated_decay_No' %>
-    <%= form.label :UntreatedDecayFollow_no, 'No' %>
-  </div>
+  <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" rows="2" cols="20"><%= @child_data1&.ORHealthStatus.presence || '' %></textarea>
   <br/>
+  <br/>
+<br/>
+<input type="hidden" id="PID" name="child_level_detail[PID]" value="<%= @pid %>">
+<input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+<input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
+<input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
 
-  <div class="form-group">
-    <%= form.label :Services, "Services the patient received" %>
-    <%= form.select :Services, ['Sealants', 'Fluoride_Varnish', 'Oral_Assessment', 'Prophylaxes'], prompt: '--Please select an option--' %>
-  </div>
-  <br/>
-
-  <%= form.label :ORHealthStatus, "Overall Oral Health Status:" %><br>
-  <%= form.text_area :ORHealthStatus, id: 'Overall_Oral_Health_Status', rows: 4, cols: 50 %>
-  <br/>
+<input type="submit" value="Submit" id="submitButton">
+</div>
+<% end %>
