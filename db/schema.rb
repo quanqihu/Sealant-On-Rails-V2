@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
-  create_table "child_level_details", id: false, force: :cascade do |t|
-    t.string "PID"
+ActiveRecord::Schema[7.1].define(version: 2023_11_13_175106) do
+  create_table "child_level_details", primary_key: "PID", id: :string, force: :cascade do |t|
     t.string "TeethScreening"
     t.string "TeethPreventative"
     t.string "TeethFollowup"
@@ -45,6 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
     t.string "ORHealthStatus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["PID"], name: "index_child_level_details_on_PID", unique: true
   end
 
   create_table "event_details", force: :cascade do |t|
@@ -98,6 +98,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
+  end
+
+  create_table "whitelists", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role"
   end
 
 end

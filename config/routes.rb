@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :whitelists
   get '/export_event_details', to: 'excel_exports#export_event_details'
   get '/export_child_level_details_with_patient_info', to: 'excel_exports#export_child_level_details'
   resources :child_level_details, param: :PID
@@ -9,8 +10,8 @@ Rails.application.routes.draw do
   get 'statistics/event'
   get 'statistics/schoolStats'
   resources :patient_details, param: :PID
-
   resources :event_details
+  resources :whitelists
 
   root 'application#index'
   get '/login', to: 'sessions#new'

@@ -2,6 +2,7 @@
 
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
+  before_action :check_whitelist, only: [:create, :omniauth]
 
   def new
     return unless logged_in?
@@ -11,11 +12,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-    if @user&.authenticate(params[:session][:password])
+
+    if @user&.authenticate(params[:session][:password]) && Whitelist.exists?(email: @user.email)
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:error] = 'Invalid username or password'
+      flash[:error] = 'Invalid username, password, or you are not whitelisted.'
       redirect_to login_path
     end
   end
@@ -32,11 +34,23 @@ class SessionsController < ApplicationController
       u.email = request.env['omniauth.auth']['info']['email']
       u.password = SecureRandom.hex(10)
     end
-    if @user.valid?
+
+    if @user.persisted?
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      render :new
+      flash[:error] = 'Failed to create or authenticate user.'
+      redirect_to login_path
     end
   end
+
+
+  def check_whitelist
+    email = params.dig(:session, :username) || request.env['omniauth.auth']['info']['email']
+    unless Whitelist.exists?(email: email)
+      flash[:error] = 'You are not whitelisted.Contact your administrator.'
+      redirect_to login_path
+    end
+  end
+
 end

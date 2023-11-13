@@ -1,7 +1,7 @@
 class CreateChildLevelDetails < ActiveRecord::Migration[7.1]
   def change
     create_table :child_level_details , id: false do |t|
-      t.string :PID, primary_key: true, null: false, unique: true
+      t.string :PID, primary_key: true, null: false
       t.string :TeethScreening
       t.string :TeethPreventative
       t.string :TeethFollowup
@@ -35,5 +35,8 @@ class CreateChildLevelDetails < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+
+    add_index :child_level_details, :PID, unique: true
+
   end
 end
