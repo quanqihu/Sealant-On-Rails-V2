@@ -57,39 +57,96 @@
             width: 100%;
             height: 400px;
         }
+
+        .tab {
+            overflow: hidden;
+        }
+
+        .tab button {
+            background-color: #f2f2f2;
+            float: left;
+            border: 1px solid #ccc;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: 0.1s;
+            color: #000;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #fff; /* White text on the primary button */
+        }
+
+        .tabcontent {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
     <h1>School Stats Version 2</h1>
 
     <br>
-    <div class="chart-box">
-      <canvas id="groupedChart1"></canvas>
+    <div class="tab">
+      <button class="tablinks btn btn-primary" onclick="openTab(event, 'chartTab')">Chart</button>
+      <button class="tablinks btn btn-primary" onclick="openTab(event, 'tableTab')">Table</button>
     </div>
-    
-<table>
-    <tr>
-        <th>School Name</th>
-        <th>Date</th>
-        <th>Children Screened</th>
-        <th>Children received Sealants</th>
-        <th>Teeth Sealed</th>
-        <th>Children received Fluoride Varnish</th>
-    </tr>
-    <tr>
-        <% @school_data.each do |data| %>
+
+    <div id="chartTab" class="tabcontent">
+    <br>
+        <div class="chart-box">
+        <canvas id="groupedChart1"></canvas>
+        </div>
+    </div>
+
+    <div id="tableTab" class="tabcontent">
+    <br>
+        <table>
             <tr>
-                <td><%= data.SchoolName %></td>
-                <td><%= data.Date %></td>
-                <td><%= data.children_screened %></td>
-                <td><%= data.children_rec_sealants %></td>
-                <td><%= data.teeth_sealed %></td>
-                <td><%= data.children_with_fluoride %></td>
+                <th>School Name</th>
+                <th>Date</th>
+                <th>Children Screened</th>
+                <th>Children received Sealants</th>
+                <th>Teeth Sealed</th>
+                <th>Children received Fluoride Varnish</th>
             </tr>
-        <% end %>
-    </tr>
-</table>
+            <tr>
+                <% @school_data.each do |data| %>
+                    <tr>
+                        <td><%= data.SchoolName %></td>
+                        <td><%= data.Date %></td>
+                        <td><%= data.children_screened %></td>
+                        <td><%= data.children_rec_sealants %></td>
+                        <td><%= data.teeth_sealed %></td>
+                        <td><%= data.children_with_fluoride %></td>
+                    </tr>
+                <% end %>
+            </tr>
+        </table>
+    </div>
+
 <script>
+    document.getElementById('chartTab').style.display = 'block';
+    document.querySelector('.tab button.tablinks:nth-child(1)').classList.add('active')
+
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName('tabcontent');
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = 'none';
+        }
+        tablinks = document.getElementsByClassName('tablinks');
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(' active', '');
+        }
+        document.getElementById(tabName).style.display = 'block';
+        evt.currentTarget.className += ' active';
+    }
     var ctxGrouped1 = document.getElementById('groupedChart1').getContext('2d');
         var groupedChart1 = new Chart(ctxGrouped1, {
             type: 'bar',

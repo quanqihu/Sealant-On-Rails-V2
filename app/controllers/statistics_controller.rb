@@ -171,28 +171,28 @@ class StatisticsController < ApplicationController
     labels: school_data.keys,
     datasets: [
       {
-        label: 'Dentist Hours',
+        label: 'Dentist',
         data: school_data.values.map { |school| school.map(&:DenHrs).sum },
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1
       },
       {
-        label: 'Hygienist Hours',
+        label: 'Hygienist',
         data: school_data.values.map { |school| school.map(&:HygHours).sum },
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
       },
       {
-        label: 'Assistant Hours',
+        label: 'Assistant',
         data: school_data.values.map { |school| school.map(&:AssistantHrs).sum },
         backgroundColor: 'rgba(255, 206, 86, 0.2)',
         borderColor: 'rgba(255, 206, 86, 1)',
         borderWidth: 1
       },
       {
-        label: 'Other Hours',
+        label: 'Other',
         data: school_data.values.map { |school| school.map(&:OtherHrs).sum },
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
@@ -202,6 +202,74 @@ class StatisticsController < ApplicationController
   }
 
   @chart_data2 = {
+    labels: school_data.keys,
+    datasets: [
+      {
+        label: 'Dentist',
+        data: school_data.values.map { |school| school.map(&:DenTravelHrs).sum },
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Hygienist',
+        data: school_data.values.map { |school| school.map(&:HygTravelHrs).sum },
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Assistant',
+        data: school_data.values.map { |school| school.map(&:AssistantTravelHrs).sum },
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Other',
+        data: school_data.values.map { |school| school.map(&:OtherTravelHrs).sum },
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }
+    ]
+  }
+
+  @chart_data3 = {
+    labels: school_data.keys,
+    datasets: [
+      {
+        label: 'Dentist',
+        data: school_data.values.map { |school| school.map(&:DenTravelMil).sum },
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Hygienist',
+        data: school_data.values.map { |school| school.map(&:HygTravelMil).sum },
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Assistant',
+        data: school_data.values.map { |school| school.map(&:AssistantTravelMil).sum },
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Other',
+        data: school_data.values.map { |school| school.map(&:OtherTravelMiles).sum },
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }
+    ]
+  }
+
+  @chart_data4 = {
     labels: school_data.keys,
     datasets: [
       {
