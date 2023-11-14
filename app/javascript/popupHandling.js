@@ -13,8 +13,11 @@ function openPopup(popupId) {
 
 // Function to save the selected option and close the popup
 function closePopup(Id, popupId) {
-    const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
+    console.log(popupId);
+    
+    const radioOptions = document.querySelectorAll(`input[name="radio${popupId.substring(5)}"]`);
     const cell = document.querySelector(`td[data-cell="${popupId}"]`); // Add this line to select the corresponding cell
+    console.log(cell);
 
     // Find the selected option for the specific popup
     radioOptions.forEach(option => {

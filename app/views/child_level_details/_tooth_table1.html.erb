@@ -20,13 +20,12 @@
 <!-- Create buttons with values for each tooth -->
 <tr class="hide-row">
   <% (1..16).each do |tooth_number| %>
-    <td data-cell="popup<%= tooth_number %>">
+    <td data-cell="popup1<%= tooth_number %>">
       <% teeth_screening = JSON.parse(@child_data1&.TeethScreening || '{}') %>
       <% selected_value = teeth_screening[tooth_number.to_s] %>
-<button class="button" id="ScreeningButton<%= tooth_number %>" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
-  <%= selected_value.present? ? selected_value : 'Make a Selection' %>
+      <button class="button" id="ScreeningButton<%= tooth_number %>" data-popup="popup1<%= tooth_number %>" onclick="openPopup('popup1<%= tooth_number %>')">
+    <%= selected_value.present? ? selected_value : 'Make a Selection' %>
 </button>
-
       </button>
     </td>
   <% end %>
@@ -35,9 +34,9 @@
 <!--      Preventative code starts here-->
 <tr class="hide-row">
   <% (1..16).each do |tooth_number| %>
-    <td>
+<td data-cell="popup2<%= tooth_number %>">
       <% if tooth_number == 3 || tooth_number == 14 %>
-        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        <button class="button" id="PreventativeButton<%= tooth_number %>" data-popup="popup2<%= tooth_number %>" onclick="openPopup('popup2<%= tooth_number %>')">
         Make a Selection for Preventative
         </button>
       <% end %>
@@ -47,9 +46,9 @@
 <!--      Follow Up code starts here-->
 <tr class="hide-row">
   <% (1..16).each do |tooth_number| %>
-    <td>
+<td data-cell="popup3<%= tooth_number %>">
       <% if tooth_number == 3 || tooth_number == 14 %>
-        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        <button class="button" id="FollowupButton<%= tooth_number %>" data-popup="popup3<%= tooth_number %>" onclick="openPopup('popup3<%= tooth_number %>')">
         Make a Selection for Follow Up
         </button>
       <% end %>
