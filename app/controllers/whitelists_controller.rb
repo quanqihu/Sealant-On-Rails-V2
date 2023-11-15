@@ -66,7 +66,7 @@ class WhitelistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def whitelist_params
-      params.require(:whitelist).permit(:email)
+      params.require(:whitelist).permit(:email, :role)
     end
 
     def authenticate_admin!
