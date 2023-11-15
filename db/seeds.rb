@@ -14,7 +14,7 @@ email_list = [
   { email: 'jdr@tamu.edu', role: 'Admin' },
   { email: 'sushant.shelar@tamu.edu', role: 'Admin' },
   { email: 'mpanda27@tamu.edu', role: 'Admin' },
-  { email: 'anoureldin@tamu.edu', role: 'Admin' },
+  { email: 'amal0127@tamu.edu', role: 'Admin' },
   { email: 'lovekamp@tamu.edu', role: 'Admin' },
   { email: 'sgullion@tamu.edu', role: 'Admin' },
   { email: 'jaynehete@tamu.edu', role: 'Admin' },
