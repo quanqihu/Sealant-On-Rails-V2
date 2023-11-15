@@ -1,8 +1,8 @@
 function updateUntreatedCavities() {
     let untreatedCavitiesCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'D') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'D') {
             untreatedCavitiesCount++;
         }
     }
@@ -16,8 +16,8 @@ function updateUntreatedCavities() {
 function updateReferredTreatment() {
     let ReferredTreatmentCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'RS') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'RS') {
             ReferredTreatmentCount++;
         }
     }
@@ -31,8 +31,8 @@ function updateReferredTreatment() {
 function updateCariesExperience() {
     let CariesExperienceCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'F') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'F') {
             CariesExperienceCount++;
         }
     }
@@ -46,8 +46,8 @@ function updateCariesExperience() {
 function updateSealantPresent() {
     let SealantPresentCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'S') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'S') {
             SealantPresentCount++;
         }
     }
@@ -61,8 +61,8 @@ function updateSealantPresent() {
 function updateRecommendedResealed() {
     let RecommendedResealedCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'RSD') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'RSD') {
             RecommendedResealedCount++;
         }
     }
@@ -76,8 +76,8 @@ function updateRecommendedResealed() {
 function updateRecommendedResealedNot() {
     let RecommendedResealedNotCount = 0;
 
-    for (const tooth in selectedOptions) {
-        if (selectedOptions[tooth] === 'RSND') {
+    for (const tooth in selectedOptions1) {
+        if (selectedOptions1[tooth] === 'RSND') {
             RecommendedResealedNotCount++;
         }
     }
