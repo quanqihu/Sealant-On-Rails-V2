@@ -103,6 +103,12 @@ Run the Rails server:
 ```bash
 rails s
 ```
+
+Run the rails db:seed command to seed the database with the whitelisted emails:
+```bash
+rails db:seed
+```
+
 Your application should now be accessible on your local machine.
 
 ## Deployment on Heroku
@@ -113,10 +119,10 @@ Ensure you have an organization on Heroku that can access your GitHub repository
 ### Step 2: Set Up the Heroku Application
 - Create a new app on Heroku.
 - Ensure you are using `heroku-22` and `ruby-3.2.2`.
-- Add Heroku Postgres to your resources for database functionality.
+- Add `Heroku Postgres` to your resources for database functionality.
 
 ### Step 3: Connect to GitHub
-In the Heroku app's deploy tab, select 'GitHub CLI connect' and connect to your repository.
+In the Heroku app's deploy tab, select `GitHub CLI connect` and connect to your repository.
 
 ### Step 4: Heroku CLI Configuration
 Log in to Heroku via the terminal and set up your master key:
