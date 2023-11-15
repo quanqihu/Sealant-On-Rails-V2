@@ -1,29 +1,134 @@
 # README
 
-* Ruby version - 3.2.2
+# Deployment Guide for Sealant-On-Rails
 
-* Rails version - 7.0.8
+Welcome to the deployment guide for the "Sealant-On-Rails" application. This document provides comprehensive 
+instructions for deploying the application both locally and on Heroku.
 
-* System dependencies: Linux_84x for Heroku
+## Prerequisites
+- Git
+- Ruby 3.2.2
+- Rails 7.1.1
+- Heroku CLI
+- Google Cloud Console account
 
-* Configuration
+## Local Deployment
 
-* Database creation
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Data-Mgmt-for-Sealants-Outreach-Program/Sealant-On-Rails-V2.git
+```
 
-* Database initialization
+## Setup Google OAuth On Google's End
 
-* How to run the test suite: We have cucumber and rspec tests currently. So for cucumber tests run cucumber-rails. For rspec tests run rspec.
+This section walks you through setting up Google OAuth for the application in the Google Developer Console. 
+Here are the steps and important information:
 
-* Services (job queues, cache servers, search engines, etc.)
+### Step 1: Create a New Project in Google Developer Console
+1. Go to the [Google Developer Console](https://console.developers.google.com/).
+1. Select or create a project for your application, giving it a name like "Testing-Rails-Application."
 
-* Deployment instructions : Connect Heroku to GitHub Repo ( Sealant-On-Rails ) and click deploy. We have added procfile, which runs specific rake tasks related to building database migration. More rake task will come in to implement CI/CD Pipeline. 
+### Step 2: Set Up OAuth Consent Screen
+1. In your project, navigate to "APIs & Services" and click on "OAuth consent screen."
+1. Set the user type to "Internal" for only @tamu.edu accounts or "External" for any @gmail account.
+1. Fill out the required information on the consent screen. You need to provide the app name, user support email, and developer contact information.
+1. Save your changes.
 
-To deploy locally. Clone the repo. Run the rails-3.2.2 version. Run gem install bundler. Run bundle install. Run db:migrate. Run rails s. The app should work :)
+### Step 3: Add Scopes
+1. Add `userinfo.email` and `userinfo.profile`
+1. Click "Save and Continue."
 
+### (Optional) Step 4: Add Test Users
+You can add test users who are allowed to log in to your application. This means that only the email addresses you add here can access your application.
+If you choose to add test users, do so on this page and click "Save and Continue."
 
-* ...
+### Step 5: Create OAuth Client ID
+1. On the dashboard, Click "Credentials" > "Create Credentials" > "OAuth client ID."
+1. Select "Web application" type.
+1. Give your application a name.
+1. Under "Authorized redirect URIs," add the following:
+    * `http://localhost:3000/auth/google_oauth2/callback`
+    * `http://127.0.0.1:3000/auth/google_oauth2/callback`
+1. Click "Create."
+1. You will receive a client ID and client secret. **Save this information.**
+1. Ensure that your client ID is enabled.
 
-Project Detials:
+By following these steps, you have set up the necessary configurations in the Google Developer Console 
+to enable Google OAuth for the application. This allows the app to authenticate users using their Google accounts.
+
+## Add OAuth ID and Secret to Rails Credentials
+
+**You will face an error here regarding Rails not being able to decrypt the credentials file. 
+The reason is because you have cloned the repository and the master key is not the same as the one used to encrypt the credentials file.
+Follow the next steps to resolve it.**
+
+### Step 1: Generate a New Master Key
+```bash
+rails credentials:edit
+```
+This will generate a new master key and open the credentials file in the editor.
+
+### Step 2: Delete the Old credentials.yml.enc File
+```bash
+rm config/credentials.yml.enc
+```
+
+### Step 3: Edit the Credentials
+```bash
+EDITOR=nano rails credentials:edit
+```
+
+### Step 4: Add Your Google OAuth Credentials
+```bash
+google:
+  client_id: your_client_id
+  client_secret: your_client_secret
+```
+
+*Note: Replace `your_client_id` and `your_client_secret` with your own Google OAuth credentials. Do not include any quotes around the actual credentials.*
+
+After adding your credentials, save the changes and exit the editor.
+
+Now, your Google OAuth credentials are securely stored in the Rails credentials file and your application will be able to use them for authentication. Make sure to keep your credentials safe and secret.  **NEVER** commit plaintext credentials and **NEVER NEVER NEVER** commit the `master.key` file (`/config/master.key` is already in the `.gitignore` file for your safety).
+
+### Step 4: Whitelist Tester's Email
+In the `seed.rb` file, add your email to the list of whitelisted emails.
+Just follow the format of the other emails in the list.
+Do not forget to add the role `Admin` to your email.
+Otherwise you wont be able to access the admin whitelist email dashboard.
+The code is dynamic, so you can add as many emails as you want.
+
+### Step 5: Start the Application
+Run the Rails server:
+```bash
+rails s
+```
+Your application should now be accessible on your local machine.
+
+## Deployment on Heroku
+
+### Step 1: Create or Find an Organization on Heroku
+Ensure you have an organization on Heroku that can access your GitHub repository.
+
+### Step 2: Set Up the Heroku Application
+- Create a new app on Heroku.
+- Ensure you are using `heroku-22` and `ruby-3.2.2`.
+- Add Heroku Postgres to your resources for database functionality.
+
+### Step 3: Connect to GitHub
+In the Heroku app's deploy tab, select 'GitHub CLI connect' and connect to your repository.
+
+### Step 4: Heroku CLI Configuration
+Log in to Heroku via the terminal and set up your master key:
+```bash
+heroku login
+heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+```
+
+### Step 5: Deploy Your Application
+In the deploy section of your Heroku app, click 'Deploy' to start the deployment process.
+
+## Project Details
 
 Revolutionizing dental sealant program: Replace paper-based data with interactive software for Texas A&M School of Dentistry. #HealthTech
 
