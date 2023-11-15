@@ -28,10 +28,10 @@ class StatisticsController < ApplicationController
     @school_data = PatientDetail.select(
       :SchoolName,
       :Date,
-      'COUNT(DISTINCT patient_details.PatientId) AS children_screened',
-      'COUNT(DISTINCT CASE WHEN COALESCE(child_level_details.FirstSealedNum, 0) > 0 OR COALESCE(child_level_details.SecondSealedNum, 0) > 0 OR COALESCE(child_level_details.OtherPermNum, 0) > 0 OR COALESCE(child_level_details.PrimarySealed, 0) > 0 THEN patient_details.PatientId ELSE NULL END) AS children_rec_sealants',
-      'SUM(COALESCE(child_level_details.FirstSealedNum, 0) + COALESCE(child_level_details.SecondSealedNum, 0) + COALESCE(child_level_details.OtherPermNum, 0) + COALESCE(child_level_details.PrimarySealed, 0)) AS teeth_sealed',
-      'SUM(CASE WHEN child_level_details.FluorideVarnish = true THEN 1 ELSE 0 END) AS children_with_fluoride'
+      'COUNT(DISTINCT "patient_details"."PatientId") AS children_screened',
+      'COUNT(DISTINCT CASE WHEN COALESCE("child_level_details"."FirstSealedNum", 0) > 0 OR COALESCE("child_level_details"."SecondSealedNum", 0) > 0 OR COALESCE("child_level_details"."OtherPermNum", 0) > 0 OR COALESCE("child_level_details"."PrimarySealed", 0) > 0 THEN "patient_details"."PatientId" ELSE NULL END) AS children_rec_sealants',
+      'SUM(COALESCE("child_level_details"."FirstSealedNum", 0) + COALESCE("child_level_details"."SecondSealedNum", 0) + COALESCE("child_level_details"."OtherPermNum", 0) + COALESCE("child_level_details"."PrimarySealed", 0)) AS teeth_sealed',
+      'SUM(CASE WHEN "child_level_details"."FluorideVarnish" = true THEN 1 ELSE 0 END) AS children_with_fluoride'
     )
     .joins(:child_level_details)
     .group(:SchoolName, :Date)
@@ -42,10 +42,10 @@ class StatisticsController < ApplicationController
     @school_data = PatientDetail.select(
       :SchoolName,
       :Date,
-      'COUNT(DISTINCT patient_details.PatientId) AS children_screened',
-      'COUNT(DISTINCT CASE WHEN COALESCE(child_level_details.FirstSealedNum, 0) > 0 OR COALESCE(child_level_details.SecondSealedNum, 0) > 0 OR COALESCE(child_level_details.OtherPermNum, 0) > 0 OR COALESCE(child_level_details.PrimarySealed, 0) > 0 THEN patient_details.PatientId ELSE NULL END) AS children_rec_sealants',
-      'SUM(COALESCE(child_level_details.FirstSealedNum, 0) + COALESCE(child_level_details.SecondSealedNum, 0) + COALESCE(child_level_details.OtherPermNum, 0) + COALESCE(child_level_details.PrimarySealed, 0)) AS teeth_sealed',
-      'SUM(CASE WHEN child_level_details.FluorideVarnish = true THEN 1 ELSE 0 END) AS children_with_fluoride'
+      'COUNT(DISTINCT "patient_details"."PatientId") AS children_screened',
+      'COUNT(DISTINCT CASE WHEN COALESCE("child_level_details"."FirstSealedNum", 0) > 0 OR COALESCE("child_level_details"."SecondSealedNum", 0) > 0 OR COALESCE("child_level_details"."OtherPermNum", 0) > 0 OR COALESCE("child_level_details"."PrimarySealed", 0) > 0 THEN "patient_details"."PatientId" ELSE NULL END) AS children_rec_sealants',
+      'SUM(COALESCE("child_level_details"."FirstSealedNum", 0) + COALESCE("child_level_details"."SecondSealedNum", 0) + COALESCE("child_level_details"."OtherPermNum", 0) + COALESCE("child_level_details"."PrimarySealed", 0)) AS teeth_sealed',
+      'SUM(CASE WHEN "child_level_details"."FluorideVarnish" = true THEN 1 ELSE 0 END) AS children_with_fluoride'
     )
     .joins(:child_level_details)
     .group(:SchoolName, :Date)
