@@ -14,9 +14,14 @@ instructions for deploying the application both locally and on Heroku.
 
 ## Local Deployment
 
-### Step 1: Clone the Repository
+### Step 1: Fork the Repository
+Fork the repository to your GitHub account.
+
+### Step 2: Clone the Repository
+Clone the repository to your local machine:
+
 ```bash
-git clone https://github.com/Data-Mgmt-for-Sealants-Outreach-Program/Sealant-On-Rails-V2.git
+git clone [forked-repository-url]
 ```
 
 ## Setup Google OAuth On Google's End
