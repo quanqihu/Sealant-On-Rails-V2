@@ -12,6 +12,21 @@ instructions for deploying the application both locally and on Heroku.
 - Heroku CLI
 - Google Cloud Console account
 
+## Local System Setup
+Install the following dependencies on your local machine:
+
+### Ruby
+Install Ruby 3.2.2 using Ruby version manager
+```bash
+rvm install 3.2.2
+```
+
+### Rails
+Install Rails 7.1.1
+```bash
+gem install rails -v 7.1.1
+```
+
 ## Local Deployment
 
 ### Step 1: Fork the Repository
@@ -22,6 +37,26 @@ Clone the repository to your local machine:
 
 ```bash
 git clone [forked-repository-url]
+```
+
+### Step 3: Install Dependencies
+Install the dependencies for the application:
+
+```bash
+bundle install
+```
+
+### Step 4: Set Up the Database
+Set up the database for the application:
+
+Migration:
+```bash
+rails db:migrate
+```
+
+Seed:
+```bash
+rails db:seed
 ```
 
 ## Setup Google OAuth On Google's End
@@ -104,15 +139,15 @@ Do not forget to add the role `Admin` to your email.
 Otherwise you wont be able to access the admin whitelist email dashboard.
 The code is dynamic, so you can add as many emails as you want.
 
+Run the rails db:seed command to seed the database with the whitelisted emails:
+```bash
+rails db:seed
+```
+
 ### Step 5: Start the Application
 Run the Rails server:
 ```bash
 rails s
-```
-
-Run the rails db:seed command to seed the database with the whitelisted emails:
-```bash
-rails db:seed
 ```
 
 Your application should now be accessible on your local machine.
