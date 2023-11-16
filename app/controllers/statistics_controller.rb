@@ -7,11 +7,11 @@ class StatisticsController < ApplicationController
         '"child_level_details"."SealantsRecd" AS NoOfSealentReceived',
         # 'child_level_details.SealantsReplaced AS NoOfSealentReplaced', Code for Sealent Received
         # code for "Did they have any Sealent?"
-        "CASE WHEN "child_level_details.Experienced" = 1 THEN 'Yes' ELSE 'No' END AS CarriesExperience",
-        "CASE WHEN "child_level_details.UntreatedDecayFollow" = 1 THEN 'Yes' ELSE 'No' END AS UntreatedDecay",
-        "CASE WHEN "child_level_details.ReferredDT" = 1 THEN 'Yes' ELSE 'No' END AS ReferredForDT",
-        "CASE WHEN "child_level_details.ReferredUDT" = 1 THEN 'Yes' ELSE 'No' END AS ReferredForUDT",
-        "CASE WHEN "child_level_details.FluorideVarnish" = 1 THEN 'Yes' ELSE 'No' END AS FluorideVarnish",
+        "CASE WHEN child_level_details.Experienced = 1 THEN 'Yes' ELSE 'No' END AS CarriesExperience",
+        "CASE WHEN child_level_details.UntreatedDecayFollow = 1 THEN 'Yes' ELSE 'No' END AS UntreatedDecay",
+        "CASE WHEN child_level_details.ReferredDT = 1 THEN 'Yes' ELSE 'No' END AS ReferredForDT",
+        "CASE WHEN child_level_details.ReferredUDT = 1 THEN 'Yes' ELSE 'No' END AS ReferredForUDT",
+        "CASE WHEN child_level_details.FluorideVarnish = 1 THEN 'Yes' ELSE 'No' END AS FluorideVarnish",
         # :Sealants, :Experienced, :Services
       ).left_outer_joins(:child_level_details)
       
