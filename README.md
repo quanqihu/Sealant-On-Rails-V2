@@ -49,14 +49,15 @@ If you choose to add test users, do so on this page and click "Save and Continue
 
 ### Step 5: Create OAuth Client ID
 1. On the dashboard, Click "Credentials" > "Create Credentials" > "OAuth client ID."
-1. Select "Web application" type.
-1. Give your application a name.
-1. Under "Authorized redirect URIs," add the following:
+2. Select "Web application" type.
+3. Give your application a name.
+4. Under "Authorized redirect URIs," add the following:
     * `http://localhost:3000/auth/google_oauth2/callback`
     * `http://127.0.0.1:3000/auth/google_oauth2/callback`
-1. Click "Create."
-1. You will receive a client ID and client secret. **Save this information.**
-1. Ensure that your client ID is enabled.
+    * `https://[heroku-app-name].herokuapp.com/auth/google_oauth2/callback`
+5. Click "Create."
+6. You will receive a client ID and client secret. **Save this information.**
+7. Ensure that your client ID is enabled.
 
 By following these steps, you have set up the necessary configurations in the Google Developer Console 
 to enable Google OAuth for the application. This allows the app to authenticate users using their Google accounts.
@@ -133,7 +134,7 @@ In the Heroku app's deploy tab, select `GitHub CLI connect` and connect to your 
 Log in to Heroku via the terminal and set up your master key:
 ```bash
 heroku login
-heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+heroku config:set RAILS_MASTER_KEY=`cat config/master.key` -a <heroku-app-name>
 ```
 
 ### Step 5: Deploy Your Application
