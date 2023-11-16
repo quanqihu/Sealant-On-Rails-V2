@@ -4,7 +4,7 @@ class StatisticsController < ApplicationController
         :PatientId, :SchoolName, :Date, :Age, :Grade, :PID, :Gender, :Race, :Ethnicity,
         '"child_level_details"."ScreenDate" AS DateOfSealentReceived',
         '"child_level_details"."SealnatsNeeded" AS NoOfSealentNeeded',
-        'child_level_details.SealantsRecd AS NoOfSealentReceived',
+        '"child_level_details"."SealantsRecd" AS NoOfSealentReceived',
         # 'child_level_details.SealantsReplaced AS NoOfSealentReplaced', Code for Sealent Received
         # code for "Did they have any Sealent?"
         "CASE WHEN child_level_details.Experienced = 1 THEN 'Yes' ELSE 'No' END AS CarriesExperience",
