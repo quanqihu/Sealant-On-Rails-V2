@@ -2,8 +2,8 @@ class StatisticsController < ApplicationController
   def index
       @statistics_data = PatientDetail.select(
         :PatientId, :SchoolName, :Date, :Age, :Grade, :PID, :Gender, :Race, :Ethnicity,
-        'child_level_details.ScreenDate AS DateOfSealentReceived',
-        'child_level_details.SealnatsNeeded AS NoOfSealentNeeded',
+        '"child_level_details"."ScreenDate" AS DateOfSealentReceived',
+        '"child_level_details"."SealnatsNeeded" AS NoOfSealentNeeded',
         'child_level_details.SealantsRecd AS NoOfSealentReceived',
         # 'child_level_details.SealantsReplaced AS NoOfSealentReplaced', Code for Sealent Received
         # code for "Did they have any Sealent?"
