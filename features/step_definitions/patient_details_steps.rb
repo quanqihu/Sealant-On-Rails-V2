@@ -154,4 +154,11 @@
     expect(page).to have_content(string)
   end
 
+  
+  And("I click Export All Patient Data") do
+    click_button "Export All Patient Data"
+  end
 
+  Then ("an excel file should be downloaded") do
+    expect(File.exist?(File.join(download_path, 'ChildLevelDetails.xlsx'))).to be_truthy
+  end
