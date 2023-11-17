@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_13_175106) do
   create_table "child_details", force: :cascade do |t|
     t.string "PrescriberName"
     t.date "ScreenDate"
@@ -46,9 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_010339) do
     t.datetime "updated_at", null: false
   end
 
-=======
-ActiveRecord::Schema[7.1].define(version: 2023_11_13_175106) do
->>>>>>> 921c394f85136eb07af6f4acad6361324de47f30
   create_table "child_level_details", id: false, force: :cascade do |t|
     t.string "PID"
     t.string "TeethScreening"
