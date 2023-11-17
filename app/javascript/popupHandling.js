@@ -19,8 +19,10 @@ function closePopup(Id, popupId) {
     // Find the selected option for the specific popup
     radioOptions.forEach(option => {
         if (option.checked) {
+            console.log("Closing popup. Id:", Id, "popupId:", popupId);
             // Assuming selectedOptions is declared outside this function
             selectedOptions[Id] = option.value; // Save the selected option to the object
+            console.log("selectedOptions:", selectedOptions);
             cell.querySelector('.button').textContent = selectedOptions[Id]; // Update the button text in the cell
         }
     });
