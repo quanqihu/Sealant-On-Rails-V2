@@ -1,5 +1,6 @@
-const selectedOptions = {}; // Object to hold selected options for each popup
-
+const selectedOptions1 = {}; // Object to hold selected options for each popup
+const selectedOptions2 = {}; 
+const selectedOptions3 = {}; 
 // Function to open the popup and set selected option
 function openPopup(popupId) {
     // console.log(selected)
@@ -13,18 +14,36 @@ function openPopup(popupId) {
 
 // Function to save the selected option and close the popup
 function closePopup(Id, popupId) {
-    const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
+    console.log(popupId.substring(5,6));
+    
+    const radioOptions = document.querySelectorAll(`input[name="radio${popupId.substring(5)}"]`);
+    console.log(radioOptions);
     const cell = document.querySelector(`td[data-cell="${popupId}"]`); // Add this line to select the corresponding cell
+    console.log(cell);
 
     // Find the selected option for the specific popup
     radioOptions.forEach(option => {
         if (option.checked) {
-            console.log("Closing popup. Id:", Id, "popupId:", popupId);
+            // console.log("Closing popup. Id:", Id, "popupId:", popupId);
             // Assuming selectedOptions is declared outside this function
-            selectedOptions[Id] = option.value; // Save the selected option to the object
-            console.log("selectedOptions:", selectedOptions);
-            cell.querySelector('.button').textContent = selectedOptions[Id]; // Update the button text in the cell
+            if (popupId.substring(5,6) === '1'){
+                selectedOptions1[Id] = option.value; // Save the selected option to the object
+            // console.log("selectedOptions:", selectedOptions1);
+            cell.querySelector('.button').textContent = selectedOptions1[Id]; // Update the button text in the cell    
+            }
+            else if (popupId.substring(5,6) === '2'){
+                selectedOptions2[Id] = option.value; // Save the selected option to the object
+            // console.log("selectedOptions:", selectedOptions1);
+            cell.querySelector('.button').textContent = selectedOptions2[Id]; // Update the button text in the cell    
+            }
+            else if (popupId.substring(5,6) === '3'){
+                selectedOptions3[Id] = option.value; // Save the selected option to the object
+            // console.log("selectedOptions:", selectedOptions1);
+            cell.querySelector('.button').textContent = selectedOptions3[Id]; // Update the button text in the cell    
+            }
+            
         }
+        
     });
 
     // Close the popup

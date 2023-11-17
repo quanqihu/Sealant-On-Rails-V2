@@ -1,37 +1,60 @@
 document.addEventListener("submit", function(event) {
     event.preventDefault();
-    // console.log("Form Submitted");
 
+    var popupScreening = {};
+    var popupPreventative = {};
+    var popupFollowup = {};
 
-    var popupScreening = {}; // Initialize an empty dictionary
-
-    function handlePopupSelection(toothNumber, selectedValue) {
-
-        popupScreening[toothNumber.toString()] = selectedValue;
-    //   console.log(popupData); // Optional: Log the dictionary to the console
+    function handlePopupSelection(toothNumber, selectedValue, formName) {
+        if (formName === "Screening") {
+            popupScreening[toothNumber] = selectedValue;
+        } else if (formName === "Preventative") {
+            popupPreventative[toothNumber] = selectedValue;
+        } else if (formName === "Followup") {
+            popupFollowup[toothNumber] = selectedValue;
+        }
     }
-
 
     for (var toothNumber = 1; toothNumber <= 32; toothNumber++) {
         var button = document.getElementById('ScreeningButton' + toothNumber);
-        var selectedValue = button.innerText.trim();
-
-        if (selectedValue == "Make a Selection")
-        {
-            selectedValue=""
+        if (button) {
+            var selectedValue1 = button.innerText.trim();
+            selectedValue1 = selectedValue1 === "Make a Selection" ? "" : selectedValue1;
+            handlePopupSelection(toothNumber.toString(), selectedValue1, "Screening");
         }
-        handlePopupSelection(toothNumber.toString(), selectedValue);
-      }
-
+    }
+    for (var toothNumber = 1; toothNumber <= 32; toothNumber++) {
+        var button = document.getElementById('PreventativeButton' + toothNumber);
+        if (button) {
+            var selectedValue2 = button.innerText.trim();
+            selectedValue2 = selectedValue2 === "Make a Selection" ? "" : selectedValue2;
+            handlePopupSelection(toothNumber.toString(), selectedValue2, "Preventative");
+        }
+    }
+    for (var toothNumber = 1; toothNumber <= 32; toothNumber++) {
+        var button = document.getElementById('FollowupButton' + toothNumber);
+        if (button) {
+            var selectedValue3 = button.innerText.trim();
+            selectedValue3 = selectedValue3 === "Make a Selection" ? "" : selectedValue3;
+            handlePopupSelection(toothNumber.toString(), selectedValue3, "Followup");
+        }
+    }
+    // Repeat for Preventative and Followup
 
     if (event.submitter && event.submitter.id === "submitButton") {
         var form = event.target;
-
-        // Set the value of TeethScreening using your existing logic
         var TeethScreeningStr = JSON.stringify(popupScreening);
+        var TeethPreventativeStr = JSON.stringify(popupPreventative);
+        var TeethFollowupStr = JSON.stringify(popupFollowup);
         var TeethScreeningInput = form.querySelector('[name="child_level_detail[TeethScreening]"]');
-        TeethScreeningInput.value = TeethScreeningStr;
-
-        form.submit();
+        var TeethPreventativeInput = form.querySelector('[name="child_level_detail[TeethPreventative]');
+        var TeethFollowupInput = form.querySelector('[name="child_level_detail[TeethFollowup]');
+        
+        if (TeethScreeningInput && TeethPreventativeInput && TeethFollowupInput) {
+            TeethScreeningInput.value = TeethScreeningStr;
+            TeethPreventativeInput.value = TeethPreventativeStr;
+            TeethFollowupInput.value = TeethFollowupStr;
+            form.submit();
+        }
     }
 });
