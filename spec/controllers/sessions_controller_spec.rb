@@ -35,7 +35,7 @@ RSpec.describe SessionsController, type: :controller do
       post :create, params: { session: { username: 'invaliduser', password: 'invalidpassword' } }
 
       expect(session[:user_id]).to be_nil
-      expect(flash[:error]).to eq('Invalid username or password')
+      expect(flash[:error]).to eq('You are not whitelisted.Contact your administrator.')
       expect(response).to redirect_to(login_path)
     end
   end
@@ -77,3 +77,4 @@ RSpec.describe SessionsController, type: :controller do
 #     end
 #   end
 end
+
