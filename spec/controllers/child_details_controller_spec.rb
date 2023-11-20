@@ -71,7 +71,7 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
         expect(child_detail.reload.TeethScreening).to eq("false")
       end
     end
-=begin
+
     context 'with invalid parameters' do
       it 'renders the edit template' do
         patient_detail = PatientDetail.create(patient_detail_params)
@@ -81,7 +81,6 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
       end
     end
   end
-=end
 
   describe 'DELETE #destroy' do
     it 'destroys the child level detail' do
@@ -181,6 +180,7 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
 
   def invalid_child_level_detail_params
     {
+      Nonsense: 123,
       PID: '12-elementary', 
       TeethScreening: 1,
       TeethPreventative: 1,
