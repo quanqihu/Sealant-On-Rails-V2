@@ -119,7 +119,7 @@ rm config/credentials.yml.enc
 EDITOR="vim" rails credentials:edit
 ```
 
-### Step 3: Edit the Credentials For Windows
+### Step 3: Edit the Credentials For Linux
 ```bash
 #powershell
  $env:EDITOR="code --wait"
