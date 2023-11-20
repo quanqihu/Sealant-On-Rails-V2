@@ -116,7 +116,7 @@ rm config/credentials.yml.enc
 
 ### Step 3: Edit the Credentials
 ```bash
-EDITOR=nano rails credentials:edit
+EDITOR="vim" rails credentials:edit
 ```
 
 ### Step 4: Add Your Google OAuth Credentials
