@@ -59,7 +59,7 @@
   end
 
   Then('I should see an error message for insurance') do
-    expect(page).to have_content("Insurance is required")
+    expect(page).to have_content("Insurance can't be blank")
   end
   
   Then('I should see an error message for grade') do
@@ -79,20 +79,7 @@
     expect(page.has_current_path?('/patient_details/new')).to be_truthy
   end
   
-  Given('I have created a patient entry') do
-
-    visit '/patient_details/new'
-    fill_in 'patient_detail[PatientId]', :with => 24
-    fill_in 'patient_detail[ProgramName]', :with => "Lorem"
-    fill_in 'patient_detail[SchoolName]', :with => "test elementary"
-    fill_in 'patient_detail[Age]', :with => 7
-    fill_in 'patient_detail[Insurance]', :with => "blue cross"
-    fill_in 'patient_detail[Grade]', :with => "fifth"
-    fill_in "patient_detail[Date]", :with => "04/04/2023"
-    click_button "Create Patient detail"
-    visit "/patient_details"
-
-  end
+  
   
   When('I go to the patient display page') do
     visit "/patient_details"
@@ -157,4 +144,21 @@
 
   Then('I should see an error message for date') do
     expect(page).to have_content("Date can't be blank")
+  end
+
+  Then('I should see an entry with Patientid {int}') do |int|
+    expect(page).to have_content(int)
+  end
+    
+  Then('its school name should be {string}') do |string|
+    expect(page).to have_content(string)
+  end
+
+  
+  And("I click Export All Patient Data") do
+    click_button "Export All Patient Data"
+  end
+
+  Then ("an excel file should be downloaded") do
+    expect(File.exist?(File.join(download_path, 'ChildLevelDetails.xlsx'))).to be_truthy
   end
