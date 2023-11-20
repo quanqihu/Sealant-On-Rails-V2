@@ -18,13 +18,5 @@ Feature: Using the Screening, Preventive, and Follow Up Services Table
         And I click the Submit button
         Then I should see "1" cavities
 
-        #fill out Table
-        #check that values are saved after submission
-
-    #Scenario: Values inputted to the table are automatically counted
-    #untreated - Decay
-    #carries experience = filled
-
-    #Scenario: Filling out the Preventive and Follow Up Forms
 
     

@@ -19,5 +19,6 @@ And("I click the Close button in the pop-up") do
 end
 
 And("I click the Submit button") do
-    find('#submitButton').click
+    #find('#submitButton').click
+    click_on('Submit')
 end

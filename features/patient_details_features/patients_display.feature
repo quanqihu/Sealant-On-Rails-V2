@@ -66,9 +66,3 @@ Feature: Display Table of Patients
         Given I am on the Patient Display page
         When I click Export All Patient Data
         Then an excel file should be downloaded
-
-    Scenario: Search Data by Patientid
-
-    Scenario: Search Data by School
-         
-

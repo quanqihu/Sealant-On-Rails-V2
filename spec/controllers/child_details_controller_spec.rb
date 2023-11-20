@@ -27,27 +27,58 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
 
   describe 'POST #create' do
 
-    context 'with valid parameters' do
-      
-
+    context 'with valid parameters and child detail with given PID does not exist' do
       it 'creates a new child level detail' do
-        if :child_level_detail != nil
-            expect {
+        patient_detail = PatientDetail.create(patient_detail_params)
+
+        expect {
             post :create, params: { child_level_detail: child_level_detail_params }
-            }.to change(ChildLevelDetail, :count).by(0)
-        else
-            expect {
-                post :create, params: { child_level_detail: child_level_detail_params }
-            }.to change(ChildLevelDetail, :count).by(1)
-        end
+        }.to change(ChildLevelDetail, :count).by(1)
+
       end
 
       it 'redirects to the child_data path' do
+        patient_detail = PatientDetail.create(patient_detail_params)
         post :create, params: { child_level_detail: child_level_detail_params }
-        expect(response).to redirect_to("/child_data?patient_detail_id=" + child_level_detail_params["PID"])
+        expect(response).to redirect_to("/child_data?patient_detail_id=" + patient_detail.PID)
       end
     end
 
+    context 'with valid parameters and child detail with given PID already exists' do
+      it 'does not create a new child level detail' do
+        patient_detail = PatientDetail.create(patient_detail_params)
+        post :create, params: { child_level_detail: child_level_detail_params }
+
+        expect {
+            post :create, params: { child_level_detail: child_level_detail_params }
+        }.to change(ChildLevelDetail, :count).by(0)
+
+      end
+
+      it 'redirects to the child_data path' do
+        patient_detail = PatientDetail.create(patient_detail_params)
+        post :create, params: { child_level_detail: child_level_detail_params }
+        expect(response).to redirect_to("/child_data?patient_detail_id=" + patient_detail.PID)
+      end
+    end
+
+    context 'with invalid parameters and child detail with given PID already exists'do
+      it 'does not create a new child level detail' do
+        patient_detail = PatientDetail.create(patient_detail_params)
+        post :create, params: { child_level_detail: child_level_detail_params }
+
+        expect {
+            post :create, params: { child_level_detail: invalid_child_level_detail_params }
+        }.to change(ChildLevelDetail, :count).by(0)
+
+      end
+
+      it 'redirects to the child_data path' do
+        patient_detail = PatientDetail.create(patient_detail_params)
+        post :create, params: { child_level_detail: child_level_detail_params }
+        expect(response).to redirect_to("/child_data?patient_detail_id=" + patient_detail.PID)
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -60,9 +91,7 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    #patient_detail = PatientDetail.create(patient_detail_params)
-    #let!(:child_level_detail) { ChildLevelDetail.create!(child_level_detail_params) }
-    
+
     context 'with valid parameters' do
       it 'updates the child level detail' do
         patient_detail = PatientDetail.create(patient_detail_params)
@@ -86,7 +115,7 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
     it 'destroys the child level detail' do
       child_detail = ChildLevelDetail.create(child_level_detail_params)
       expect {
-        delete :destroy, params: { PID: child_detail.PID }
+        delete :destroy, params: { PID: child_detail.PID , child_level_detail: child_level_detail_params}
       }.to change(ChildLevelDetail, :count).by(-1)
     end
 
@@ -180,38 +209,8 @@ RSpec.describe ChildLevelDetailsController, type: :controller do
 
   def invalid_child_level_detail_params
     {
-      Nonsense: 123,
-      PID: '12-elementary', 
-      TeethScreening: 1,
-      TeethPreventative: 1,
-      TeethFollowup: 1,
-      PrescriberName: 'Sample Prescriber',
-      ScreenDate: '2023-10-23',
-      ScreenComment: 'Sample Comment',
-      UntreatedCavities: 2,
-      CarriesExperience: true,
-      Sealants: false,
-      ReferralS: 'Sample Referral',
-      ProviderName: 'Sample Provider',
-      ProviderDate: '2023-10-24',
-      PreventComment: 'Sample Prevent Comment',
-      FirstSealedNum: "1",
-      SecondSealedNum: "2",
-      OtherPermNum: "3",
-      PrimarySealed: true,
-      FluorideVarnish: false,
-      EvaluatorsName: 'Sample Evaluator',
-      EvaluatorDate: '2023-10-25',
-      EvaluatorComment: 'Sample Evaluator Comment',
-      RetainedSealant: false,
-      ReferredDT: 'Sample ReferredDT',
-      ReferredUDT: 'Sample ReferredUDT',
-      SealantsRecd: true,
-      SealnatsNeeded: false,
-      Experienced: true,
-      UntreatedDecayFollow: 'Sample Untreated Decay Follow',
-      Services: 'Sample Services',
-      ORHealthStatus: 'Sample Health Status'
+      nonsens: 34567,
+      PID: '55-school'
     }
     end
 
