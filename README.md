@@ -46,6 +46,44 @@ Install the dependencies for the application:
 bundle install
 ```
 
+**You will face an error here regarding Rails not being able to decrypt the credentials file.
+The reason is because you have cloned the repository and the master key is not the same as the one used to encrypt the credentials file.
+Follow the next steps to resolve it.**
+
+### Step 1: Generate a New Master Key
+```bash
+rails credentials:edit
+```
+This will generate a new master key and open the credentials file in the editor.
+
+### Step 2: Delete the Old credentials.yml.enc File
+```bash
+rm config/credentials.yml.enc
+```
+
+### Step 3: Edit the Credentials For MAC
+```bash
+EDITOR="vim" rails credentials:edit
+```
+
+### Step 3: Edit the Credentials For Linux
+```bash
+ $env:EDITOR="code --wait"
+ rails credentials:edit
+```
+
+### Step 4: Add Your Google OAuth Credentials
+```bash
+google:
+  client_id: your_client_id
+  client_secret: your_client_secret
+```
+
+*Note: Replace `your_client_id` and `your_client_secret` with your own Google OAuth credentials. Do not include any quotes around the actual credentials.*
+
+After adding your credentials, save the changes and exit the editor.
+
+
 ### Step 4: Set Up the Database
 Set up the database for the application:
 
@@ -121,7 +159,6 @@ EDITOR="vim" rails credentials:edit
 
 ### Step 3: Edit the Credentials For Linux
 ```bash
-#powershell
  $env:EDITOR="code --wait"
  rails credentials:edit
 ```
