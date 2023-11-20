@@ -114,9 +114,16 @@ This will generate a new master key and open the credentials file in the editor.
 rm config/credentials.yml.enc
 ```
 
-### Step 3: Edit the Credentials
+### Step 3: Edit the Credentials For MAC
 ```bash
 EDITOR="vim" rails credentials:edit
+```
+
+### Step 3: Edit the Credentials For Windows
+```bash
+#powershell
+ $env:EDITOR="code --wait"
+ rails credentials:edit
 ```
 
 ### Step 4: Add Your Google OAuth Credentials
